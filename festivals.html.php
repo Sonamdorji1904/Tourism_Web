@@ -15,8 +15,8 @@
         /* Upcoming floating button styles */
         .upcoming-floating {
             position: fixed;
-            right: 90px;
-            bottom: 50px;
+            right: 3px;
+            bottom: 30px;
             z-index: 9999;
             background: linear-gradient(135deg,#1a4d2e 0%, #3a8f5a 100%);
             color: #fff;
