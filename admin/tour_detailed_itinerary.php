@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tour Detailed Itinerary</title>
+    <title>Tour Itinerary</title>
     <link rel="stylesheet" href="../Css/itinerary.css">
 </head>
 
@@ -14,7 +14,7 @@
     ?>
 
     <div class="upload-form">
-        <h2>Upload Tour Detailed Itinerary</h2>
+        <h2>Upload Tour Itinerary</h2>
         <form method="POST" enctype="multipart/form-data" action="process_itinerary.php">
             <div id="itinerary-sections-container">
                 <?php

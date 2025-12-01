@@ -60,7 +60,7 @@ if (isset($_FILES['tour_image']) && $_FILES['tour_image']['error'] !== UPLOAD_ER
     // Prepare uploads directory
     $uploadsDir = __DIR__ . '/../uploads/tour_images';
     if (!is_dir($uploadsDir)) {
-        if (!mkdir($uploadsDir, 0755, true) && !is_dir($uploadsDir)) {
+        if (!mkdir($uploadsDir, 0777, true) && !is_dir($uploadsDir)) {
             error_log('Failed to create uploads directory: ' . $uploadsDir);
             echo "<script>alert('Server error creating upload directory.'); window.history.back();</script>";
             exit();
@@ -109,8 +109,6 @@ try {
 }
 
 if ($saveStatus) {
-    // Get the inserted tour id and redirect to the tour details page so the admin
-    // can immediately add sections that reference this tour via its id.
     $insertedId = method_exists($tourCard, 'getLastInsertId') ? $tourCard->getLastInsertId() : '';
     if ($insertedId) {
         header('Location: ../admin/tour_details.php?tour_id=' . urlencode($insertedId));

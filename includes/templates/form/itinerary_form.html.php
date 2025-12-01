@@ -23,8 +23,9 @@ $dayNumber = $dayNumber ?? 1;
     <div class="form-group">
         <label for="day_<?php echo $dayNumber; ?>_activities">Activities (Bullet Points):</label>
         <textarea id="day_<?php echo $dayNumber; ?>_activities" name="day_activities[]" required
-            placeholder="Enter each activity on a new line."><?php echo isset($day_activities) ? htmlspecialchars($day_activities) : ''; ?></textarea>
-        <small class="form-text">Enter each activity on a separate line. You can use bullet points (•) or numbers.</small>
+            placeholder="Visit National Memorial Chorten.(/) 
+Explore Kaja Throm (Farmers' Market)"><?php echo isset($day_activities) ? htmlspecialchars($day_activities) : ''; ?></textarea>
+        <small class="form-text">Enter each activities seprate by back slash (/). They will be displayed as bullet points</small>
     </div>
 
     <div class="form-group">
