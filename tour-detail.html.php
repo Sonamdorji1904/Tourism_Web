@@ -42,6 +42,10 @@
         }
         .itinerary-day .day-header { display: flex; gap: 12px; align-items: center; }
         .itinerary-day .day-content p, .itinerary-day .day-content ul { margin: 8px 0; }
+
+        /* Space under Similar Tours header */
+        .similar-tours .container > h2 { margin-bottom: 20px; }
+        .similar-tours .tours-grid { margin-top: 12px; }
     </style>
 </head>
 
