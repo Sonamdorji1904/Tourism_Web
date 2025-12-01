@@ -54,12 +54,14 @@
                 <textarea id="over_view" name="over_view" required
                     placeholder="Please enter tour overview"></textarea>
             </div>
+
             <div class="form-group">
                 <label for="tour_highlights">Tour Highlights (Bullet Points):</label>
                 <textarea id="tour_highlights" name="tour_highlights" required
-                    placeholder="Enter each highlight point seprate by baskward slash (/). They will be displayed as bullet points"></textarea>
+                    placeholder="Explore the scenic and culturally rich Paro Valley(/)
+Enjoy a guided tour of Punakha, the ancient capitals"></textarea>
+                <small class="form-text">Enter each highlight point seprate by back slash (/). They will be displayed as bullet points</small>
             </div>
-
             <button type="submit" class="btn">Upload Section</button>
         </form>
     </div>
