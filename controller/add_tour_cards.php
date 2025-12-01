@@ -109,8 +109,6 @@ try {
 }
 
 if ($saveStatus) {
-    // Get the inserted tour id and redirect to the tour details page so the admin
-    // can immediately add sections that reference this tour via its id.
     $insertedId = method_exists($tourCard, 'getLastInsertId') ? $tourCard->getLastInsertId() : '';
     if ($insertedId) {
         header('Location: ../admin/tour_details.php?tour_id=' . urlencode($insertedId));
