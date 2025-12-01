@@ -9,6 +9,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Accordion styles for itinerary -->
+    <style>
+        .accordion { margin-top: 16px; }
+        .accordion-item { border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .accordion-button {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            padding: 18px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 12px;
+        }
+        .accordion-button:focus{ outline: 2px solid #7fbf7a; outline-offset: 2px; }
+        .accordion-button .day-number { background:#e9f4ea; color:#1a4d2e; padding:6px 10px; border-radius:6px; font-weight:700; }
+        .accordion-panel { overflow: hidden; max-height: 0; transition: max-height .28s ease, padding .2s ease; padding: 0 12px; }
+        .accordion-button[aria-expanded="true"] + .accordion-panel { max-height: 1200px; padding: 12px; }
+        .itinerary-day .day-header { display: flex; gap: 12px; align-items: center; }
+        .itinerary-day .day-content p, .itinerary-day .day-content ul { margin: 8px 0; }
+    </style>
 </head>
 
 <body>
@@ -66,148 +92,180 @@
                     <div class="tour-section">
                         <h2>Detailed Itinerary</h2>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 1</div>
-                                <h3>Arrival in Paro/Phuentshogling – Drive to Thimphu</h3>
-                            </div>
-                            <div class="day-content">
-                                <p>Welcome to Bhutan, the Land of Gross National Happiness! Upon arrival at Paro International Airport you will be warmly greeted by your guide outside the arrival terminal/at the Bhutan Gate Phuentshogling. Enjoy a scenic one and half hour drive to Thimphu, Bhutan’s charming capital city. After checking in to your hotel, you’ll have your first meal in Bhutan either at the hotel or a local restaurant, depending on your choice. </p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li>Visit National Memorial Chorten</li>
-                                    <li>Explore Kaja Throm (Farmers' Market)</li>
-                                    <li>Visit Changyul Park</li>
-                                    <li>Visit Tashichhoe Dzong</li>
-                                    <li>Leisurely stroll around Thimphu town in the evening</li>
-                                </ul>
-                                <p><strong>Accommodation:</strong> Hotel in Thimphu</p>
-                            </div>
-                        </div>
+                        <div class="accordion" id="itinerary-accordion">
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 2</div>
-                                <h3>Discover the Cultural Treasures of Thimphu</h3>
+                            <!-- Day 1 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day1-btn" aria-controls="day1-panel">
+                                    <span class="day-number">Day 1</span>
+                                    <span class="accordion-title">Arrival in Paro/Phuentshogling – Drive to Thimphu</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day1-panel" class="accordion-panel" role="region" aria-labelledby="day1-btn" hidden>
+                                    <div class="day-content">
+                                        <p>Welcome to Bhutan, the Land of Gross National Happiness! Upon arrival at Paro International Airport you will be warmly greeted by your guide outside the arrival terminal/at the Bhutan Gate Phuentshogling. Enjoy a scenic one and half hour drive to Thimphu, Bhutan’s charming capital city. After checking in to your hotel, you’ll have your first meal in Bhutan either at the hotel or a local restaurant, depending on your choice. </p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li>Visit National Memorial Chorten</li>
+                                            <li>Explore Kaja Throm (Farmers' Market)</li>
+                                            <li>Visit Changyul Park</li>
+                                            <li>Visit Tashichhoe Dzong</li>
+                                            <li>Leisurely stroll around Thimphu town in the evening</li>
+                                        </ul>
+                                        <p><strong>Accommodation:</strong> Hotel in Thimphu</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>Spend the day discovering Thimphu, Bhutan’s vibrant capital city, where ancient traditions harmoniously coexist with modern lifestyle.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li>Visit Kuenselphodrang (Buddha Point)</li>
-                                    <li>Explore Folk Heritage Museum & National Textile Museum</li>
-                                    <li>Institute for Zorig Chusum (School of Arts & Crafts)</li>
-                                    <li>Visit Takin Preserve</li>
-                                    <li>Explore Crafts Market & Clock Tower Square</li>
-                                    <li>Visit Changangkha Lhakhang</li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 3</div>
-                                <h3>Drive to Gangtey and Phobjikha Valley(Approx. 5–6 hours’ drive)</h3>
+                            <!-- Day 2 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day2-btn" aria-controls="day2-panel">
+                                    <span class="day-number">Day 2</span>
+                                    <span class="accordion-title">Discover the Cultural Treasures of Thimphu</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day2-panel" class="accordion-panel" role="region" aria-labelledby="day2-btn" hidden>
+                                    <div class="day-content">
+                                        <p>Spend the day discovering Thimphu, Bhutan’s vibrant capital city, where ancient traditions harmoniously coexist with modern lifestyle.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li>Visit Kuenselphodrang (Buddha Point)</li>
+                                            <li>Explore Folk Heritage Museum & National Textile Museum</li>
+                                            <li>Institute for Zorig Chusum (School of Arts & Crafts)</li>
+                                            <li>Visit Takin Preserve</li>
+                                            <li>Explore Crafts Market & Clock Tower Square</li>
+                                            <li>Visit Changangkha Lhakhang</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>After breakfast depart from Thimphu for a scenic drive to Gangtey and Phobjikha Valley. Enjoy winding mountain roads, lush forests, and traditional villages with photo stops along the way.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li><strong>Arrive Gangtey:</strong>
-                                        Visit Gangtey Monastery (Gangtey Gonpa), a 17th-century spiritual center perched above the valley, offering panoramic views and a serene atmosphere
-                                    </li>
-                                    <li>Visit <strong>Phobjikha Valley</strong>: known for its pristine meadows, traditional farmhouses, and as the winter home of the rare black-necked cranes</li>
-                                    <li>Overnight in Gangtey:
-                                        Check in to a comfortable hotel or a cozy farmhouse, and enjoy a warm dinner while experiencing authentic Bhutanese hospitality and countryside life.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 4</div>
-                                <h3>Drive from Gangtey to Punakha (Approx. 5–6 hours)</h3>
+                            <!-- Day 3 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day3-btn" aria-controls="day3-panel">
+                                    <span class="day-number">Day 3</span>
+                                    <span class="accordion-title">Drive to Gangtey and Phobjikha Valley(Approx. 5–6 hours’ drive)</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day3-panel" class="accordion-panel" role="region" aria-labelledby="day3-btn" hidden>
+                                    <div class="day-content">
+                                        <p>After breakfast depart from Thimphu for a scenic drive to Gangtey and Phobjikha Valley. Enjoy winding mountain roads, lush forests, and traditional villages with photo stops along the way.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li><strong>Arrive Gangtey:</strong>
+                                                Visit Gangtey Monastery (Gangtey Gonpa), a 17th-century spiritual center perched above the valley, offering panoramic views and a serene atmosphere
+                                            </li>
+                                            <li>Visit <strong>Phobjikha Valley</strong>: known for its pristine meadows, traditional farmhouses, and as the winter home of the rare black-necked cranes</li>
+                                            <li>Overnight in Gangtey:
+                                                Check in to a comfortable hotel or a cozy farmhouse, and enjoy a warm dinner while experiencing authentic Bhutanese hospitality and countryside life.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>After breakfast in Gangtey, begin your scenic drive towards Punakha, passing through forests, villages, and winding mountain roads with panoramic Himalayan views.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li><strong>Scenic Stop at Pelela Pass:</strong>
-                                        one of Bhutan’s high mountain passes.
-                                    </li>
-                                    <li><strong>Lunch in Wangdue:</strong>
-                                        Stop for lunch in Wangdue Phodrang, the town famous for its historical dzong and picturesque landscapes
-                                    </li>
-                                    <li>Visit Wangdue Phodrang Dzong</li>
-                                    <li>Visit Chhimi Lhakhang (Temple of Fertility)</li>
-                                    <li>Explore Woolakha Nunnery</li>
-                                    <li>Visit Punakha Dzong</li>
-                                    <li>Overnight in Punakha</li>
-                                </ul>
-                                <p><strong>Optional Activities in Punakha:</strong></p>
-                                <ul>
-                                    <li>Stroll through the local farmers’ market to experience village life</li>
-                                    <li>Walk across Bhutan’s longest suspension bridge for scenic river valley views</li>
-                                    <li>River rafting on Pho Chhu or Mo Chhu rivers (optional)</li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 5</div>
-                                <h3>Drive from Punakha to Paro (Approx. 4–5 hours including stops)</h3>
+                            <!-- Day 4 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day4-btn" aria-controls="day4-panel">
+                                    <span class="day-number">Day 4</span>
+                                    <span class="accordion-title">Drive from Gangtey to Punakha (Approx. 5–6 hours)</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day4-panel" class="accordion-panel" role="region" aria-labelledby="day4-btn" hidden>
+                                    <div class="day-content">
+                                        <p>After breakfast in Gangtey, begin your scenic drive towards Punakha, passing through forests, villages, and winding mountain roads with panoramic Himalayan views.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li><strong>Scenic Stop at Pelela Pass:</strong>
+                                                one of Bhutan’s high mountain passes.
+                                            </li>
+                                            <li><strong>Lunch in Wangdue:</strong>
+                                                Stop for lunch in Wangdue Phodrang, the town famous for its historical dzong and picturesque landscapes
+                                            </li>
+                                            <li>Visit Wangdue Phodrang Dzong</li>
+                                            <li>Visit Chhimi Lhakhang (Temple of Fertility)</li>
+                                            <li>Explore Woolakha Nunnery</li>
+                                            <li>Visit Punakha Dzong</li>
+                                            <li>Overnight in Punakha</li>
+                                        </ul>
+                                        <p><strong>Optional Activities in Punakha:</strong></p>
+                                        <ul>
+                                            <li>Stroll through the local farmers’ market to experience village life</li>
+                                            <li>Walk across Bhutan’s longest suspension bridge for scenic river valley views</li>
+                                            <li>River rafting on Pho Chhu or Mo Chhu rivers (optional)</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>After breakfast in Punakha, begin the scenic drive towards Paro, passing through lush valleys, forests, and winding mountain roads.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li><strong>Scenic Stop at Chelela Pass:</strong>
-                                        the highest motorable pass in Bhutan, offering panoramic views of the Himalayan peaks and pristine landscapes.
-                                    </li>
-                                    <li>Paro Sightseeing</li>
-                                    <li>Visit National Museum (Ta Dzong)</li>
-                                    <li>Rinpung Dzong</li>
-                                    <li>Nyamed Zam</li>
-                                    <li>Lunch – Farmhouse Experience</li>
-                                    <li><strong>Cultural Experiences:</strong>
-                                        Participate in Bhutanese archery, the national sport, and try your hand at Khuru (dart game) alongside locals for a fun cultural immersion
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 6</div>
-                                <h3>Hike to Taktsang Monastery</h3>
+                            <!-- Day 5 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day5-btn" aria-controls="day5-panel">
+                                    <span class="day-number">Day 5</span>
+                                    <span class="accordion-title">Drive from Punakha to Paro (Approx. 4–5 hours including stops)</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day5-panel" class="accordion-panel" role="region" aria-labelledby="day5-btn" hidden>
+                                    <div class="day-content">
+                                        <p>After breakfast in Punakha, begin the scenic drive towards Paro, passing through lush valleys, forests, and winding mountain roads.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li><strong>Scenic Stop at Chelela Pass:</strong>
+                                                the highest motorable pass in Bhutan, offering panoramic views of the Himalayan peaks and pristine landscapes.
+                                            </li>
+                                            <li>Paro Sightseeing</li>
+                                            <li>Visit National Museum (Ta Dzong)</li>
+                                            <li>Rinpung Dzong</li>
+                                            <li>Nyamed Zam</li>
+                                            <li>Lunch – Farmhouse Experience</li>
+                                            <li><strong>Cultural Experiences:</strong>
+                                                Participate in Bhutanese archery, the national sport, and try your hand at Khuru (dart game) alongside locals for a fun cultural immersion
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>Embark on a memorable hike to the sacred Taktsang Monastery, perched on a cliff above the Paro Valley. The trail winds through pine forests adorned with colorful prayer flags and offers breathtaking views at every turn.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li><strong>Explore the Monastery:</strong>
-                                        Upon reaching the monastery, immerse yourself in its serene atmosphere and spiritual energy. Taktsang is one of Bhutan’s most revered pilgrimage sites, believed to be where Guru Padmasambhava (Guru Rinpoche), the saint who introduced Buddhism to Bhutan, arrived on the back of a flying tigress and meditated in a cave.
-                                    </li>
-                                    <li>Lunch in Paro</li>
-                                    <li>Afternoon Visit to Kyichu Lhakhang</li>
-                                    <li>Explore Paro Town</li>
-                                </ul>
-                                <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
-                            </div>
-                        </div>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 7</div>
-                                <h3>Departure from Paro or Drive to Phuentsholing for Land Exit</h3>
+                            <!-- Day 6 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day6-btn" aria-controls="day6-panel">
+                                    <span class="day-number">Day 6</span>
+                                    <span class="accordion-title">Hike to Taktsang Monastery</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day6-panel" class="accordion-panel" role="region" aria-labelledby="day6-btn" hidden>
+                                    <div class="day-content">
+                                        <p>Embark on a memorable hike to the sacred Taktsang Monastery, perched on a cliff above the Paro Valley. The trail winds through pine forests adorned with colorful prayer flags and offers breathtaking views at every turn.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li><strong>Explore the Monastery:</strong>
+                                                Upon reaching the monastery, immerse yourself in its serene atmosphere and spiritual energy. Taktsang is one of Bhutan’s most revered pilgrimage sites, believed to be where Guru Padmasambhava (Guru Rinpoche), the saint who introduced Buddhism to Bhutan, arrived on the back of a flying tigress and meditated in a cave.
+                                            </li>
+                                            <li>Lunch in Paro</li>
+                                            <li>Afternoon Visit to Kyichu Lhakhang</li>
+                                            <li>Explore Paro Town</li>
+                                        </ul>
+                                        <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>We will bid a fond farewell to the enchanting Kingdom of Bhutan. After an early breakfast, we will either drop to Paro International Airport for your onward flight home or to your next destination, or we will drive to Phuentsholing to exit Bhutan via the land border.</p>
-                                <p>We hope your journey has been filled with new friendships, unforgettable experiences, and countless beautiful memories of this Himalayan paradise. May the blessings of Bhutan accompany you wherever you go.</p>
-                                <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
+
+                            <!-- Day 7 -->
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day7-btn" aria-controls="day7-panel">
+                                    <span class="day-number">Day 7</span>
+                                    <span class="accordion-title">Departure from Paro or Drive to Phuentsholing for Land Exit</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day7-panel" class="accordion-panel" role="region" aria-labelledby="day7-btn" hidden>
+                                    <div class="day-content">
+                                        <p>We will bid a fond farewell to the enchanting Kingdom of Bhutan. After an early breakfast, we will either drop to Paro International Airport for your onward flight home or to your next destination, or we will drive to Phuentsholing to exit Bhutan via the land border.</p>
+                                        <p>We hope your journey has been filled with new friendships, unforgettable experiences, and countless beautiful memories of this Himalayan paradise. May the blessings of Bhutan accompany you wherever you go.</p>
+                                        <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -400,6 +458,49 @@
 
     <script>
         <?php include 'Js/javascript.js'; ?>
+    </script>
+
+    <!-- Accordion script -->
+    <script>
+        (function(){
+            const accordion = document.getElementById('itinerary-accordion');
+            if(!accordion) return;
+            const buttons = accordion.querySelectorAll('.accordion-button');
+
+            function closeAll(except){
+                buttons.forEach(btn => {
+                    if(btn !== except){
+                        btn.setAttribute('aria-expanded','false');
+                        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+                        if(panel){ panel.hidden = true; }
+                    }
+                });
+            }
+
+            buttons.forEach(btn => {
+                const panel = document.getElementById(btn.getAttribute('aria-controls'));
+                if(panel){ panel.hidden = true; }
+
+                btn.addEventListener('click', function(){
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    if(expanded){
+                        this.setAttribute('aria-expanded','false');
+                        if(panel) panel.hidden = true;
+                    } else {
+                        closeAll(this);
+                        this.setAttribute('aria-expanded','true');
+                        if(panel) panel.hidden = false;
+                        if(panel) panel.focus();
+                    }
+                });
+
+                btn.addEventListener('keydown', function(e){
+                    if(e.key === 'Enter' || e.key === ' '){
+                        e.preventDefault(); this.click();
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 

@@ -52,6 +52,14 @@
             color: #fff;
         }
 
+        .upcoming-festivals h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            margin-top: 30px;
+        }
+
         @media (max-width: 600px) {
             .upcoming-floating {
                 right: 12px;
@@ -340,29 +348,7 @@
             <p class="section-intro">Plan ahead — upcoming dates and quick links to festival pages.</p>
 
             <div class="upcoming-grid">
-                <div class="upcoming-card">
-                    <h3>Paro Tshechu</h3>
-                    <p class="muted">Paro Valley — Date: TBA</p>
-                    <a href="festival-paro-tshechu.html" class="btn btn-outline">Learn more</a>
-                </div>
-
-                <div class="upcoming-card">
-                    <h3>Thimphu Tshechu</h3>
-                    <p class="muted">Tashichho Dzong, Thimphu — Date: TBA</p>
-                    <a href="festival-thimphu-tshechu.html" class="btn btn-outline">Learn more</a>
-                </div>
-
-                <div class="upcoming-card">
-                    <h3>Rhododendron Week</h3>
-                    <p class="muted">Merak &amp; Sakteng — Date: TBA</p>
-                    <a href="festival-rhododendron.html" class="btn btn-outline">Learn more</a>
-                </div>
-
-                <div class="upcoming-card">
-                    <h3>Black-Necked Crane Festival</h3>
-                    <p class="muted">Phobjikha Valley — Date: TBA</p>
-                    <a href="festival-black-necked-crane.html" class="btn btn-outline">Learn more</a>
-                </div>
+                
             </div>
         </div>
     </section>

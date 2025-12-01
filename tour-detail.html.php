@@ -9,6 +9,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Accordion styles for itinerary -->
+    <style>
+        .accordion { margin-top: 16px; }
+        .accordion-item { border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .accordion-button {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            padding: 18px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 600;
+            font-size: 16px;
+            gap: 12px;
+        }
+        .accordion-button:focus{ outline: 2px solid #7fbf7a; outline-offset: 2px; }
+        .accordion-button .day-number { background:#e9f4ea; color:#1a4d2e; padding:6px 10px; border-radius:6px; font-weight:700; }
+        .accordion-panel {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .28s ease, padding .2s ease;
+            padding: 0 12px;
+        }
+        .accordion-button[aria-expanded="true"] + .accordion-panel {
+            max-height: 1200px; /* large enough for content */
+            padding: 12px;
+        }
+        .itinerary-day .day-header { display: flex; gap: 12px; align-items: center; }
+        .itinerary-day .day-content p, .itinerary-day .day-content ul { margin: 8px 0; }
+    </style>
 </head>
 
 <body>
@@ -64,93 +98,113 @@
                     <div class="tour-section">
                         <h2>Detailed Itinerary</h2>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 1</div>
-                                <h3>Arrival in Paro - Drive to Thimphu</h3>
+                        <div class="accordion" id="itinerary-accordion">
+
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day1-btn" aria-controls="day1-panel">
+                                    <span class="day-number">Day 1</span>
+                                    <span class="accordion-title">Arrival in Paro - Drive to Thimphu</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day1-panel" class="accordion-panel" role="region" aria-labelledby="day1-btn" hidden>
+                                    <div class="day-content">
+                                        <p>Welcome to Bhutan, the Land of Gross National Happiness! Upon arrival at Paro International Airport, you will be warmly greeted by your guide. Enjoy a scenic one and half hour drive to Thimphu, Bhutan's charming capital city.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li>Visit National Memorial Chorten</li>
+                                            <li>Explore Kaja Throm (Farmers' Market)</li>
+                                            <li>Visit Buddha Dordenma Statue</li>
+                                            <li>Evening stroll around Thimphu town</li>
+                                        </ul>
+                                        <p><strong>Meals:</strong> Lunch, Dinner</p>
+                                        <p><strong>Accommodation:</strong> Hotel in Thimphu</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="day-content">
-                                <p>Welcome to Bhutan, the Land of Gross National Happiness! Upon arrival at Paro International Airport, you will be warmly greeted by your guide. Enjoy a scenic one and half hour drive to Thimphu, Bhutan's charming capital city.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li>Visit National Memorial Chorten</li>
-                                    <li>Explore Kaja Throm (Farmers' Market)</li>
-                                    <li>Visit Buddha Dordenma Statue</li>
-                                    <li>Evening stroll around Thimphu town</li>
-                                </ul>
-                                <p><strong>Meals:</strong> Lunch, Dinner</p>
-                                <p><strong>Accommodation:</strong> Hotel in Thimphu</p>
+
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day2-btn" aria-controls="day2-panel">
+                                    <span class="day-number">Day 2</span>
+                                    <span class="accordion-title">Thimphu Sightseeing - Drive to Punakha</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day2-panel" class="accordion-panel" role="region" aria-labelledby="day2-btn" hidden>
+                                    <div class="day-content">
+                                        <p>After breakfast, explore Thimphu's key attractions before driving to Punakha via the scenic Dochula Pass.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li>Visit Buddha Dordenma and Tashichho Dzong</li>
+                                            <li>Stop at Dochula Pass (108 chortens)</li>
+                                            <li>Visit Chhimi Lhakhang (Temple of Fertility)</li>
+                                            <li>Explore Punakha Dzong</li>
+                                        </ul>
+                                        <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                                        <p><strong>Accommodation:</strong> Hotel in Punakha</p>
+                                    </div>
+                                </div>
                             </div>
+
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day3-btn" aria-controls="day3-panel">
+                                    <span class="day-number">Day 3</span>
+                                    <span class="accordion-title">Punakha Sightseeing - Drive to Paro</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day3-panel" class="accordion-panel" role="region" aria-labelledby="day3-btn" hidden>
+                                    <div class="day-content">
+                                        <p>Enjoy a morning hike to Khamsum Yulley Namgyel Chorten, then visit a traditional farmhouse before driving to Paro.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li>45-minute hike to Khamsum Yulley Chorten</li>
+                                            <li>Traditional lunch at local farmhouse</li>
+                                            <li>Visit Wangduephodrang Dzong</li>
+                                            <li>Drive to Paro</li>
+                                        </ul>
+                                        <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                                        <p><strong>Accommodation:</strong> Hotel in Paro</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day4-btn" aria-controls="day4-panel">
+                                    <span class="day-number">Day 4</span>
+                                    <span class="accordion-title">Hike to Taktsang Monastery (Tiger's Nest)</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day4-panel" class="accordion-panel" role="region" aria-labelledby="day4-btn" hidden>
+                                    <div class="day-content">
+                                        <p>Embark on one of Bhutan's most iconic experiences—the hike to Taktsang Monastery, perched 900 meters above the Paro Valley.</p>
+                                        <p><strong>Activities:</strong></p>
+                                        <ul>
+                                            <li>Hike to Tiger's Nest Monastery (3-4 hours round trip)</li>
+                                            <li>Visit Kyichu Lhakhang</li>
+                                            <li>Explore Paro town</li>
+                                            <li>Hot stone bath and farmhouse dinner (optional)</li>
+                                        </ul>
+                                        <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
+                                        <p><strong>Accommodation:</strong> Hotel in Paro</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item itinerary-day">
+                                <button class="accordion-button" aria-expanded="false" id="day5-btn" aria-controls="day5-panel">
+                                    <span class="day-number">Day 5</span>
+                                    <span class="accordion-title">Departure from Paro</span>
+                                    <span class="chev" aria-hidden="true">▾</span>
+                                </button>
+                                <div id="day5-panel" class="accordion-panel" role="region" aria-labelledby="day5-btn" hidden>
+                                    <div class="day-content">
+                                        <p>After an early breakfast, we will drop you to Paro International Airport for your onward flight. We hope your journey has been filled with unforgettable experiences and beautiful memories.</p>
+                                        <p><strong>Meals:</strong> Breakfast</p>
+                                        <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 2</div>
-                                <h3>Thimphu Sightseeing - Drive to Punakha</h3>
-                            </div>
-                            <div class="day-content">
-                                <p>After breakfast, explore Thimphu's key attractions before driving to Punakha via the scenic Dochula Pass.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li>Visit Buddha Dordenma and Tashichho Dzong</li>
-                                    <li>Stop at Dochula Pass (108 chortens)</li>
-                                    <li>Visit Chhimi Lhakhang (Temple of Fertility)</li>
-                                    <li>Explore Punakha Dzong</li>
-                                </ul>
-                                <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
-                                <p><strong>Accommodation:</strong> Hotel in Punakha</p>
-                            </div>
-                        </div>
-
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 3</div>
-                                <h3>Punakha Sightseeing - Drive to Paro</h3>
-                            </div>
-                            <div class="day-content">
-                                <p>Enjoy a morning hike to Khamsum Yulley Namgyel Chorten, then visit a traditional farmhouse before driving to Paro.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li>45-minute hike to Khamsum Yulley Chorten</li>
-                                    <li>Traditional lunch at local farmhouse</li>
-                                    <li>Visit Wangduephodrang Dzong</li>
-                                    <li>Drive to Paro</li>
-                                </ul>
-                                <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
-                                <p><strong>Accommodation:</strong> Hotel in Paro</p>
-                            </div>
-                        </div>
-
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 4</div>
-                                <h3>Hike to Taktsang Monastery (Tiger's Nest)</h3>
-                            </div>
-                            <div class="day-content">
-                                <p>Embark on one of Bhutan's most iconic experiences—the hike to Taktsang Monastery, perched 900 meters above the Paro Valley.</p>
-                                <p><strong>Activities:</strong></p>
-                                <ul>
-                                    <li>Hike to Tiger's Nest Monastery (3-4 hours round trip)</li>
-                                    <li>Visit Kyichu Lhakhang</li>
-                                    <li>Explore Paro town</li>
-                                    <li>Hot stone bath and farmhouse dinner (optional)</li>
-                                </ul>
-                                <p><strong>Meals:</strong> Breakfast, Lunch, Dinner</p>
-                                <p><strong>Accommodation:</strong> Hotel in Paro</p>
-                            </div>
-                        </div>
-
-                        <div class="itinerary-day">
-                            <div class="day-header">
-                                <div class="day-number">Day 5</div>
-                                <h3>Departure from Paro</h3>
-                            </div>
-                            <div class="day-content">
-                                <p>After an early breakfast, we will drop you to Paro International Airport for your onward flight. We hope your journey has been filled with unforgettable experiences and beautiful memories.</p>
-                                <p><strong>Meals:</strong> Breakfast</p>
-                                <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
-                            </div>
-                        </div>
                     </div>
 
                     <p><strong>Note:</strong>This itinerary is provided as a general guide to give you an overview of the tour. The final itinerary can be customized to suit the season, your interests and preferred duration.</p>
@@ -341,6 +395,54 @@
 
     <script>
         <?php include 'Js/javascript.js'; ?>
+    </script>
+
+    <!-- Accordion script -->
+    <script>
+        (function(){
+            const accordion = document.getElementById('itinerary-accordion');
+            if(!accordion) return;
+            const buttons = accordion.querySelectorAll('.accordion-button');
+
+            function closeAll(except){
+                buttons.forEach(btn => {
+                    if(btn !== except){
+                        btn.setAttribute('aria-expanded','false');
+                        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+                        if(panel){ panel.hidden = true; }
+                    }
+                });
+            }
+
+            buttons.forEach(btn => {
+                const panel = document.getElementById(btn.getAttribute('aria-controls'));
+                // ensure initial hidden state
+                if(panel){ panel.hidden = true; }
+
+                btn.addEventListener('click', function(){
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    if(expanded){
+                        this.setAttribute('aria-expanded','false');
+                        if(panel) panel.hidden = true;
+                    } else {
+                        // single-open behaviour
+                        closeAll(this);
+                        this.setAttribute('aria-expanded','true');
+                        if(panel) panel.hidden = false;
+                        // ensure focus on opened content for a11y
+                        if(panel) panel.focus();
+                    }
+                });
+
+                btn.addEventListener('keydown', function(e){
+                    // support Enter and Space
+                    if(e.key === 'Enter' || e.key === ' '){
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 
