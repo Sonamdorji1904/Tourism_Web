@@ -1,5 +1,5 @@
 <?php
-require_once "./connects/TourCard.php";
+require_once __DIR__ . "/connects/TourCard.php";
 
 try {
     $tourCard = new TourCard();
@@ -24,9 +24,4 @@ try {
 if (isset($_GET['json'])) {
     header('Content-Type: application/json');
     echo json_encode($response);
-} else {
-    $_SESSION['tours'] = $response['data'] ?? [];
-
-    header('Location: ../tours.html.php');
-    exit();
 }
