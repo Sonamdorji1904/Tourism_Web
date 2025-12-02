@@ -80,7 +80,7 @@
 
     <!-- Page Hero -->
     <!-- Replace the hero image: edit the data-hero attribute on the section below (e.g. data-hero="public/your-image.jpg") -->
-    <section class="page-hero festivals-hero" data-hero="public/mountain.jpg">
+    <section class="page-hero festivals-hero" data-hero="public/alpine.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="container">

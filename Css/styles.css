@@ -720,6 +720,7 @@ img {
   min-height: 500px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
   background-size: cover;
   background-position: center;
@@ -730,6 +731,9 @@ img {
   position: relative;
   z-index: 1;
   color: var(--neutral-100);
+  text-align: center; /* Add this to center text */
+  max-width: 800px; /* Optional: limit width */
+  padding: 0 20px; /* Optional: add horizontal padding */
 }
 
 .breadcrumb {
@@ -757,6 +761,7 @@ img {
   display: flex;
   gap: var(--spacing-md);
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .quick-info-item {
@@ -1715,3 +1720,4 @@ img {
   margin: 0;
   font-size: 16px;
 }
+
