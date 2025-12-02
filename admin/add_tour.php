@@ -39,8 +39,8 @@
             </div>
 
             <div class="form-group">
-                <label>Key Destinations / Cities (add multiple separated by commas):</label>
-                <input type="text" id="destinations" name="destinations" placeholder="e.g., Thimphu, paro, punakha">
+                <label>Transportation (Describe transportation avilable):</label>
+                <input type="text" id="transportation" name="transportation" placeholder="e.g., Thimphu to paro by car, local buses available">
             </div>
             <div class="form-group">
                 <label>Signature Activity / Experience </label>
@@ -59,6 +59,11 @@
                     <option value="family">Family-friendly</option>
                     <option value="luxury">Luxury travel</option>
                 </select>
+            </div>
+
+            <div class="form-group">
+                <label>Key Destination </label>
+                <input type="text" id="destinations" name="destinations" placeholder="e.g., Tiger's Nest hike, Phobjika valley trek">
             </div>
 
             <button type="submit" class="btn">Upload Tour Package</button>

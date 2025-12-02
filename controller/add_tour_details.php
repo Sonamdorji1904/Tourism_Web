@@ -2,7 +2,7 @@
 require_once "./connects/TourDetails.php";
 
 // === 1. Validate Required Fields ===
-$requiredFields = ["tour_id", "over_view", "tour_highlights"];
+$requiredFields = ["tour_id", "over_view", "best_time", "tour_highlights"];
 
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
@@ -21,10 +21,9 @@ $data = [
     "over_view"    => htmlspecialchars(trim($_POST["over_view"])),
     "tour_highlights" => htmlspecialchars(trim($_POST["tour_highlights"])),
 ];
-if ($validate) {
-    $tourDetails = new TourDetails();
-    $saveStatus = $tourDetails->saveContent($data);
-}
+
+$tourDetails = new TourDetails();
+$saveStatus = $tourDetails->saveContent($data);
 
 if ($saveStatus) {
     echo "<script>

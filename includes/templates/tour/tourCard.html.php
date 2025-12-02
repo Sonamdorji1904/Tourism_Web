@@ -1,4 +1,7 @@
 <?php
+
+use BcMath\Number;
+
 function safeDisplay($text)
 {
     $text = html_entity_decode($text, ENT_QUOTES, 'UTF-8');
@@ -21,7 +24,7 @@ function safeDisplay($text)
         $altText = htmlspecialchars($title ?? 'Tour Image');
         ?>
         <img src="<?php echo $srcEsc; ?>" alt="<?php echo $altText; ?>">
-        <div class="tour-badge"><?php echo safeDisplay($day_number) ?> Days</div>
+        <div class="tour-badge"><?php echo (int)safeDisplay($day_number) ?> Days</div>
     </div>
     <div class="tour-content-extended">
         <h3>

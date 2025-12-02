@@ -41,4 +41,14 @@ class TourCard extends BaseModel
     {
         return parent::count();
     }
+
+    public function updateTourById(int $id, array $data): bool
+    {
+        return parent::updateById($id, $data);
+    }
+
+    public function deleteTourById(int $id): bool
+    {
+        return parent::deleteById($id);
+    }
 }

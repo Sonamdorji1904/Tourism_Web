@@ -13,8 +13,8 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once '../../includes/templates/header.html.php'; ?>
-    <?php require_once '../../controller/fetch_all_tours.php'; ?>
+    <?php require '../../includes/templates/header.html.php'; ?>
+    <?php require '../../controller/fetch_all_tours.php'; ?>
 
     <!-- Tours Grid -->
     <section class="tours-listing">
@@ -22,7 +22,7 @@
             <div class="tours-grid-extended">
                 <!-- Tours -->
                 <?php
-                for ($i = 0; $i < $totalCount; $i++):
+                foreach ($tours as $i => $tour):
                     $tour = $tours[$i];
                     $title = $tour['title'] ?? '';
                     $sub_title = $tour['sub_title'] ?? '';
@@ -34,7 +34,7 @@
                     $theme = $tour['theme'] ?? '';
                     $transportation = $tour['transportation'] ?? '';
                     include '../../includes/templates/tour/tourCard.html.php';
-                endfor;
+                endforeach;
                 ?>
             </div>
         </div>
