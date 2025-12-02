@@ -38,12 +38,6 @@
             </div>
 
             <div class="form-group">
-                <label for="sub_title">Section Title:</label>
-                <input type="text" id="sub_title" name="sub_title" required
-                    placeholder="e.g., Perfect introduction to the Land of Happiness">
-            </div>
-
-            <div class="form-group">
                 <label for="best_time">Best Time to Visit.:</label>
                 <input type="text" id="best_time" name="best_time" required
                     placeholder="e.g., Aprial to June and September to November">

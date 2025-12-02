@@ -23,4 +23,22 @@ class TourCard extends BaseModel
     {
         return parent::findById($id);
     }
+
+    /**
+     * Fetch all tours from the database.
+     * @return array|null
+     */
+    public function findAllTours(): ?array
+    {
+        return parent::findAll();
+    }
+
+    /**
+     * Get total count of tours.
+     * @return int
+     */
+    public function getTourCount(): int
+    {
+        return parent::count();
+    }
 }

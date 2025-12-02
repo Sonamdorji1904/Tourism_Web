@@ -5,7 +5,6 @@ require_once "../helper/MailService.php";
 
 $adminEmailsString = ConfigLoader::env('AdminMailAddress');
 $adminEmails = $adminEmailsString ? explode(',', $adminEmailsString) : ["fallback@example.com"];
-$adminEmail = trim($adminEmails[0]);
 
 
 // === 1. Validate Required Fields ===
@@ -62,7 +61,7 @@ Message:
 ";
 
 // === 4. Send Mail using MailService ===
-$mailStatus = MailService::send(
+$mailStatus = MailService::sendToMultiple(
     $adminEmail,
     "Site Admin",
     "New Contact Form Submission – Happiness Horizon Travel",
