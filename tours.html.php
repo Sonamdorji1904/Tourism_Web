@@ -14,6 +14,7 @@
 <body>
     <!-- Navigation -->
     <?php require_once 'includes/templates/header.html.php'; ?>
+    <?php require_once 'controller/fetch_all_tours.php'; ?>
 
     <!-- Page Hero -->
     <section class="page-hero tours-hero">

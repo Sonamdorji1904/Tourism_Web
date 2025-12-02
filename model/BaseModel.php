@@ -69,6 +69,45 @@ class BaseModel
             return null;
         }
     }
+
+    /**
+     * Fetch all records from the table.
+     *
+     * @return array|null
+     */
+    public function findAll(): ?array
+    {
+        try {
+            $query = "SELECT * FROM `{$this->table}`";
+
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $rows === false ? null : $rows;
+        } catch (PDOException $e) {
+            error_log('BaseModel::findAll error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Get total count of records in the table.
+     *
+     * @return int
+     */
+    public function count(): int
+    {
+        try {
+            $stmt = $this->pdo->prepare("SELECT COUNT(*) as total FROM `{$this->table}`");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result['total'] ?? 0;
+        } catch (PDOException $e) {
+            error_log('BaseModel::count error: ' . $e->getMessage());
+            return 0;
+        }
+    }
+
     public function findTourDetailByTourId(int $tourId): ?array
     {
         try {
