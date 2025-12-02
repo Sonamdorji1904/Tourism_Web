@@ -17,9 +17,6 @@ class Festival extends BaseModel
 
     public function getAllFestivals(): array
     {
-        // Assuming your BaseModel has a method like 'select' or 'fetchAll'
-        // This will fetch all rows from the 'Festival' table.
-        $sql = "SELECT * FROM {$this->table} ORDER BY date DESC";
-        return $this->select($sql); // or $this->query($sql)->fetchAll(); based on your BaseModel
+        return parent::findAll();
     }
 }

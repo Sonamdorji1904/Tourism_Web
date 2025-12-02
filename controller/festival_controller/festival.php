@@ -5,7 +5,7 @@ ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
 // Corrected path to include the Festival model class: 
-require_once __DIR__ . "../connects/Festival.php";
+require_once __DIR__ . "/../connects/Festival.php";
 
 // --- Logic to Fetch Festival Data ---
 
