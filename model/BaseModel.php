@@ -1,5 +1,5 @@
 <?php
-require_once "../includes/Database.php";
+require_once __DIR__ . "/../includes/Database.php";
 
 class BaseModel
 {
@@ -108,6 +108,21 @@ class BaseModel
         } catch (Throwable $e) {
             error_log('BaseModel::getLastInsertId error: ' . $e->getMessage());
             return '';
+        }
+    }
+
+    protected function select(string $sql, array $params = []): array
+    {
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+            
+            // This retrieves the data you confirmed exists in phpMyAdmin.
+            return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+            
+        } catch (PDOException $e) {
+            error_log('BaseModel::select error: ' . $e->getMessage() . " Query: " . $sql);
+            return [];
         }
     }
 }
