@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 require_once __DIR__ . "/connects/TourCard.php";
 
 // Required fields
-$requiredFields = ["title", "description", "duration", "destinations", "exprience", "theme"];
+$requiredFields = ["title", "subtitle", "description", "duration", "destinations", "exprience", "theme"];
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
         $validate = false;
@@ -91,6 +91,7 @@ if (isset($_FILES['tour_image']) && $_FILES['tour_image']['error'] !== UPLOAD_ER
 
 $data = [
     'title' => htmlspecialchars(trim($_POST['title'])),
+    'subtitle' => htmlspecialchars(trim($_POST['subtitle'])),
     'description' => htmlspecialchars(trim($_POST['description'])),
     'duration' => htmlspecialchars(trim($_POST['duration'])),
     'image_path' => $uploadedImagePath,
