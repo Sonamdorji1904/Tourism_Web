@@ -2,36 +2,45 @@
 
 require_once "./connects/Itinerary.php";
 
-// === 1. Validate Tour ID ===
-if (empty($_POST["tour_id"])) {
+$tourId = $_POST["tour_id"] ?? null;
+
+if (empty($tourId)) {
+    error_log('No tour_id found in POST data');
     echo "<script>alert('Error: No tour selected. Please start from the tour details page.'); window.history.back();</script>";
     exit();
 }
 
-$tourId = intval($_POST["tour_id"]);
+$tourId = intval($tourId);
 if ($tourId <= 0) {
     echo "<script>alert('Error: Invalid tour id.'); window.history.back();</script>";
     exit();
 }
 
-// === 2. Validate that we have itinerary day arrays ===
 $dayTitles = $_POST["day_titles"] ?? [];
 $dayDescriptions = $_POST["day_descriptions"] ?? [];
 $dayActivities = $_POST["day_activities"] ?? [];
 $dayMeals = $_POST["day_meals"] ?? [];
 $dayAccommodations = $_POST["day_accommodations"] ?? [];
 
+$dayTitles = is_array($dayTitles) ? $dayTitles : ($dayTitles ? [$dayTitles] : []);
+$dayDescriptions = is_array($dayDescriptions) ? $dayDescriptions : ($dayDescriptions ? [$dayDescriptions] : []);
+$dayActivities = is_array($dayActivities) ? $dayActivities : ($dayActivities ? [$dayActivities] : []);
+$dayMeals = is_array($dayMeals) ? $dayMeals : ($dayMeals ? [$dayMeals] : []);
+$dayAccommodations = is_array($dayAccommodations) ? $dayAccommodations : ($dayAccommodations ? [$dayAccommodations] : []);
+
 if (empty($dayTitles)) {
     echo "<script>alert('Error: No itinerary days provided.'); window.history.back();</script>";
     exit();
 }
 
-// === 3. Ensure all arrays have the same length (sanity check) ===
+$validate = true;
 $numDays = count($dayTitles);
+
 if (
     count($dayDescriptions) !== $numDays || count($dayActivities) !== $numDays ||
     count($dayMeals) !== $numDays || count($dayAccommodations) !== $numDays
 ) {
+    $validate = false;
     echo "<script>alert('Error: Mismatched day data. Please ensure all fields are filled.'); window.history.back();</script>";
     exit();
 }
@@ -42,6 +51,7 @@ $failedCount = 0;
 
 for ($i = 0; $i < $numDays; $i++) {
     $dayNum = $i + 1;
+
     $dayData = [
         "tour_id" => $tourId,
         "day_number" => $dayNum,
@@ -49,7 +59,7 @@ for ($i = 0; $i < $numDays; $i++) {
         "description" => htmlspecialchars(trim($dayDescriptions[$i])),
         "activities" => htmlspecialchars(trim($dayActivities[$i])),
         "meals" => htmlspecialchars(trim($dayMeals[$i])),
-        "accommodation" => htmlspecialchars(trim($dayAccommodations[$i])),
+        "accomodation" => htmlspecialchars(trim($dayAccommodations[$i])),
     ];
 
     try {
@@ -65,11 +75,10 @@ for ($i = 0; $i < $numDays; $i++) {
     }
 }
 
-// === 5. Provide user feedback ===
-if ($failedCount === 0 && $insertedCount > 0) {
+if ($failedCount === 0 && $insertedCount > 0 && $validate) {
     echo "<script>
         alert('Success! {$insertedCount} days of itinerary have been saved.');
-        window.location.href = '../admin/tour_detailed_itinerary.php?tour_id={$tourId}&success=1';
+        window.location.href = '../index.html.php';
       </script>";
     exit();
 } else {
