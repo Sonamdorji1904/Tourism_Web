@@ -12,7 +12,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!-- Tailwind Play CDN removed to preserve site-wide header styles -->
     <style>
-        
+        /* Upcoming floating button styles */
+        .upcoming-floating {
+            position: fixed;
+            right: 3px;
+            bottom: 30px;
+            z-index: 9999;
+            background: linear-gradient(135deg,#1a4d2e 0%, #3a8f5a 100%);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 999px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            transition: transform .14s ease, box-shadow .14s ease, opacity .14s ease;
+            opacity: 0.98;
+        }
+
+        .upcoming-floating:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+        }
+
+        .upcoming-floating .uf-dot {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px rgba(255,255,255,0.04) inset;
+        }
+
+        .upcoming-floating .uf-label {
+            font-size: 14px;
+            line-height: 1;
+            color: #fff;
+        }
+
+        .upcoming-festivals h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .upcoming-floating {
+                right: 12px;
+                bottom: 12px;
+                padding: 8px 10px;
+            }
+
+            .upcoming-floating .uf-label {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -127,6 +185,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Floating upcoming festivals anchor (bottom-right) -->
+            <a href="#upcoming-festivals" class="upcoming-floating" aria-label="Jump to Upcoming Festivals">
+                <span class="uf-dot" aria-hidden="true"></span>
+                <span class="uf-label">Upcoming Festivals</span>
+            </a>
+
         </div>
     </section>
 
@@ -272,6 +337,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Festivals -->
+    <section class="upcoming-festivals" id="upcoming-festivals">
+        <div class="container">
+            <h2>Upcoming Festivals</h2>
+            <p class="section-intro">Plan ahead — upcoming dates and quick links to festival pages.</p>
+
+            <div class="upcoming-grid">
+                
             </div>
         </div>
     </section>
