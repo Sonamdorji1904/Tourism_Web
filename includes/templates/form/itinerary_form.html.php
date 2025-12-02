@@ -1,5 +1,7 @@
 <?php
 $dayNumber = $dayNumber ?? 1;
+$tourId = $tourId ?? null;
+error_log("Itinerary form template - Day: {$dayNumber}, TourId: {$tourId}");
 ?>
 
 <div class="itinerary-section" id="itinerary-section-<?php echo $dayNumber; ?>" data-day="<?php echo $dayNumber; ?>">
@@ -7,10 +9,14 @@ $dayNumber = $dayNumber ?? 1;
         <h2>Day <?php echo $dayNumber; ?></h2>
     </div>
 
+    <!-- Hidden tour_id (only needed once in first day, but controller uses single value anyway) -->
+    <?php if ($dayNumber === 1 && !empty($tourId)): ?>
+        <input type="hidden" name="tour_id" value="<?php echo htmlspecialchars($tourId); ?>" />
+    <?php endif; ?>
+
     <div class="form-group">
-        <input id="tour_id" name="tour_id" type="hidden" value="<?php echo $tourId ? htmlspecialchars($tourId) : ''; ?>" />
         <label for="day_<?php echo $dayNumber; ?>_title">Day Title:</label>
-        <input id="day_<?php echo $dayNumber; ?>_title" name="day_titles" type="text" required
+        <input id="day_<?php echo $dayNumber; ?>_title" name="day_titles[]" type="text" required
             placeholder="e.g., Arrival in Paris, Exploring the City">
     </div>
 

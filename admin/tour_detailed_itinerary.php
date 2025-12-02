@@ -10,15 +10,38 @@
 
 <body>
     <?php
-    $tourId = isset($_GET['tour_id']) ? intval($_GET['tour_id']) : null;
+    $tourId = isset($_GET['tour_id']) ? intval($_GET['tour_id']) : (isset($_POST['tour_id']) ? intval($_POST['tour_id']) : null);
+    $tourTitle = '';
+    if ($tourId) {
+        require_once __DIR__ . '/../controller/connects/TourCard.php';
+        try {
+            $tourCardModel = new TourCard();
+            $row = $tourCardModel->findTourById($tourId);
+            if ($row) {
+                $tourTitle = $row['title'];
+            }
+        } catch (Throwable $e) {
+            error_log('Could not load tour title for id ' . $tourId . ': ' . $e->getMessage());
+        }
+    }
     ?>
 
     <div class="upload-form">
-        <h2>Upload Tour Itinerary</h2>
-        <form method="POST" enctype="multipart/form-data" action="process_itinerary.php">
+        <h2>Upload Tour Itinerary for "<?php echo htmlspecialchars($tourTitle); ?>"
+        </h2>
+        <?php if (!$tourId): ?>
+            <div style="color: red; padding: 10px; background: #ffcccc; border-radius: 5px; margin-bottom: 20px;">
+                <strong>Error:</strong> No tour selected. Please access this page from the tour details page.
+                <br>URL should include: <code>?tour_id=X</code>
+            </div>
+        <?php endif; ?>
+        <form method="POST" enctype="multipart/form-data" action="../controller/add_tour_itinerary.php">
+            <input type="hidden" id="tour-id-reference" name="tour_id" value="<?php echo $tourId ? htmlspecialchars($tourId) : ''; ?>" />
+
             <div id="itinerary-sections-container">
                 <?php
                 $dayNumber = 1;
+                $tourId = $tourId ?? null;
                 include "../includes/templates/form/itinerary_form.html.php";
                 ?>
             </div>
