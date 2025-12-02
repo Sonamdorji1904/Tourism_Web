@@ -1,11 +1,6 @@
-    /**
-    * Public getter for PDO connection
-    */
-    public function getPdo() {
-    return $this->pdo;
-    }
-    <?php
-    require_once __DIR__ . "/../includes/Database.php";
+<?php
+require_once __DIR__ . "/../includes/Database.php";
+
 
     class BaseModel
     {
@@ -165,19 +160,19 @@
             }
         }
 
-        /**
-         * Return the last insert id for the current PDO connection.
-         * Useful after insert() to obtain the newly created primary key.
-         *
-         * @return string
-         */
-        public function getLastInsertId(): string
-        {
-            try {
-                return $this->pdo->lastInsertId();
-            } catch (Throwable $e) {
-                error_log('BaseModel::getLastInsertId error: ' . $e->getMessage());
-                return '';
-            }
+    /**
+     * Return the last insert id for the current PDO connection.
+     * Useful after insert() to obtain the newly created primary key.
+     *
+     * @return string
+     */
+    public function getLastInsertId(): string
+    {
+        try {
+            return $this->pdo->lastInsertId();
+        } catch (Throwable $e) {
+            error_log('BaseModel::getLastInsertId error: ' . $e->getMessage());
+            return '';
         }
     }
+}
