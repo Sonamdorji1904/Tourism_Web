@@ -41,7 +41,7 @@ function toggleMenu() {
                         // Add a dark gradient overlay for text visibility
                         var overlay = hero.querySelector('.hero-overlay');
                         if (overlay) {
-                            overlay.style.background = 'linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))';
+                            overlay.style.background = 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))';
                             overlay.style.opacity = '1';
                         }
                     }

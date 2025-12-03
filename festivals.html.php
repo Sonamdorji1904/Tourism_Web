@@ -80,7 +80,7 @@
 
     <!-- Page Hero -->
     <!-- Replace the hero image: edit the data-hero attribute on the section below (e.g. data-hero="public/your-image.jpg") -->
-    <section class="page-hero festivals-hero" data-hero="public/alpine.jpg">
+    <section class="page-hero festivals-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="container">
@@ -99,7 +99,7 @@
             try {
                 var hero = document.querySelector('.page-hero');
                 if (hero && hero.dataset && hero.dataset.hero) {
-                    hero.style.backgroundImage = "linear-gradient(to bottom, rgba(26,77,46,0.45), rgba(26,77,46,0.45)), url('" + hero.dataset.hero + "')";
+                    hero.style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('" + hero.dataset.hero + "')";
                     hero.style.backgroundSize = 'cover';
                     hero.style.backgroundPosition = 'center';
                 }
