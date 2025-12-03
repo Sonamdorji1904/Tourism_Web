@@ -11,7 +11,6 @@ if ($tourId <= 0) {
     die('Invalid tour id');
 }
 
-// Collect fields
 $fields = [
     'title' => trim($_POST['title'] ?? ''),
     'description' => trim($_POST['description'] ?? ''),
@@ -22,33 +21,51 @@ $fields = [
     'transportation' => trim($_POST['transportation'] ?? '')
 ];
 
-// Basic validation example
 if ($fields['title'] === '') {
     die('Title is required');
 }
 
-// Handle image upload (optional)
 if (!empty($_FILES['image']['name']) && is_uploaded_file($_FILES['image']['tmp_name'])) {
-    $uploadDir = __DIR__ . '/../public/uploads/tour_images/';
-    if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
+    $tourCard = new TourCard();
+    $currentTour = $tourCard->findTourById($tourId);
 
-    // sanitize filename
+    $currentImagePath = null;
+    if ($currentTour && !empty($currentTour['image_path'])) {
+        $currentImagePath = $currentTour['image_path'];
+    }
+
+    $uploadDir = __DIR__ . '/../uploads/tour_images/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
     $basename = preg_replace('/[^A-Za-z0-9._-]/', '_', basename($_FILES['image']['name']));
     $filename = time() . '_' . $basename;
     $targetPath = $uploadDir . $filename;
 
+    if ($currentImagePath) {
+        $oldImageAbsolutePath = __DIR__ . '/../' . $currentImagePath;
+
+        if (file_exists($oldImageAbsolutePath) && is_file($oldImageAbsolutePath)) {
+            if (!unlink($oldImageAbsolutePath)) {
+                error_log("Failed to delete old image: $oldImageAbsolutePath");
+            } else {
+                error_log("Successfully deleted old image: $currentImagePath");
+            }
+        } else {
+            error_log("Old image not found or not a file: $oldImageAbsolutePath");
+        }
+    }
+
     if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
-        // store web relative path used in templates
-        $fields['image_path'] = 'public/uploads/tour_images/' . $filename;
+        $fields['image_path'] = 'uploads/tour_images/' . $filename;
     } else {
         error_log('Image upload failed for tour id ' . $tourId);
-        // optional: set an error message in session and redirect back
     }
 }
 
 $tourCard = new TourCard();
 
-// Use model wrapper
 $updated = $tourCard->updateTourById($tourId, $fields);
 
 if ($updated) {

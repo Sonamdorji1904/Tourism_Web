@@ -18,26 +18,23 @@
 
     <!-- Tours Grid -->
     <section class="tours-listing">
-        <div class="container">
-            <div class="tours-grid-extended">
-                <!-- Tours -->
-                <?php
-                foreach ($tours as $i => $tour):
-                    $tour = $tours[$i];
-                    $title = $tour['title'] ?? '';
-                    $sub_title = $tour['sub_title'] ?? '';
-                    $description = $tour['description'] ?? '';
-                    $imageFilePath = $tour['image_path'] ?? '';
-                    $day_number = $tour['duration'] ?? '';
-                    $destinations = $tour['key_destinations'] ?? '';
-                    $experience = $tour['experience'] ?? '';
-                    $theme = $tour['theme'] ?? '';
-                    $transportation = $tour['transportation'] ?? '';
-                    include '../../includes/templates/tour/tourCard.html.php';
-                endforeach;
-                ?>
-            </div>
-        </div>
+
+        <!-- Tours -->
+        <?php
+        foreach ($tours as $tour):
+            $id = $tour['id'] ?? '';
+            $title = $tour['title'] ?? '';
+            $sub_title = $tour['sub_title'] ?? '';
+            $description = $tour['description'] ?? '';
+            $imageFilePath = $tour['image_path'] ?? '';
+            $day_number = $tour['duration'] ?? '';
+            $destinations = $tour['key_destinations'] ?? '';
+            $experience = $tour['experience'] ?? '';
+            $theme = $tour['theme'] ?? '';
+            $transportation = $tour['transportation'] ?? '';
+            include '../../includes/templates/tour/tourCard.html.php';
+        endforeach;
+        ?>
     </section>
 
     <!-- Footer -->

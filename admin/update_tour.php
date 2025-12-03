@@ -29,7 +29,7 @@ if (!$tour) {
     ?>
     <div class="upload-form">
         <h2>Update Tour</h2>
-        <form action="../controller/update_tour.php" method="post" enctype="multipart/form-data">
+        <form action="../controller/updateTour.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $tour['id']; ?>">
             <div class="form-group">
                 <label for="title">Title:</label>
