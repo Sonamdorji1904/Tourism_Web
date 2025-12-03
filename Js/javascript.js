@@ -28,3 +28,27 @@ function toggleMenu() {
                 navbar.classList.remove('scrolled');
             }
         });
+
+        // Small helper script: apply hero image from data-hero attribute so you can change it directly in HTML
+        (function() {
+                try {
+                    var hero = document.querySelector('.tour-detail-hero');
+                    if (hero && hero.dataset && hero.dataset.hero) {
+                        hero.style.backgroundImage = "url('" + hero.dataset.hero + "')";
+                        hero.style.backgroundSize = 'cover';
+                        hero.style.backgroundPosition = 'center';
+
+                        // Add a dark gradient overlay for text visibility
+                        var overlay = hero.querySelector('.hero-overlay');
+                        if (overlay) {
+                            overlay.style.background = 'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))';
+                            overlay.style.opacity = '1';
+                        }
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+        })();
+
+
+        

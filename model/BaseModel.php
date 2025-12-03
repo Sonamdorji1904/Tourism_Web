@@ -179,21 +179,23 @@ class BaseModel
         }
     }
 
-    /**
-     * Return the last insert id for the current PDO connection.
-     * Useful after insert() to obtain the newly created primary key.
-     *
-     * @return string
-     */
-    public function getLastInsertId(): string
-    {
-        try {
-            return $this->pdo->lastInsertId();
-        } catch (Throwable $e) {
-            error_log('BaseModel::getLastInsertId error: ' . $e->getMessage());
-            return '';
+        /**
+         * Return the last insert id for the current PDO connection.
+         * Useful after insert() to obtain the newly created primary key.
+         *
+         * @return string
+         */
+        public function getLastInsertId(): string
+        {
+            try {
+                return $this->pdo->lastInsertId();
+            } catch (Throwable $e) {
+                error_log('BaseModel::getLastInsertId error: ' . $e->getMessage());
+                return '';
+            }
         }
     }
+<<<<<<<<< Temporary merge branch 1
 
     protected function select(string $sql, array $params = []): array
     {
@@ -210,3 +212,5 @@ class BaseModel
         }
     }
 }
+=========
+>>>>>>>>> Temporary merge branch 2

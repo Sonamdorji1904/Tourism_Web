@@ -25,44 +25,6 @@
         </div>
     </section>
 
-    <!-- Filter Section -->
-    <section class="tour-filters">
-        <div class="container">
-            <div class="filters-wrapper">
-                <div class="filter-group">
-                    <label for="duration">Duration</label>
-                    <select id="duration">
-                        <option value="">All Durations</option>
-                        <option value="5">5 Days</option>
-                        <option value="6">6 Days</option>
-                        <option value="7">7 Days</option>
-                        <option value="8">8 Days</option>
-                        <option value="9">9+ Days</option>
-                    </select>
-                </div>
-                <div class="filter-group">
-                    <label for="type">Tour Type</label>
-                    <select id="type">
-                        <option value="">All Types</option>
-                        <option value="cultural">Cultural</option>
-                        <option value="adventure">Adventure</option>
-                        <option value="spiritual">Spiritual</option>
-                        <option value="honeymoon">Honeymoon</option>
-                    </select>
-                </div>
-                <!-- <div class="filter-group">
-                    <label for="difficulty">Difficulty</label>
-                    <select id="difficulty">
-                        <option value="">All Levels</option>
-                        <option value="easy">Easy</option>
-                        <option value="moderate">Moderate</option>
-                        <option value="challenging">Challenging</option>
-                    </select>
-                </div> -->
-            </div>
-        </div>
-    </section>
-
     <!-- Tours Grid -->
     <section class="tours-listing">
         <div class="container">

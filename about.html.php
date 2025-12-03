@@ -11,6 +11,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <style>
+        .why-choose-detailed h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
