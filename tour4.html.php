@@ -45,7 +45,7 @@
 
 
     <!-- Tour Detail Hero -->
-    <section class="tour-detail-hero">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="tour-detail-hero-content">
             <div class="container">
@@ -65,6 +65,8 @@
             </div>
         </div>
     </section>
+
+    
 
     <!-- Tour Overview -->
     <section class="tour-overview">

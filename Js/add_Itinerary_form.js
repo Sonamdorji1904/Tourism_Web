@@ -19,9 +19,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   addBtn.addEventListener("click", function() {
     const nextDay = document.querySelectorAll(".itinerary-section").length + 1;
+    const tourIdInput = document.querySelector('input[name="tour_id"]');
+    const tourId = tourIdInput ? tourIdInput.value : "";
+
     const xhr = new XMLHttpRequest();
 
-    xhr.open("GET", `get_itinerary_section.php?day=${nextDay}`, true);
+    xhr.open(
+      "GET",
+      `get_itinerary_section.php?day=${nextDay}&tour_id=${encodeURIComponent(
+        tourId
+      )}`,
+      true
+    );
     xhr.onload = function() {
       if (xhr.status === 200) {
         const temp = document.createElement("div");

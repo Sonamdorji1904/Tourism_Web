@@ -20,7 +20,7 @@
             border: 0;
             padding: 18px 12px;
             display: flex;
-            align-items: center;
+            align-items: center;~
             justify-content: space-between;
             cursor: pointer;
             text-align: left;
@@ -55,7 +55,7 @@
 
 
     <!-- Tour Detail Hero -->
-    <section class="tour-detail-hero">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="tour-detail-hero-content">
             <div class="container">

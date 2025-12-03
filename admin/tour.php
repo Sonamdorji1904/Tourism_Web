@@ -19,6 +19,11 @@
             </div>
 
             <div class="form-group">
+                <label for="subtitle">Tour Subtitle:</label>
+                <input type="text" id="subtitle" name="subtitle" required>
+            </div>
+
+            <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" required></textarea>
             </div>
@@ -43,7 +48,17 @@
             </div>
             <div class="form-group">
                 <label>Inclusions / Theme </label>
-                <input type="text" id="theme" name="theme" placeholder="e.g., Spiritual experiences, Cultural landmarks">
+                <select id="theme" name="theme" class="form-control">
+                    <option value="" disabled selected>Select a theme...</option>
+                    <option value="spiritual">Spiritual experiences</option>
+                    <option value="cultural">Cultural landmarks</option>
+                    <option value="adventure">Adventure & Outdoor</option>
+                    <option value="wellness">Wellness & Relaxation</option>
+                    <option value="historical">Historical sites</option>
+                    <option value="culinary">Culinary experiences</option>
+                    <option value="family">Family-friendly</option>
+                    <option value="luxury">Luxury travel</option>
+                </select>
             </div>
 
             <button type="submit" class="btn">Upload Tour Package</button>
