@@ -13,7 +13,8 @@
 
 <body>
     <!-- Navigation -->
-    <?php require '../../includes/templates/header.html.php'; ?>
+    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
+
     <?php require '../../controller/fetch_all_tours.php'; ?>
 
     <!-- Tours Grid -->

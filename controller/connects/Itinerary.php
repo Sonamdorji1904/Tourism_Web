@@ -23,4 +23,19 @@ class Itinerary extends BaseModel
     {
         return parent::findTourItineraryByTourId($tourId);
     }
+
+    public function findTourItineraryById(int $id): ?array
+    {
+        return parent::findById($id);
+    }
+
+    public function updateTourItinerary(int $id, array $data): bool
+    {
+        return parent::updateById($id, $data);
+    }
+
+    public function deleteTourItineraryById(int $id): bool
+    {
+        return parent::deleteById($id);
+    }
 }

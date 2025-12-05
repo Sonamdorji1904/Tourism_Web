@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <div class="upload-form">
         <h2>Upload New Tour Package</h2>
 

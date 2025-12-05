@@ -27,16 +27,12 @@
         {
             $columns = '`' . implode('`, `', array_keys($values)) . '`';
 
-            // Build placeholder list
             $placeholders = ':' . implode(', :', array_keys($values));
 
-            // Create final query
             $query = "INSERT INTO `{$this->table}` ($columns) VALUES ($placeholders)";
 
-            // Format any dates (optional)
             $values = $this->processDates($values);
 
-            // Execute
             $stmt = $this->pdo->prepare($query);
             try {
                 return $stmt->execute($values);
@@ -74,12 +70,6 @@
             }
         }
 
-        /**
-         * Delete a row by id.
-         *
-         * @param int $id
-         * @return bool
-         */
         public function deleteById(int $id): bool
         {
             if ($id <= 0) return false;
@@ -92,15 +82,6 @@
                 return false;
             }
         }
-
-        /**
-         * Find a row by primary id.
-         * Assumes the primary key column is named `id`.
-         * Returns associative array or null when not found.
-         *
-         * @param int $id
-         * @return array|null
-         */
 
         public function findById(int $id): ?array
         {
@@ -115,11 +96,7 @@
             }
         }
 
-        /**
-         * Fetch all records from the table.
-         *
-         * @return array|null
-         */
+
         public function findAll(): ?array
         {
             try {
@@ -135,11 +112,7 @@
             }
         }
 
-        /**
-         * Get total count of records in the table.
-         *
-         * @return int
-         */
+
         public function count(): int
         {
             try {
@@ -169,22 +142,16 @@
         public function findTourItineraryByTourId(int $tourId): ?array
         {
             try {
-                $stmt = $this->pdo->prepare("SELECT * FROM `{$this->table}` WHERE `tour_id` = ? LIMIT 1");
+                $stmt = $this->pdo->prepare("SELECT * FROM `{$this->table}` WHERE `tour_id` = ?");
                 $stmt->execute([$tourId]);
-                $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                return $row === false ? null : $row;
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return empty($rows) ? null : $rows;
             } catch (PDOException $e) {
-                error_log('BaseModel::findById error: ' . $e->getMessage());
+                error_log('BaseModel::findTourItineraryByTourId error: ' . $e->getMessage());
                 return null;
             }
         }
 
-        /**
-         * Return the last insert id for the current PDO connection.
-         * Useful after insert() to obtain the newly created primary key.
-         *
-         * @return string
-         */
         public function getLastInsertId(): string
         {
             try {
@@ -192,6 +159,34 @@
             } catch (Throwable $e) {
                 error_log('BaseModel::getLastInsertId error: ' . $e->getMessage());
                 return '';
+            }
+        }
+
+        public function getRandomExcluding(int $excludeId, int $limit = 3): ?array
+        {
+            try {
+                $sql = "SELECT * 
+                FROM `{$this->table}` 
+                WHERE id != :excludeId
+                ORDER BY RAND()
+                LIMIT :limit";
+
+
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->bindValue(':excludeId', $excludeId, PDO::PARAM_INT);
+                $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                return $rows ?: [];
+            } catch (PDOException $e) {
+                error_log('BaseModel::getRandomExcluding error: ' . $e->getMessage());
+                if (isset($stmt) && $stmt !== false) {
+                    error_log('PDO ERROR INFO: ' . print_r($stmt->errorInfo(), true));
+                }
+                error_log('PDO CONNECTION ERROR: ' . print_r($this->pdo->errorInfo(), true));
+                return null;
             }
         }
     }

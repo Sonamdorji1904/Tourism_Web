@@ -12,8 +12,14 @@
 
     <!-- Accordion styles for itinerary -->
     <style>
-        .accordion { margin-top: 16px; }
-        .accordion-item { border-bottom: 1px solid rgba(0,0,0,0.06); }
+        .accordion {
+            margin-top: 16px;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
         .accordion-button {
             width: 100%;
             background: transparent;
@@ -28,14 +34,50 @@
             font-size: 16px;
             gap: 12px;
         }
-        .accordion-button:focus{ outline: 2px solid #7fbf7a; outline-offset: 2px; }
-        .accordion-button .day-number { background:#e9f4ea; color:#1a4d2e; padding:6px 10px; border-radius:6px; font-weight:700; }
-        .accordion-panel { overflow: hidden; max-height: 0; transition: max-height .28s ease, padding .2s ease; padding: 0 12px; }
-        .accordion-button[aria-expanded="true"] + .accordion-panel { max-height: 1200px; padding: 12px; }
-        .itinerary-day .day-header { display: flex; gap: 12px; align-items: center; }
-        .itinerary-day .day-content p, .itinerary-day .day-content ul { margin: 8px 0; }
-        .similar-tours .container > h2 { margin-bottom: 20px; }
-        .similar-tours .tours-grid { margin-top: 12px; }
+
+        .accordion-button:focus {
+            outline: 2px solid #7fbf7a;
+            outline-offset: 2px;
+        }
+
+        .accordion-button .day-number {
+            background: #e9f4ea;
+            color: #1a4d2e;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .accordion-panel {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .28s ease, padding .2s ease;
+            padding: 0 12px;
+        }
+
+        .accordion-button[aria-expanded="true"]+.accordion-panel {
+            max-height: 1200px;
+            padding: 12px;
+        }
+
+        .itinerary-day .day-header {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .itinerary-day .day-content p,
+        .itinerary-day .day-content ul {
+            margin: 8px 0;
+        }
+
+        .similar-tours .container>h2 {
+            margin-bottom: 20px;
+        }
+
+        .similar-tours .tours-grid {
+            margin-top: 12px;
+        }
     </style>
 </head>
 
@@ -66,7 +108,7 @@
         </div>
     </section>
 
-    
+
 
     <!-- Tour Overview -->
     <section class="tour-overview">
@@ -323,55 +365,61 @@
                         <div class="price-info">
                             <p class="price-note">Price varies based on group size and accommodation choice</p>
                         </div>
-                        <form class="quick-booking-form">
+                        <form class="quick-booking-form" action="./controller/submit_contact.php" method="POST">
                             <div class="form-group">
-                                 <div class="form-group">
-                                <label>Full Name *</label>
-                                <input type="text" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Travel Date</label>
-                                <input type="date" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Number of Travelers</label>
-                                <input type="number" min="1" value="2" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Accommodation</label>
-                                <select required>
-                                    <option value="">Select</option>
-                                    <option value="3star">3-Star Hotel</option>
-                                    <option value="4star">4-Star Hotel</option>
-                                    <option value="5star">5-Star Hotel</option>
-                                    <option value="boutique">Boutique Property</option>
-                                    <option value="homestay">Homestay</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label>Full Name *</label>
+                                    <input type="text" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Travel Date</label>
+                                    <input type="date" name="travelDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Number of Travelers</label>
+                                    <input type="number" min="1" value="2" name="travelers" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Accommodation</label>
+                                    <select name="accomodation" required>
+                                        <option value="">Select</option>
+                                        <option value="3star">3-Star Hotel</option>
+                                        <option value="4star">4-Star Hotel</option>
+                                        <option value="5star">5-Star Hotel</option>
+                                        <option value="boutique">Boutique Property</option>
+                                        <option value="homestay">Homestay</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="meal">Meal Types</label>
-                                <select id="meal" name="meal">
-                                    <option value="">Select a meal type (optional)</option>
-                                    <option value="EP">European Plan (EP)</option>
-                                    <option value="CP">Continental Plan (CP)</option>
-                                    <option value="BP">Bermuda Plan (BP)</option>
-                                    <option value="MAP">Modified American Plan (MAP)</option>
-                                    <option value="AP">American Plan (AP)</option>
-                                </select>
-                            </div>
+                                <div class="form-group">
+                                    <label for="meal">Meal Types</label>
+                                    <select id="meal" name="meal">
+                                        <option value="">Select a meal type (optional)</option>
+                                        <option value="EP">European Plan (EP)</option>
+                                        <option value="CP">Continental Plan (CP)</option>
+                                        <option value="BP">Bermuda Plan (BP)</option>
+                                        <option value="MAP">Modified American Plan (MAP)</option>
+                                        <option value="AP">American Plan (AP)</option>
+                                    </select>
+                                </div>
 
-                            <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
+                                <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
                         </form>
                         <div class="contact-options">
                             <p>Or contact us directly:</p>
-                            <a href="tel:+97516108570" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true"><path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.29 21.5 2.5 13.71 2.5 3.5A1 1 0 013.5 2.5H7a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.2 2.2z"/></svg>+975 16108570</a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/></svg>Email Us</a>
-                            <a href="#" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true"><path d="M20.5 3.5A11.94 11.94 0 0012 0C5.372 0 .001 5.373.001 12A11.94 11.94 0 004.5 20.5L3 24l3.6-1.3A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-1.86-.38-3.63-1.1-5.2zM16.2 14c-.3.8-1.7 1.5-2.4 1.6-.6.1-1.2.1-2.9-.9-2.5-1.5-4-4.2-4.4-4.7-.4-.5-.1-.8.3-1.1.2-.2.5-.3.8-.1.2.1.6.3.9.6.3.3.4.5.6.9.2.4.1.7-.1 1-.2.2-.4.5-.4.8 0 .3.8 1.6 1.9 2.6 1.3 1.2 2.6 1.7 3.1 1.8.5.1 1 .1 1.4-.1.5-.2 1.4-.8 1.7-1.5.3-.6.3-1.1.2-1.2-.1-.2-.7-.3-1.7-.8-.9-.4-1.6-.8-1.9-1.1-.3-.3-.2-.5.1-.8.3-.3.8-.8 1.1-1.1.3-.3.6-.4.8-.3.2.1.6.2 1.1.6.4.3 1 .9 1.2 1.1.2.3.2.8-.1 1.6z"/></svg>WhatsApp</a>
+                            <a href="tel:+97516108570" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true">
+                                    <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.29 21.5 2.5 13.71 2.5 3.5A1 1 0 013.5 2.5H7a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.2 2.2z" />
+                                </svg>+975 16108570</a>
+                            <a href="mailto:info@happinesshorizontravel.com" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true">
+                                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z" />
+                                </svg>Email Us</a>
+                            <a href="#" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true">
+                                    <path d="M20.5 3.5A11.94 11.94 0 0012 0C5.372 0 .001 5.373.001 12A11.94 11.94 0 004.5 20.5L3 24l3.6-1.3A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-1.86-.38-3.63-1.1-5.2zM16.2 14c-.3.8-1.7 1.5-2.4 1.6-.6.1-1.2.1-2.9-.9-2.5-1.5-4-4.2-4.4-4.7-.4-.5-.1-.8.3-1.1.2-.2.5-.3.8-.1.2.1.6.3.9.6.3.3.4.5.6.9.2.4.1.7-.1 1-.2.2-.4.5-.4.8 0 .3.8 1.6 1.9 2.6 1.3 1.2 2.6 1.7 3.1 1.8.5.1 1 .1 1.4-.1.5-.2 1.4-.8 1.7-1.5.3-.6.3-1.1.2-1.2-.1-.2-.7-.3-1.7-.8-.9-.4-1.6-.8-1.9-1.1-.3-.3-.2-.5.1-.8.3-.3.8-.8 1.1-1.1.3-.3.6-.4.8-.3.2.1.6.2 1.1.6.4.3 1 .9 1.2 1.1.2.3.2.8-.1 1.6z" />
+                                </svg>WhatsApp</a>
                         </div>
                     </div>
 
@@ -466,41 +514,46 @@
 
     <!-- Accordion script -->
     <script>
-        (function(){
+        (function() {
             const accordion = document.getElementById('itinerary-accordion');
-            if(!accordion) return;
+            if (!accordion) return;
             const buttons = accordion.querySelectorAll('.accordion-button');
 
-            function closeAll(except){
+            function closeAll(except) {
                 buttons.forEach(btn => {
-                    if(btn !== except){
-                        btn.setAttribute('aria-expanded','false');
+                    if (btn !== except) {
+                        btn.setAttribute('aria-expanded', 'false');
                         const panel = document.getElementById(btn.getAttribute('aria-controls'));
-                        if(panel){ panel.hidden = true; }
+                        if (panel) {
+                            panel.hidden = true;
+                        }
                     }
                 });
             }
 
             buttons.forEach(btn => {
                 const panel = document.getElementById(btn.getAttribute('aria-controls'));
-                if(panel){ panel.hidden = true; }
+                if (panel) {
+                    panel.hidden = true;
+                }
 
-                btn.addEventListener('click', function(){
+                btn.addEventListener('click', function() {
                     const expanded = this.getAttribute('aria-expanded') === 'true';
-                    if(expanded){
-                        this.setAttribute('aria-expanded','false');
-                        if(panel) panel.hidden = true;
+                    if (expanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        if (panel) panel.hidden = true;
                     } else {
                         closeAll(this);
-                        this.setAttribute('aria-expanded','true');
-                        if(panel) panel.hidden = false;
-                        if(panel) panel.focus();
+                        this.setAttribute('aria-expanded', 'true');
+                        if (panel) panel.hidden = false;
+                        if (panel) panel.focus();
                     }
                 });
 
-                btn.addEventListener('keydown', function(e){
-                    if(e.key === 'Enter' || e.key === ' '){
-                        e.preventDefault(); this.click();
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
                     }
                 });
             });

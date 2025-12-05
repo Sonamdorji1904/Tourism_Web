@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Bhutan Getaway - Happiness Horizon Travel</title>
-    <link rel="stylesheet" href="../../Css/styles.css">
+    <link rel="stylesheet" href="/Happiness%20horizone/Css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Accordion styles for itinerary -->
     <style>
         .accordion {
             margin-top: 16px;
@@ -81,74 +82,44 @@
 </head>
 
 <body>
-
-    <?php require_once __DIR__ . '/includes/templates/header.html.php';
+    <!-- Navigation -->
+    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
-
     $stringHelper = new StringHelper();
-
-    $tourId = isset($_GET['tour_id']) ? intval($_GET['tour_id']) : null;
-    $tourTitle = '';
-    $sub_title = '';
-    $duration = '';
-    $overview = '';
-    $bestTime = '';
-    $highlightPoints = [];
-    if ($tourId) {
-        require_once __DIR__ . '/../../controller/connects/TourCard.php';
-        require_once __DIR__ . '/../../controller/connects/TourDetails.php';
-        try {
-            $tourCardModel = new TourCard();
-            $tourDetails = new TourDetails();
-            $tourDetail = $tourDetails->findTourDetailByTourId($tourId);
-            $row = $tourCardModel->findTourById($tourId);
-            if ($row) {
-                $tourTitle = $row['title'];
-                $sub_title = $row['sub_title'];
-                $duration = $row['duration'];
-            }
-            if ($tourDetail) {
-                $overview = $tourDetail['over_view'];
-                $highlights = $tourDetail['tour_highlights'];
-                $bestTime = $tourDetail['best_time'];
-                $highlightPoints = explode("\n", trim($highlights));
-            }
-        } catch (Throwable $e) {
-            error_log('Could not load tour title for id ' . $tourId . ': ' . $e->getMessage());
-        }
-    }
+    require_once __DIR__ . '/../get_tour_details.php';
+    require_once __DIR__ . '/../../controller/connects/TourCard.php';
     ?>
+
     <!-- Tour Detail Hero -->
-    <section class="tour-detail-hero">
+    <section class="tour-detail-hero" data-hero="/Happiness%20horizone/public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="tour-detail-hero-content">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html.php">Home</a> / <a href="tours.html.php">Tours</a> / <?php echo $stringHelper->safeDisplay($tourTitle); ?>
+                    <a href="index.html.php">Home</a> / <a href="tours.html.php">Tours</a> / <?php echo $stringHelper->safeDisplay($tourTitle) ?>
                 </div>
-                <h1><?php echo $stringHelper->safeDisplay($tourTitle); ?></h1>
-                <p class="tour-subtitle"> <?php echo $stringHelper->safeDisplay($sub_title); ?></p>
+                <h1><?php echo $stringHelper->safeDisplay($tourTitle) ?></h1>
+                <p class="tour-subtitle"><?php echo $stringHelper->safeDisplay($sub_title) ?></p>
                 <div class="tour-quick-info">
                     <div class="quick-info-item">
-                        <strong>Duration:</strong> <?php echo $stringHelper->safeDisplay($duration); ?></p>
+                        <strong>Duration:</strong> <?php echo $stringHelper->safeDisplay($duration) ?>
                     </div>
                     <div class="quick-info-item">
-                        <strong>Best Time:</strong> <?php echo $stringHelper->safeDisplay($bestTime); ?></p>
+                        <strong>Best Time:</strong> <?php echo $stringHelper->safeDisplay($bestTime) ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Tour Overview -->
     <section class="tour-overview">
         <div class="container">
             <div class="tour-content-layout">
                 <div class="tour-main-content">
                     <div class="tour-section">
                         <h2>Tour Overview</h2>
-                        <p class="lead"><?php echo $stringHelper->safeDisplay($overview); ?></p>
-                        </p>
-
+                        <p class="lead"><?php echo $stringHelper->safeDisplay($overview) ?></p>
                     </div>
 
                     <div class="tour-section">
@@ -164,141 +135,27 @@
 
                     <div class="tour-section">
                         <h2>Detailed Itinerary</h2>
-
                         <div class="accordion" id="itinerary-accordion">
+                            <?php
+                            for ($i = 0; $i < count($tourItineraries); $i++) {
+                                $itineraryId = $tourItineraries[$i]['id'] ?? '';
+                                $tour_id = $tourItineraries[$i]['tour_id'] ?? '';
+                                $dayNumber = $tourItineraries[$i]['day_number'] ?? '';
+                                $accordionTitle = $tourItineraries[$i]['title'] ?? '';
 
-                            <div class="accordion-item itinerary-day">
-                                <button class="accordion-button" aria-expanded="false" id="day1-btn" aria-controls="day1-panel">
-                                    <span class="day-number">Day 1</span>
-                                    <span class="accordion-title">Arrival in Paro/Phuentsholing - Drive to Thimphu</span>
-                                    <span class="chev" aria-hidden="true">▾</span>
-                                </button>
-                                <div id="day1-panel" class="accordion-panel" role="region" aria-labelledby="day1-btn" hidden>
-                                    <div class="day-content">
-                                        <p>Welcome to Bhutan, the Land of Gross National Happiness! Upon arrival at Paro International Airport you will be warmly greeted by your guide outside the arrival terminal/at the Bhutan Gate Phuentshogling. Enjoy a scenic one and half hour drive to Thimphu, Bhutan’s charming capital city. After checking in to your hotel, you’ll have your first meal in Bhutan either at the hotel or a local restaurant, depending on your choice.</p>
-                                        <p>In the afternoon, explore Thimphu at a relaxed pace, with activities tailored to your interests. Some must-see attractions include:</p>
-                                        <ul>
-                                            <li>Visit National Memorial Chorten</li>
-                                            <li>Explore Kaja Throm (Farmers' Market)</li>
-                                            <li>Visit Changyul Park</li>
-                                            <li>Visit Folk Heritage Museum & National Textile Museum</li>
-                                            <li>Evening stroll around Thimphu town</li>
-                                            <li>Visit Crafts Markets</li>
-                                        </ul>
-
-                                        <p>In the event you choose to enter from Phuentshogling our guide will receive you at the Phuentshogling Bhutan gate</p>
-                                        <p><strong>Meals:</strong> Lunch, Dinner</p>
-                                        <p><strong>Accommodation:</strong> Hotel in Thimphu</p>
-                                    </div>
-                                </div>
+                                $description = $tourItineraries[$i]['description'] ?? '';
+                                $activities = $tourItineraries[$i]['activities'] ?? '';
+                                $meals = $tourItineraries[$i]['meals'] ?? '';
+                                $accommodation_options = $tourItineraries[$i]['accommodation'] ?? '';
+                                $buttonId = 'day' . ($i + 1) . '-btn';
+                                $panelId = 'day' . ($i + 1) . '-panel';
+                                include __DIR__ . '/../../includes/templates/tour/tourItinerary.html.php';
+                            }
+                            ?>
+                            <div class="tour-actions">
+                                <a href="../admin/tour_detailed_itinerary.php?tour_id=<?= $tourId ?>" class="btn btn-primary">Add tour Itinerary</a>
                             </div>
-
-                            <div class="accordion-item itinerary-day">
-                                <button class="accordion-button" aria-expanded="false" id="day2-btn" aria-controls="day2-panel">
-                                    <span class="day-number">Day 2</span>
-                                    <span class="accordion-title">Thimphu Sightseeing - Drive to Punakha</span>
-                                    <span class="chev" aria-hidden="true">▾</span>
-                                </button>
-                                <div id="day2-panel" class="accordion-panel" role="region" aria-labelledby="day2-btn" hidden>
-                                    <div class="day-content">
-                                        <p>Start your day with a delicious breakfast at your hotel before exploring some of Thimphu’s key attractions.</p>
-                                        <p><strong>Activities:</strong></p>
-                                        <ul>
-                                            <li>Visit Buddha Dordenma</li>
-                                            <li>Drive to Punakha via Dochula Pass (108 chortens)</li>
-                                            <li>Visit Chhimi Lhakhang (Temple of Fertility)</li>
-                                            <li>Explore Woolakha Nunnery</li>
-                                            <li>Visit Punakha Dzong</li>
-                                        </ul>
-                                        <p><strong>Optional Activities:</strong></p>
-                                        <ul>
-                                            <li>Stroll through the local farmers’ market to experience Bhutanese village life</li>
-                                            <li>Walk across Bhutan’s longest suspension bridge</li>
-                                            <li>For adventure lovers, opt for river rafting on the Pho Chhu or Mo Chhu rivers</li>
-                                        </ul>
-                                        <p><strong>Accommodation:</strong> Hotel in Punakha</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item itinerary-day">
-                                <button class="accordion-button" aria-expanded="false" id="day3-btn" aria-controls="day3-panel">
-                                    <span class="day-number">Day 3</span>
-                                    <span class="accordion-title">Drive to Gangtey and Phobjikha Valley</span>
-                                    <span class="chev" aria-hidden="true">▾</span>
-                                </button>
-                                <div id="day3-panel" class="accordion-panel" role="region" aria-labelledby="day3-btn" hidden>
-                                    <div class="day-content">
-                                        <p>Enjoy a beautiful drive to Gangtey Valley, passing through forests, villages, and mountain roads with amazing views of the countryside.</p>
-                                        <p><strong>Activities:</strong></p>
-                                        <ul>
-                                            <li>Visit Gangtey monastery</li>
-                                            <li>Visit Phobjikha Valley and immerse in its natural beauty</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item itinerary-day">
-                                <button class="accordion-button" aria-expanded="false" id="day4-btn" aria-controls="day4-panel">
-                                    <span class="day-number">Day 4</span>
-                                    <span class="accordion-title">Drive to Paro</span>
-                                    <span class="chev" aria-hidden="true">▾</span>
-                                </button>
-                                <div id="day4-panel" class="accordion-panel" role="region" aria-labelledby="day4-btn" hidden>
-                                    <div class="day-content">
-                                        <p>After breakfast, begin your scenic drive from Gangtey Valley towards Paro, passing through beautiful forests, quaint villages, and winding mountain roads with breathtaking countryside views.</p>
-                                        <p><strong>Activities:</strong></p>
-                                        <ul>
-                                            <li>Scenic Stop at Pelela Pass</li>
-                                            <li>Visit Wangdue Phodrang Dzong</li>
-                                            <li>Arrival in Paro and explore town</li>
-                                        </ul>
-                                        <p><strong>Accommodation:</strong> Hotel in Paro</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item itinerary-day">
-                                <button class="accordion-button" aria-expanded="false" id="day5-btn" aria-controls="day5-panel">
-                                    <span class="day-number">Day 5</span>
-                                    <span class="accordion-title">Hike to Taktsang Monastery</span>
-                                    <span class="chev" aria-hidden="true">▾</span>
-                                </button>
-                                <div id="day5-panel" class="accordion-panel" role="region" aria-labelledby="day5-btn" hidden>
-                                    <div class="day-content">
-                                        <p>Start your day with a hearty breakfast before setting out for the hike to Taktsang Monastery (Tiger’s Nest).</p>
-                                        <p><strong>Activities:</strong></p>
-                                        <ul>
-                                            <li>Hike to Taktsang Monastery (3 -4 hours hours round trip)</li>
-                                            <li>Stop at the <strong>Taktsang Cafeteria</strong>, where you can rest, enjoy tea or snacks, and take in a stunning view of the monastery clinging to the cliffs.</li>
-                                            <li><strong>Lunch in Paro:</strong>
-                                                After descending, return to Paro town and enjoy a sumptuous local lunch at a nearby restaurant.
-                                            </li>
-                                            <li>Explore Paro town</li>
-                                            <li>Evening at a Traditional Farmhouse</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item itinerary-day">
-                                <button class="accordion-button" aria-expanded="false" id="day6-btn" aria-controls="day6-panel">
-                                    <span class="day-number">Day 6</span>
-                                    <span class="accordion-title">Departure from Paro or Drive to Phuentsholing</span>
-                                    <span class="chev" aria-hidden="true">▾</span>
-                                </button>
-                                <div id="day6-panel" class="accordion-panel" role="region" aria-labelledby="day6-btn" hidden>
-                                    <div class="day-content">
-                                        <p>We will bid a fond farewell to the enchanting Kingdom of Bhutan. After an early breakfast, we will either drop to Paro International Airport for your onward flight home or to your next destination, or we will drive to Phuentsholing to exit Bhutan via the land border.</p>
-                                        <p>We hope your journey has been filled with new friendships, unforgettable experiences, and countless beautiful memories of this Himalayan paradise. May the blessings of Bhutan accompany you wherever you go.</p>
-                                        <p class="farewell">Tashi Delek! May the blessings of Bhutan accompany you wherever you go.</p>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-
                     </div>
                     <p><strong>Note:</strong>This itinerary is provided as a general guide to give you an overview of the tour. The final itinerary can be customized to suit the season, your interests and preferred duration.</p>
 
@@ -417,10 +274,7 @@
                             <strong>Duration:</strong>
                             <span>6 Days / 5 Nights</span>
                         </div>
-                        <!-- <div class="info-item">
-                            <strong>Difficulty:</strong>
-                            <span>Easy</span>
-                        </div> -->
+
                         <div class="info-item">
                             <strong>Group Size:</strong>
                             <span>2-15 people</span>
@@ -453,51 +307,36 @@
         <div class="container">
             <h2>You May Also Like</h2>
             <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/black-necked-crane.jpg" alt="Taste of Happiness">
-                        <div class="tour-duration">6 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Taste of Happiness</h3>
-                        <p>Immerse yourself in Bhutan's rich culture and breathtaking landscapes.</p>
-                        <a href="tour-detail.html.php" class="btn btn-outline">View Details</a>
-                    </div>
-                </div>
+                <?php
+                $tourCardModel = new TourCard();
 
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/image 4.jpg" alt="The Living Heritage">
-                        <div class="tour-duration">7 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>The Living Heritage</h3>
-                        <p>Discover Bhutan's living heritage where ancient traditions meet natural beauty.</p>
-                        <a href="tour-detail.html.php" class="btn btn-outline">View Details</a>
-                    </div>
-                </div>
+                $getRandomTours = $tourCardModel->getRandomToursExcluding($tourId, 3);
 
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/image 7.png" alt="Honeymoon Package">
-                        <div class="tour-duration">Customizable</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Honeymoon Package</h3>
-                        <p>Celebrate your love in the mystical Kingdom of Bhutan.</p>
-                        <a href="tour-detail.html.php" class="btn btn-outline">View Details</a>
-                    </div>
-                </div>
+                if ($getRandomTours) {
+                    foreach ($getRandomTours as $tour) {
+                        $itinerayId = $tour['id'] ?? '';
+                        $title = $tour['title'] ?? '';
+                        $sub_title = $tour['sub_title'] ?? '';
+                        $duration = $tour['duration'] ?? '';
+                        $baseUrl = '/Happiness horizone';
+                        $imageFilePath = $baseUrl . '/' . ltrim($tour['image_path'], '/');
+
+                        include __DIR__ . '/../../includes/templates/tour/simpleTourCard.php';
+                    }
+                } else {
+                    echo "<p>No similar tours available at the moment.</p>";
+                }
+                ?>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <?php require_once 'includes/templates/footer.html.php'; ?>
-
+    <?php include __DIR__ . '/../../includes/templates/footer.html.php'; ?>
 
     <script>
-        <?php include 'Js/javascript.js'; ?>
+        <?php include __DIR__ . '/../../Js/javascript.js'; ?>
     </script>
 
     <!-- Accordion script -->
