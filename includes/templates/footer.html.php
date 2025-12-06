@@ -22,14 +22,13 @@ echo <<<FOOTER_HTML
                     <ul>
                         <li><a href="about.html.php">About Us</a></li>
                         <li><a href="contact.html.php">Contact</a></li>
-                        <li><a href="#visa">Visa Information</a></li>
-                        <li><a href="#policy">Cancellation Policy</a></li>
+                        <li><a href="https://immi.gov.bt/home/">Visa Information</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Connect With Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link">Facebook</a>
+                        <a href="https://www.facebook.com/share/1Cf6CmHeWk/?mibextid=wwXIfr" class="social-link">Facebook</a>
                         <a href="#" class="social-link">Instagram</a>
                         <a href="#" class="social-link">WhatsApp</a>
                     </div>

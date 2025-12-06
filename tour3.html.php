@@ -78,6 +78,61 @@
         .similar-tours .tours-grid {
             margin-top: 12px;
         }
+
+        .accordion-button:focus {
+            outline: 2px solid #7fbf7a;
+            outline-offset: 2px;
+        }
+
+        .accordion-button .day-number {
+            background: #e9f4ea;
+            color: #1a4d2e;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .accordion-panel {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height .28s ease, padding .2s ease;
+            padding: 0 12px;
+        }
+
+        .accordion-button[aria-expanded="true"]+.accordion-panel {
+            max-height: 1200px;
+            padding: 12px;
+        }
+
+        .itinerary-day .day-header {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .itinerary-day .day-content p,
+        .itinerary-day .day-content ul {
+            margin: 8px 0;
+        }
+
+        .similar-tours .container>h2 {
+            margin-bottom: 20px;
+        }
+
+        .similar-tours .tours-grid {
+            margin-top: 12px;
+        }
+
+        /* ensure the middle title shrinks and the chevron stays at the far right */
+        .accordion-button .accordion-title {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        .accordion-button .chev {
+            margin-left: auto;
+            flex: 0 0 auto;
+        }
     </style>
 </head>
 
@@ -365,49 +420,52 @@
                         <div class="price-info">
                             <p class="price-note">Price varies based on group size and accommodation choice</p>
                         </div>
-                        <form class="quick-booking-form" action="./controller/submit_contact.php" method="POST">
+                        <form class="quick-booking-form">
                             <div class="form-group">
-                                <div class="form-group">
-                                    <label>Full Name *</label>
-                                    <input type="text" name="firstName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" name="email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Travel Date</label>
-                                    <input type="date" name="travelDate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Number of Travelers</label>
-                                    <input type="number" min="1" value="2" name="travelers" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Accommodation</label>
-                                    <select name="accomodation" required>
-                                        <option value="">Select</option>
-                                        <option value="3star">3-Star Hotel</option>
-                                        <option value="4star">4-Star Hotel</option>
-                                        <option value="5star">5-Star Hotel</option>
-                                        <option value="boutique">Boutique Property</option>
-                                        <option value="homestay">Homestay</option>
-                                    </select>
-                                </div>
+                                <label>Full Name *</label>
+                                <input type="text" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Travel Date</label>
+                                <input type="date" name="travelDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Number of Travelers</label>
+                                <input type="number" min="1" value="2" name="travelers" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Accommodation</label>
+                                <select name="accomodation" required>
+                                    <option value="">Select</option>
+                                    <option value="3star">3-Star Hotel</option>
+                                    <option value="4star">4-Star Hotel</option>
+                                    <option value="5star">5-Star Hotel</option>
+                                    <option value="boutique">Boutique Property</option>
+                                    <option value="homestay">Homestay</option>
+                                </select>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="meal">Meal Types</label>
-                                    <select id="meal" name="meal">
-                                        <option value="">Select a meal type (optional)</option>
-                                        <option value="EP">European Plan (EP)</option>
-                                        <option value="CP">Continental Plan (CP)</option>
-                                        <option value="BP">Bermuda Plan (BP)</option>
-                                        <option value="MAP">Modified American Plan (MAP)</option>
-                                        <option value="AP">American Plan (AP)</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="meal">Meal Types</label>
+                                <select id="meal" name="meal">
+                                    <option value="">Select a meal type (optional)</option>
+                                    <option value="EP">European Plan (EP)</option>
+                                    <option value="CP">Continental Plan (CP)</option>
+                                    <option value="BP">Bermuda Plan (BP)</option>
+                                    <option value="MAP">Modified American Plan (MAP)</option>
+                                    <option value="AP">American Plan (AP)</option>
+                                </select>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
+                            <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
                         </form>
                         <div class="contact-options">
                             <p>Or contact us directly:</p>

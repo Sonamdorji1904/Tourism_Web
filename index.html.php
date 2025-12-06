@@ -18,7 +18,7 @@
     <?php require_once 'includes/templates/header.html.php'; ?>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" style="background-image: url('public/bg5.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Where Every Journey Begins with Happiness</h1>
@@ -47,22 +47,22 @@
                 </div>
                 <div class="about-features">
                     <div class="feature-card">
-                        <div class="feature-icon">🏔️</div>
+                        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="Darkgreen" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mountain-snow-icon lucide-mountain-snow"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"/></svg></div>
                         <h3>Authentic Experiences</h3>
                         <p>Connect with Bhutanese life and traditions through genuine cultural immersion</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🙏</div>
+                        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="Darkgreen" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark-icon lucide-landmark"><path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></svg></div>
                         <h3>Sacred Monasteries</h3>
                         <p>Visit heritage sites rich in spirituality and centuries-old wisdom</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">🥾</div>
+                        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="Darkgreen" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-footprints-icon lucide-footprints"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/></svg></div>
                         <h3>Breathtaking Hikes</h3>
                         <p>Trek through untouched valleys and pristine Himalayan landscapes</p>
                     </div>
                     <div class="feature-card">
-                        <div class="feature-icon">✨</div>
+                        <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="Darkgreen" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-route-icon lucide-route"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></div>
                         <h3>Personalized Itineraries</h3>
                         <p>Journeys designed around your interests and comfort</p>
                     </div>

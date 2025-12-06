@@ -17,7 +17,7 @@
     <?php require_once 'controller/fetch_all_tours.php'; ?>
 
     <!-- Page Hero -->
-    <section class="page-hero tours-hero">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Tours for Every Dream</h1>

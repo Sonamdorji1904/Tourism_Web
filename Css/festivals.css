@@ -17,13 +17,13 @@
   background-repeat: no-repeat;
 }
 
-.page-hero .hero-overlay {
+/* .page-hero .hero-overlay {
   position: absolute;
   inset: 0;
-  /* additional subtle overlay to ensure text readability */
+  additional subtle overlay to ensure text readability
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25));
   pointer-events: none;
-}
+} */
 
 .page-hero .hero-content {
   position: relative;

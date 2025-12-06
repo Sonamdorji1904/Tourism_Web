@@ -4,7 +4,7 @@ echo <<<HEADER_HTML
         <div class="container">
             <div class="nav-content">
                 <div class="logo">
-                    <h2>Happiness Horizon Travel</h2>
+                    <a href="index.html.php"><img src="public/HH.png" alt="Happiness Horizon Travel" class="logo-img" style="max-height:50px; width:auto; display:block;"></a>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html.php">Home</a></li>
@@ -18,4 +18,4 @@ echo <<<HEADER_HTML
             </div>
         </div>
     </nav>
-    HEADER_HTML;
+HEADER_HTML;

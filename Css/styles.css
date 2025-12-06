@@ -24,6 +24,7 @@
   --spacing-xl: 6rem;
   --radius: 0.5rem;
   --radius-lg: 1rem;
+  --navbar-height: 70px; /* height reserved for fixed navbar */
 }
 
 body {
@@ -31,6 +32,7 @@ body {
   color: var(--neutral-900);
   line-height: 1.6;
   background-color: var(--neutral-100);
+  padding-top: var(--navbar-height); /* ensure content starts below fixed navbar */
 }
 
 h1,
@@ -66,6 +68,7 @@ img {
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
+  height: var(--navbar-height); /* explicit navbar height to match body padding */
 }
 
 .navbar.scrolled {
@@ -124,11 +127,11 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
+  background-image: url("public/bg2.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  margin-top: 70px;
+  margin-top: 0; /* removed gap under navbar */
 }
 
 .page-hero {
@@ -138,10 +141,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("public/thimphu-buddha-dordenma-statue-bhutan.jpg");
+  background-image: url("public/bg2.jpg");
   background-size: cover;
   background-position: center;
-  margin-top: 70px;
+  /* pull the hero under the fixed navbar while keeping content visible */
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
 }
 
 .tours-hero {
@@ -152,13 +157,27 @@ img {
   background-image: url("public/punakha-dzong-bhutan-fortress-monastery.jpg");
 }
 
+.tour-detail-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
+  background-size: cover;
+  background-position: center;
+  /* pull the hero under the fixed navbar while keeping content visible */
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
+}
+
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(26, 77, 46, 0.7), rgba(15, 41, 25, 0.8));
 }
 
 .hero-content {
@@ -381,12 +400,12 @@ img {
   padding: var(--spacing-md);
   border-radius: var(--radius-lg);
   position: relative;
-  padding-left: 4rem;
+  padding-left: 5rem;
 }
 
 .feature-number {
   position: absolute;
-  left: var(--spacing-md);
+  left: 1rem;
   top: var(--spacing-md);
   font-size: 2rem;
   font-weight: 700;
@@ -446,25 +465,6 @@ img {
   position: relative;
 }
 
-.tour-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
 .tour-card:hover {
   transform: perspective(1000px) rotateX(2deg) rotateY(-3deg) translateZ(20px) translateY(-10px);
   box-shadow: 
@@ -474,10 +474,6 @@ img {
     0 0 0 1px rgba(26, 77, 46, 0.1);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-}
-
-.tour-card:hover::before {
-  opacity: 1;
 }
 
 .tour-card.featured {
@@ -792,7 +788,9 @@ img {
   background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
   background-size: cover;
   background-position: center;
-  margin-top: 70px;
+  /* pull the hero under the fixed navbar while keeping content visible */
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
 }
 
 .tour-detail-hero-content {
