@@ -189,4 +189,17 @@
                 return null;
             }
         }
+
+        public function findByTrekId(int $trekId): ?array
+        {
+            try {
+                $stmt = $this->pdo->prepare("SELECT * FROM `{$this->table}` WHERE `trek_id` = ?");
+                $stmt->execute([$trekId]);
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return empty($rows) ? null : $rows;
+            } catch (PDOException $e) {
+                error_log('BaseModel::findTourItineraryByTourId error: ' . $e->getMessage());
+                return null;
+            }
+        }
     }

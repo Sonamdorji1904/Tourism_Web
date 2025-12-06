@@ -9,3 +9,32 @@ CREATE TABLE events (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+
+CREATE TABLE treks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    sub_title VARCHAR(255),
+    description TEXT,
+    duration VARCHAR(100),
+    image_path VARCHAR(500),
+    key_destinations TEXT,
+    experience TEXT,
+    theme VARCHAR(255),
+    altitude VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE trek_itinerary (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    trek_id INT NOT NULL,
+    title VARCHAR(255),
+    description TEXT,
+    activities TEXT,
+    meals VARCHAR(255),
+    accomodation VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (trek_id) REFERENCES treks(id) ON DELETE CASCADE
+);

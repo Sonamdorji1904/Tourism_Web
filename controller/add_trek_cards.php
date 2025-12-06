@@ -1,24 +1,26 @@
 <?php
 
-// Basic error reporting for debugging (disable on production)
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-require_once __DIR__ . "/../connects/Festival.php";
+require_once __DIR__ . "/connects/Treks.php";
 
-$requiredFields = ["title", "description", "category", "date", "venue", "status"];
+// Required fields
+$requiredFields = ["title", "subtitle", "description", "duration", "destinations", "exprience", "theme", "altitude"];
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
+        $validate = false;
         echo "<script>alert('Please fill all required fields. Missing: {$field}'); window.history.back();</script>";
         exit();
     }
 }
 
 $uploadedImagePath = null;
-if (isset($_FILES['festival_image']) && $_FILES['festival_image']['error'] !== UPLOAD_ERR_NO_FILE) {
-    $file = $_FILES['festival_image'];
+if (isset($_FILES['trek_image']) && $_FILES['trek_image']['error'] !== UPLOAD_ERR_NO_FILE) {
+    $file = $_FILES['trek_image'];
 
     if ($file['error'] !== UPLOAD_ERR_OK) {
+        // Detailed diagnostics for upload failure
         $diag = [
             'error_code' => $file['error'],
             'upload_max_filesize' => ini_get('upload_max_filesize'),
@@ -54,9 +56,9 @@ if (isset($_FILES['festival_image']) && $_FILES['festival_image']['error'] !== U
     }
 
     // Prepare uploads directory
-    $uploadsDir = __DIR__ . '/../../uploads/festival_images';
+    $uploadsDir = __DIR__ . '/../uploads/trek_images';
     if (!is_dir($uploadsDir)) {
-        if (!mkdir($uploadsDir, 0755, true) && !is_dir($uploadsDir)) {
+        if (!mkdir($uploadsDir, 0777, true) && !is_dir($uploadsDir)) {
             error_log('Failed to create uploads directory: ' . $uploadsDir);
             echo "<script>alert('Server error creating upload directory.'); window.history.back();</script>";
             exit();
@@ -82,50 +84,39 @@ if (isset($_FILES['festival_image']) && $_FILES['festival_image']['error'] !== U
         exit();
     }
 
-    $uploadedImagePath = 'uploads/festival_images/' . $filename;
+    $uploadedImagePath = 'uploads/trek_images/' . $filename;
 }
 
 $data = [
     'title' => htmlspecialchars(trim($_POST['title'])),
+    'sub_title' => htmlspecialchars(trim($_POST['subtitle'])),
     'description' => htmlspecialchars(trim($_POST['description'])),
-    'category' => htmlspecialchars(trim($_POST['category'])),
-    'venue' => htmlspecialchars(trim($_POST['venue'])),
-    'image' => $uploadedImagePath,
-    'date' => htmlspecialchars(trim($_POST['date'])),
-    'status' => htmlspecialchars(trim($_POST['status'])),
+    'duration' => htmlspecialchars(trim($_POST['duration'])),
+    'image_path' => $uploadedImagePath,
+    'key_destinations' => htmlspecialchars(trim($_POST['destinations'])),
+    'experience' => htmlspecialchars(trim($_POST['exprience'])),
+    'theme' => htmlspecialchars(trim($_POST['theme'])),
+    'altitude' => htmlspecialchars(trim($_POST['altitude'] ?? '')),
 ];
 
-$dateInput = trim($_POST['date'] ?? ''); // Use null coalescing for safety
-
-if (empty($dateInput)) {
-    $data['date'] = NULL;
-} else {
-    $data['date'] = htmlspecialchars($dateInput);
-}
-
-$festival = new Festival();
+$treks = new Treks();
+error_log('Tour save data: ' . print_r($data, true));
 try {
-    $saveStatus = $festival->saveContent($data);
+    $saveStatus = $treks->saveContent($data);
 } catch (Throwable $e) {
     error_log('DB save error: ' . $e->getMessage());
     $saveStatus = false;
 }
 
 if ($saveStatus) {
-    echo "<script>
-            alert('Thank you! Your message has been sent successfully.');
-            window.location.href = '../../admin/view/festivals.php';
-          </script>";
+    $insertedId = method_exists($trek, 'getLastInsertId') ? $treks->getLastInsertId() : '';
+    if ($insertedId) {
+        header('Location: ../admin/tour_details.php?tour_id=' . urlencode($insertedId));
+    } else {
+        header('Location: ../admin/tour_details.php?success=1');
+    }
     exit();
 } else {
-    $errorMessage = "Something went wrong. ";
-    if (!$saveStatus) {
-        $errorMessage .= "Database save failed. ";
-    }
-
-    echo "<script>
-            alert('$errorMessage');
-            window.history.back();
-          </script>";
+    echo "<script>alert('There was an error saving your tour package. Please check server logs.'); window.history.back();</script>";
     exit();
 }

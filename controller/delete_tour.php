@@ -9,7 +9,6 @@ if ($id <= 0) {
 
 $tourCard = new TourCard();
 
-// Optionally fetch the tour first to unlink image file
 $tour = $tourCard->findTourById($id);
 if ($tour && !empty($tour['image_path'])) {
     $file = __DIR__ . '/../' . ltrim($tour['image_path'], '/');

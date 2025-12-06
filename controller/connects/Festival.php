@@ -19,4 +19,17 @@ class Festival extends BaseModel
     {
         return parent::findAll();
     }
+
+    public function updateFestival(int $id, array $data): bool
+    {
+        return parent::updateById($id, $data);
+    }
+    public function deleteFestival(int $id): bool
+    {
+        return parent::deleteById($id);
+    }
+    public function findFestivalById(int $id): ?array
+    {
+        return parent::findById($id);
+    }
 }
