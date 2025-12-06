@@ -34,9 +34,13 @@
         .accordion-button[aria-expanded="true"] + .accordion-panel { max-height: 1200px; padding: 12px; }
         .itinerary-day .day-header { display: flex; gap: 12px; align-items: center; }
         .itinerary-day .day-content p, .itinerary-day .day-content ul { margin: 8px 0; }
-
+        
         .similar-tours .container > h2 { margin-bottom: 20px; }
         .similar-tours .tours-grid { margin-top: 12px; }
+
+        /* ensure the middle title shrinks and the chevron stays at the far right */
+        .accordion-button .accordion-title { flex: 1 1 auto; min-width: 0; }
+        .accordion-button .chev { margin-left: auto; flex: 0 0 auto; }
     </style>
 </head>
 

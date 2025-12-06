@@ -29,7 +29,7 @@
     <?php require_once 'includes/templates/header.html.php'; ?>
 
     <!-- Page Hero -->
-    <section class="page-hero">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>About Happiness Horizon Travel</h1>
@@ -71,25 +71,25 @@
             </div>
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">🌏</div>
+                    <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
                     <h3>Authentic Experiences</h3>
                     <p>We create genuine connections between travelers and Bhutanese culture, ensuring every experience
                         reflects the true spirit of the Land of the Thunder Dragon.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">🌱</div>
+                    <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sprout-icon lucide-sprout"><path d="M14 9.536V7a4 4 0 0 1 4-4h1.5a.5.5 0 0 1 .5.5V5a4 4 0 0 1-4 4 4 4 0 0 0-4 4c0 2 1 3 1 5a5 5 0 0 1-1 3"/><path d="M4 9a5 5 0 0 1 8 4 5 5 0 0 1-8-4"/><path d="M5 21h14"/></svg></div>
                     <h3>Sustainability</h3>
                     <p>Our tours are designed with environmental responsibility in mind, supporting Bhutan's commitment
                         to carbon-negative tourism and preservation of natural beauty.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">🤝</div>
+                    <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-handshake-icon lucide-handshake"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
                     <h3>Community Well-being</h3>
                     <p>We partner with local communities, ensuring tourism benefits the people of Bhutan and supports
                         their traditional way of life.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">😊</div>
+                    <div class="value-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-smile-icon lucide-smile"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg></div>
                     <h3>Gross National Happiness</h3>
                     <p>Inspired by Bhutan's unique philosophy, we measure success by the happiness and fulfillment our
                         travelers experience.</p>

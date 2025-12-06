@@ -36,6 +36,10 @@
         .itinerary-day .day-content p, .itinerary-day .day-content ul { margin: 8px 0; }
         .similar-tours .container > h2 { margin-bottom: 20px; }
         .similar-tours .tours-grid { margin-top: 12px; }
+
+        /* ensure the middle title shrinks and the chevron stays at the far right */
+        .accordion-button .accordion-title { flex: 1 1 auto; min-width: 0; }
+        .accordion-button .chev { margin-left: auto; flex: 0 0 auto; }
     </style>
 </head>
 
@@ -325,25 +329,28 @@
                         </div>
                         <form class="quick-booking-form">
                             <div class="form-group">
-                                 <div class="form-group">
                                 <label>Full Name *</label>
-                                <input type="text" required>
+                                <input type="text" name="firstName" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
                             <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                            <div class="form-group">
                                 <label>Travel Date</label>
-                                <input type="date" required>
+                                <input type="date" name="travelDate" required>
                             </div>
                             <div class="form-group">
                                 <label>Number of Travelers</label>
-                                <input type="number" min="1" value="2" required>
+                                <input type="number" min="1" value="2" name="travelers" required>
                             </div>
                             <div class="form-group">
                                 <label>Accommodation</label>
-                                <select required>
+                                <select name="accomodation" required>
                                     <option value="">Select</option>
                                     <option value="3star">3-Star Hotel</option>
                                     <option value="4star">4-Star Hotel</option>

@@ -16,7 +16,7 @@
     <?php require_once 'includes/templates/header.html.php'; ?>
 
     <!-- Page Hero -->
-    <section class="page-hero contact-hero">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Get in Touch</h1>

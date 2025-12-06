@@ -80,7 +80,7 @@
 
     <!-- Page Hero -->
     <!-- Replace the hero image: edit the data-hero attribute on the section below (e.g. data-hero="public/your-image.jpg") -->
-    <section class="page-hero festivals-hero" data-hero="public/bg2.jpg">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="container">
@@ -97,11 +97,13 @@
     <script>
         (function() {
             try {
-                var hero = document.querySelector('.page-hero');
+                // target either the new .tour-detail-hero or legacy .page-hero
+                var hero = document.querySelector('.tour-detail-hero, .page-hero');
                 if (hero && hero.dataset && hero.dataset.hero) {
                     hero.style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('" + hero.dataset.hero + "')";
                     hero.style.backgroundSize = 'cover';
                     hero.style.backgroundPosition = 'center';
+                    hero.style.backgroundRepeat = 'no-repeat';
                 }
             } catch (e) {
                 // fail silently
@@ -185,6 +187,7 @@
                     </div>
                 </div>
             </div>
+            <a href="tours.html.php" class="btn btn-primary">View Festival Tours</a>
 
             <!-- Floating upcoming festivals anchor (bottom-right) -->
             <a href="#upcoming-festivals" class="upcoming-floating" aria-label="Jump to Upcoming Festivals">
