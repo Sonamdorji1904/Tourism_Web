@@ -130,7 +130,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <p>info@happinesshorizontravel.com</p>
+                                    <a href="mailto:info@happinesshorizontravel.com" class="contact-link">info@happinesshorizontravel.com</a>
                                 </div>
                             </div>
 
@@ -142,7 +142,7 @@
                                 </div>
                                 <div>
                                     <strong>Phone</strong>
-                                    <p>+975 16108570</p>
+                                    <a href="tel:+97516108570" class="contact-link">+975 16108570</a>
                                 </div>
                             </div>
 
@@ -154,7 +154,7 @@
                                 </div>
                                 <div>
                                     <strong>WhatsApp</strong>
-                                    <p>+975 16108570</p>
+                                    <a href="https://wa.me/+97516108570" class="contact-link">+975 16108570</a>
                                 </div>
                             </div>
 
@@ -186,7 +186,7 @@
                         <h4>Quick Response</h4>
                         <p>Need immediate assistance? Reach us through:</p>
                         <div class="quick-contact-buttons">
-                            <a href="#" class="quick-contact-btn whatsapp">
+                            <a href="https://wa.me/+97516108570" class="quick-contact-btn whatsapp">
                                 <span></span> WhatsApp
                             </a>
                             <a href="tel:+97516108570" class="quick-contact-btn phone">

@@ -30,7 +30,7 @@ echo <<<FOOTER_HTML
                     <div class="social-links">
                         <a href="https://www.facebook.com/share/1Cf6CmHeWk/?mibextid=wwXIfr" class="social-link">Facebook</a>
                         <a href="#" class="social-link">Instagram</a>
-                        <a href="#" class="social-link">WhatsApp</a>
+                        <a href="https://wa.me/+97516108570" class="social-link">WhatsApp</a>
                     </div>
                 </div>
             </div>

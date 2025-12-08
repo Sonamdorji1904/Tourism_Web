@@ -100,7 +100,7 @@
                 // target either the new .tour-detail-hero or legacy .page-hero
                 var hero = document.querySelector('.tour-detail-hero, .page-hero');
                 if (hero && hero.dataset && hero.dataset.hero) {
-                    hero.style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('" + hero.dataset.hero + "')";
+                    hero.style.backgroundImage = "linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('" + hero.dataset.hero + "')";
                     hero.style.backgroundSize = 'cover';
                     hero.style.backgroundPosition = 'center';
                     hero.style.backgroundRepeat = 'no-repeat';
@@ -186,7 +186,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div><br>
             <a href="tours.html.php" class="btn btn-primary">View Festival Tours</a>
 
             <!-- Floating upcoming festivals anchor (bottom-right) -->
@@ -218,6 +218,7 @@
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">For several days, the courtyard of Rinpung Dzong bursts to life with vibrant mask dances (cham) performed by monks and laymen in elaborate costumes, accompanied by traditional music, storytelling, and sacred rituals. The festival draws thousands of Bhutanese dressed in their finest attire, coming together to receive blessings and celebrate their rich cultural heritage.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">The festival’s highlight is the early-morning unfurling of the giant Thongdrel — a sacred religious scroll on the final day. Believed to cleanse sins and bestow blessings, this awe-inspiring appliqué thangka is a deeply moving sight for all present.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal">For visitors, the Paro Tshechu offers an immersive glimpse into Bhutan’s spiritual life, vibrant traditions, and festive community spirit — all set against the stunning backdrop of Bhutan’s iconic landscapes.</p>
+                        
                     </div>
                 </div>
 
@@ -235,6 +236,7 @@
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">The Thimphu Tshechu is one of Bhutan’s largest and most vibrant religious festivals, held annually in the capital city of Thimphu, usually during September or October. Rooted in centuries-old traditions, the festival honors the teachings of Guru Padmasambhava and serves as a spiritual and cultural highlight for both locals and visitors.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Hosted at the magnificent Tashichho Dzong, the Tshechu features three days of colorful mask dances (cham) performed by monks and laymen in elaborate costumes, along with folk songs, traditional music, and sacred rituals. Each performance carries deep religious symbolism and blessings for those who witness them.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">For Bhutanese, attending the Tshechu is a sacred act of merit; for travelers, it’s an unforgettable glimpse into Bhutan’s living heritage, vibrant spirituality, and national identity.</p>
+                        
                     </div>
                 </div>
 
@@ -252,6 +254,7 @@
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">The Black-necked Crane Festival is an annual bird-watching and cultural event held in the scenic Phobjikha Valley, Bhutan’s most important winter habitat for the endangered Black-necked Cranes. Organized to raise awareness on crane conservation and promote sustainable livelihoods, the festival strengthens the bond between nature and the local community.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Held every November, the festival features vibrant folk songs, traditional mask dances, crane-themed performances, and environmental-themed dramas by local school children.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Set at 3,000 meters above sea level, Phobjikha Valley is a pristine alpine wetland and home to over 300 Black-necked Cranes each winter. Surrounded by forests and subsistence farms, and overlooked by the revered Gangtey Monastery, the valley offers both natural beauty and spiritual significance, making it a key destination for nature lovers, birdwatchers, and cultural travelers alike.</p>
+                        
                     </div>
                 </div>
 
@@ -269,6 +272,7 @@
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Punakha Domchoe is one of Bhutan’s most captivating and culturally significant festivals, celebrated in the month of February or March. This spectacular event begins with fifteen days of sacred prayers and mesmerizing mask dances held inside the grand congregation hall (Dukhang) of the stunning Punakha Dzong, a historic fortress built by the revered Zhabdrung Ngawang Namgyal. Known locally as Goenwang Drubchen, the festival culminates in three thrilling days of martial performances by the traditional militia, called Pazaps.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">These colorful and dynamic reenactments commemorate a historic military victory in 1649, bringing Bhutan’s rich history vividly to life. The highlight of the festival is the symbolic ritual of casting a jewel into the Mochu River, a powerful tradition that honors the past and symbolizes good fortune.</p>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Punakha Domchoe offers an unforgettable opportunity to witness Bhutan’s living heritage in full bloom. Beyond the reenactment of battle, the festival’s songs and dances celebrate the founding of the Bhutanese state by Zhabdrung Rinpoche, making it a deeply meaningful cultural experience for all who attend.</p>
+                        
                     </div>
                 </div>
 
@@ -287,15 +291,18 @@
                         <div class="festival-highlights">
                             <h4>Highlights:</h4>
                             <ul>
-                                <li>Witness Bhutanese cultural performances, mask dances, and folk songs.</li>
-                                <li>Enjoy vibrant local fairs showcasing highland crafts, yak products, and authentic cuisine.</li>
-                                <li>Capture panoramic views of Mount Jomolhari (7,326 m) one of Bhutan’s most majestic peaks.</li>
-                                <li>Engage with highland communities, learning about their sustainable lifestyles and traditions.</li>
-                                <li>Celebrate Bhutan’s deep connection between people, wildlife, and sacred landscapes.</li>
-                                <li>Support community-based eco-tourism and snow leopard conservation efforts.</li>
-                                <li>Immerse yourself in the spirit of the Himalayas, where nature and culture flourish together.</li>
+                                <ul>
+                                    <li>Witness Bhutanese cultural performances, mask dances, and folk songs.</li>
+                                    <li>Enjoy vibrant local fairs showcasing highland crafts, yak products, and authentic cuisine.</li>
+                                    <li>Capture panoramic views of Mount Jomolhari (7,326 m) one of Bhutan’s most majestic peaks.</li>
+                                    <li>Engage with highland communities, learning about their sustainable lifestyles and traditions.</li>
+                                    <li>Celebrate Bhutan’s deep connection between people, wildlife, and sacred landscapes.</li>
+                                    <li>Support community-based eco-tourism and snow leopard conservation efforts.</li>
+                                    <li>Immerse yourself in the spirit of the Himalayas, where nature and culture flourish together.</li>
+                                </ul>
                             </ul>
                         </div>
+                        
 
                     </div>
                 </div>
@@ -312,7 +319,8 @@
                             <span class="festival-location text-xs md:text-sm text-gray-700">📍 Laya, Gasa</span>
                         </div>
                         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">The Royal Highland Festival is a vibrant celebration of the unique cultural heritage and enduring legacy of Bhutan’s highland communities. Set amidst the breathtaking Himalayan peaks in the pristine and remote village of Laya under Gasa Dzongkhag, the festival offers visitors a rare opportunity to experience the authentic highland way of life. This extraordinary event showcases the resilience, traditions, and beauty of highland culture, while also featuring the rich customs, crafts, and products from other highland regions including Wangduephodrang, Thimphu, Paro, Haa, Trongsa, Bumthang, Trashigang, Lhuentse, and Trashiyangtse.</p>
-                        <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Whether you're drawn by the stunning landscapes, the warm hospitality of the Layap people, or the deep cultural immersion, the Royal Highland Festival is a once-in-a-lifetime journey into the heart of Bhutan’s highlands.</p>
+                        <p class="text-sm md:text-base lg:text-lg leading-normal mb-3">Whether you're drawn by the stunning landscapes, the warm hospitality of the Layap people, or the deep cultural immersion, the Royal Highland Festival is a once-in-a-life time journey into the heart of Bhutan’s highlands.</p>
+                        
                     </div>
                 </div>
 
@@ -331,13 +339,16 @@
                         <div class="festival-highlights">
                             <h4>Highlights:</h4>
                             <ul>
-                                <li>Celebrate and Experience the spectacular seasonal bloom of rhododendrons alongside the colorful cultural expressions of the Brokpa people.</li>
-                                <li>Promote Eco-Tourism: Discover the pristine highland gewogs of Trashigang Dzongkhag, where ecological beauty meets authentic local hospitality.</li>
-                                <li>Foster pride in Brokpa language, traditions, and craftsmanship bringing communities and visitors together in cultural harmony.</li>
-                                <li>Support Local Livelihoods: Create sustainable economic opportunities through community-based tourism initiatives and local enterprises.</li>
-                                <li>Educate & Inspire: Raise awareness on biodiversity conservation, climate resilience, and responsible tourism practices.</li>
+                                <ul>
+                                    <li>Celebrate and Experience the spectacular seasonal bloom of rhododendrons alongside the colorful cultural expressions of the Brokpa people.</li>
+                                    <li>Promote Eco-Tourism: Discover the pristine highland gewogs of Trashigang Dzongkhag, where ecological beauty meets authentic local hospitality.</li>
+                                    <li>Foster pride in Brokpa language, traditions, and craftsmanship bringing communities and visitors together in cultural harmony.</li>
+                                    <li>Support Local Livelihoods: Create sustainable economic opportunities through community-based tourism initiatives and local enterprises.</li>
+                                    <li>Educate & Inspire: Raise awareness on biodiversity conservation, climate resilience, and responsible tourism practices.</li>
+                                </ul>
                             </ul>
                         </div>
+                        
                     </div>
                 </div>
             </div>

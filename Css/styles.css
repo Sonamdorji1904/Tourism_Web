@@ -26,6 +26,7 @@
   --radius-lg: 1rem;
   --navbar-height: 70px;
   /* height reserved for fixed navbar */
+  --hero-overlay-color: rgba(0, 0, 0, 0.25); /* change alpha to increase/decrease fade (0 = no overlay, 1 = opaque) */
 }
 
 body {
@@ -182,6 +183,13 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
+  background: var(--hero-overlay-color); /* use variable to control overlay opacity */
+  pointer-events: none;
+  transition: background .2s ease;
+}
+
+.hero.light-overlay .hero-overlay {
+  background: rgba(0,0,0,0.15);
 }
 
 .hero-content {
@@ -1671,6 +1679,28 @@ img {
 .festival-link * {
   text-decoration: none;
   color: inherit;
+}
+
+/* Phone link: remove underline and tap highlight */
+.phone-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS/Android */
+    -webkit-touch-callout: none; /* disable callout on iOS */
+}
+/* Phone link: remove underline and tap highlight */
+.contact-link {
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS/Android */
+    -webkit-touch-callout: none; /* disable callout on iOS */
+}
+
+.phone-link:focus,
+.phone-link:active {
+    outline: none;
+    box-shadow: none;
 }
 
 /* Responsive Design */
