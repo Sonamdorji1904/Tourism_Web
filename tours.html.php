@@ -56,8 +56,12 @@
                         </div>
 
                         <div class="tour-actions">
+                            <?php
+                            $tour = "Quick Bhutan Getaway";
+                            $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                            ?>
                             <a href="tour-detail.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
+                            <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -89,8 +93,12 @@
                         </div>
 
                         <div class="tour-actions">
+                            <?php
+                            $tour = "Taste of Happiness";
+                            $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                            ?>
                             <a href="tour2.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
+                            <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -122,8 +130,12 @@
                         </div>
 
                         <div class="tour-actions">
+                            <?php
+                            $tour = "The Living Heritage";
+                            $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                            ?>
                             <a href="tour3.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
+                            <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -155,8 +167,12 @@
                         </div>
 
                         <div class="tour-actions">
+                            <?php
+                            $tour = "Journey Through Culture";
+                            $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                            ?>
                             <a href="tour4.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
+                            <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -188,8 +204,12 @@
                         </div>
 
                         <div class="tour-actions">
+                            <?php
+                            $tour = "Best of Bhutan Tours";
+                            $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                            ?>
                             <a href="tour5.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
+                            <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -220,10 +240,13 @@
                         <div class="tour-destinations">
                             <strong>Destinations:</strong> Customizable based on preferences
                         </div>
-
                         <div class="tour-actions">
-                            <a href="tour6.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
+                            <?php
+                            $tour = "Honeymoon: Two Hearts, One Kingdom";
+                            $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                            ?>
+                            <a href="tour5.html.php" class="btn btn-primary">View Details</a>
+                            <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -267,7 +290,11 @@
             <div class="cta-content">
                 <h2>Can't Find the Perfect Tour?</h2>
                 <p>We specialize in creating custom itineraries tailored to your interests, budget, and travel duration.</p>
-                <a href="contact.html.php" class="btn btn-primary">Request Custom Tour</a>
+                <?php
+                $tour = "Custom Tour";
+                $encoded_tour = urlencode($tour); // Encodes spaces and special characters
+                ?>
+                <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-primary">Request Custom Tour</a>
             </div>
         </div>
     </section>

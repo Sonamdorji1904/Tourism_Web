@@ -1,13 +1,13 @@
 <?php
 require_once __DIR__ . '/../../model/BaseModel.php';
 
-class Contact extends BaseModel
+class Message extends BaseModel
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->table = "request_quotes";
+        $this->table = "messages";
     }
 
     public function saveMessage(array $data): bool

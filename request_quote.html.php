@@ -6,14 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Happiness Horizon Travel</title>
     <link rel="stylesheet" href="Css/styles.css">
+    <link rel="stylesheet" href="Css/countryDropdown.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
     <!-- Navigation -->
-    <?php require_once 'includes/templates/header.html.php'; ?>
+    <?php require_once 'includes/templates/header.html.php';
+    require_once __DIR__ . '/helper/StringHelper.php';
+    $stringHelper = new StringHelper();
+    ?>
+
 
     <!-- Page Hero -->
     <section class="tour-detail-hero" data-hero="public/bg2.jpg">
@@ -32,8 +38,12 @@
                 <div class="contact-form-section">
                     <h2>Send Us a Message</h2>
                     <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    <?php
+                    $tourTitle = isset($_GET['tour']) ? urldecode($_GET['tour']) : '';
 
-                    <?php include_once __DIR__ . '/includes/templates/form/contact_form.html.php'; ?>
+                    if ($tourTitle) include __DIR__ . '/includes/templates/form/request_quote_form.html.php';
+                    else include __DIR__ . '/includes/templates/form/option_request_quote_form.html.php';
+                    ?>
                 </div>
 
                 <!-- Contact Information -->
@@ -91,7 +101,7 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="contact-detail-item">
+                            <div class="contact-detail-item">
                                 <div class="contact-icon">🕐</div>
                                 <div>
                                     <strong>Office Hours</strong>
@@ -99,7 +109,7 @@
                                     <p>Saturday: 9:00 AM - 1:00 PM</p>
                                     <p>Sunday: Closed</p>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
 
@@ -166,7 +176,9 @@
     <?php require_once 'includes/templates/footer.html.php'; ?>
 
     <script>
-        <?php include 'Js/javascript.js'; ?>
+        <?php include 'Js/javascript.js';
+        include 'Js/filter_country.js';
+        ?>
     </script>
 </body>
 

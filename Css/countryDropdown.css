@@ -1,0 +1,19 @@
+.dropdown-list {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ddd;
+    max-height: 180px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 999;
+    display: none;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background: #f1f1f1;
+}
