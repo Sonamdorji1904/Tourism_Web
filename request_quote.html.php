@@ -61,7 +61,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <p>info@happinesshorizontravel.com</p>
+                                    <a href="mailto:info@happinesshorizontravel.com" class="contact-link">info@happinesshorizontravel.com</a>
                                 </div>
                             </div>
 
@@ -73,7 +73,7 @@
                                 </div>
                                 <div>
                                     <strong>Phone</strong>
-                                    <p>+975 16108570</p>
+                                    <a href="tel:+97516108570" class="contact-link">+975 16108570</a>
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@
                                 </div>
                                 <div>
                                     <strong>WhatsApp</strong>
-                                    <p>+975 16108570</p>
+                                    <a href="https://wa.me/97516108570" class="contact-link">+975 16108570</a>
                                 </div>
                             </div>
 
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
 
-                            <div class="contact-detail-item">
+                            <!-- <div class="contact-detail-item">
                                 <div class="contact-icon">🕐</div>
                                 <div>
                                     <strong>Office Hours</strong>
@@ -109,7 +109,7 @@
                                     <p>Saturday: 9:00 AM - 1:00 PM</p>
                                     <p>Sunday: Closed</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
 
