@@ -34,6 +34,7 @@
         <textarea id="message" name="message" rows="6" required placeholder="Tell us about your travel plans, interests, and any special requirements..."></textarea>
     </div>
 
+    <div class="g-recaptcha mb-20" data-sitekey="6LdY3CQsAAAAAFX0mYQwdDiDAuOzA9w-g_x_E_CR"></div>
 
     <button type="submit" class="btn btn-primary btn-full">Send Message</button>
 </form>
