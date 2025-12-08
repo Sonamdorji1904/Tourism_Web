@@ -111,9 +111,9 @@ try {
 if ($saveStatus) {
     $insertedId = method_exists($trek, 'getLastInsertId') ? $treks->getLastInsertId() : '';
     if ($insertedId) {
-        header('Location: ../admin/tour_details.php?tour_id=' . urlencode($insertedId));
+        header('Location: ../admin/trek_details.php?trek_id=' . urlencode($insertedId));
     } else {
-        header('Location: ../admin/tour_details.php?success=1');
+        header('Location: ../admin/trek_details.php?success=1');
     }
     exit();
 } else {

@@ -57,7 +57,7 @@
 
                         <div class="tour-actions">
                             <a href="tour-detail.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Book Now</a>
+                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
 
                         <div class="tour-actions">
                             <a href="tour2.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Book Now</a>
+                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -123,7 +123,7 @@
 
                         <div class="tour-actions">
                             <a href="tour3.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Book Now</a>
+                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
 
                         <div class="tour-actions">
                             <a href="tour4.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Book Now</a>
+                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,7 @@
 
                         <div class="tour-actions">
                             <a href="tour5.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Book Now</a>
+                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
@@ -223,7 +223,7 @@
 
                         <div class="tour-actions">
                             <a href="tour6.html.php" class="btn btn-primary">View Details</a>
-                            <a href="contact.html.php" class="btn btn-outline">Book Now</a>
+                            <a href="contact.html.php" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
                 </div>
