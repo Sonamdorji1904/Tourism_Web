@@ -18,11 +18,11 @@
             right: 3px;
             bottom: 30px;
             z-index: 9999;
-            background: linear-gradient(135deg,#1a4d2e 0%, #3a8f5a 100%);
+            background: linear-gradient(135deg, #1a4d2e 0%, #3a8f5a 100%);
             color: #fff;
             padding: 10px 14px;
             border-radius: 999px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
             display: inline-flex;
             align-items: center;
             gap: 10px;
@@ -35,7 +35,7 @@
 
         .upcoming-floating:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
         }
 
         .upcoming-floating .uf-dot {
@@ -43,7 +43,7 @@
             height: 10px;
             background: #fff;
             border-radius: 50%;
-            box-shadow: 0 0 0 6px rgba(255,255,255,0.04) inset;
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04) inset;
         }
 
         .upcoming-floating .uf-label {
@@ -362,7 +362,7 @@
             <p class="section-intro">Plan ahead — upcoming dates and quick links to festival pages.</p>
 
             <div class="upcoming-grid">
-                
+
             </div>
         </div>
     </section>
@@ -375,7 +375,7 @@
                 <p>Join us for specially curated tours timed with Bhutan's most spectacular festivals. Witness sacred dances, receive blessings, and immerse yourself in centuries-old traditions.</p>
                 <div class="cta-buttons">
                     <a href="tours.html.php" class="btn btn-primary">View Festival Tours</a>
-                    <a href="contact.html.php" class="btn btn-secondary">Plan Your Visit</a>
+                    <a href="request_quote.html.php" class="btn btn-secondary">Plan Your Visit</a>
                 </div>
             </div>
         </div>

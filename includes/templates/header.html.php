@@ -13,7 +13,7 @@ echo <<<HEADER_HTML
                     <li><a href="treks.html.php">Treks</a></li>
                     <li><a href="contact.html.php">Contact</a></li>
                     <li><a href="about.html.php">About Us</a></li>
-                    <li><a href="about.html.php">Request Quote</a></li>
+                    <li><a href="request_quote.html.php">Request Quote</a></li>
                 </ul>
                 <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             </div>
