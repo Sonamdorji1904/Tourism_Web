@@ -353,7 +353,7 @@
                     </div>
                 </div>
                 <div class="why-choose-image">
-                    <img src="public/Screenshot 2025-10-31 at 12.04.14 PM 1.png" alt="Bhutanese Guide">
+                    <img src="public/HH_Profile_3.png" alt="Bhutanese Guide">
                 </div>
             </div>
         </div>

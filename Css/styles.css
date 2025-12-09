@@ -26,7 +26,7 @@
   --radius-lg: 1rem;
   --navbar-height: 70px;
   /* height reserved for fixed navbar */
-  --hero-overlay-color: rgba(0, 0, 0, 0.25); /* change alpha to increase/decrease fade (0 = no overlay, 1 = opaque) */
+  --hero-overlay-color: rgba(0, 0, 0, 0.2); /* change alpha to increase/decrease fade (0 = no overlay, 1 = opaque) */
 }
 
 body {
@@ -67,7 +67,7 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(26, 77, 46, 0.95);
+  background-color: #1a4d2e;
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
@@ -1286,7 +1286,7 @@ img {
 /* Contact */
 .contact {
   padding: var(--spacing-xl) 0;
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
 }
 
@@ -1532,7 +1532,7 @@ img {
 /* CTA Section */
 .cta-section {
   padding: var(--spacing-xl) 0;
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
   text-align: center;
 }
@@ -1590,7 +1590,7 @@ img {
 
 /* Footer */
 .footer {
-  background-color: var(--primary-dark);
+  background-color: #216e40;
   color: var(--neutral-100);
   padding: var(--spacing-lg) 0 var(--spacing-md);
 }
@@ -1703,28 +1703,68 @@ img {
     box-shadow: none;
 }
 
+/* Mobile Menu Button - Always clickable */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--neutral-100);
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1500; /* Very high to ensure it's always on top */
+  padding: 0.5rem;
+  margin-left: auto; /* Pushes button to the right */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: block;
   }
 
+  /* Hide desktop nav, show mobile menu when active */
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: fixed; /* Changed from absolute */
+    top: var(--navbar-height); /* Start below navbar */
+    right: 0; /* Align to right edge */
+    left: auto; /* Override any left positioning */
     background-color: var(--primary);
     flex-direction: column;
-    padding: var(--spacing-sm);
+    padding: 1rem;
     gap: var(--spacing-sm);
-    display: none;
+    display: none; /* Hidden by default */
+    min-width: 220px;
+    max-width: 280px;
+    border-radius: 8px 0 0 8px; /* Only round left corners */
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    z-index: 1400; /* Below button but above content */
   }
 
+  /* Show menu when active */
   .nav-links.active {
     display: flex;
   }
 
+  /* Make sure links are clickable and styled nicely */
+  .nav-links li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: var(--radius);
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Rest of your responsive styles */
   .hero-title {
     font-size: 2.5rem;
   }
@@ -1763,34 +1803,6 @@ img {
   .contact-info h2 {
     font-size: 2rem;
   }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .about-features,
-  .tours-grid,
-  .destinations-grid,
-  .festivals-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
-
 }
 
 /* Status Messages */

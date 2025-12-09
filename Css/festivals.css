@@ -327,7 +327,7 @@
 /* Festival Tours CTA */
 .festival-tours-cta {
   padding: var(--spacing-xl) 0;
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
   text-align: center;
 }
@@ -406,7 +406,7 @@
 }
 
 .cta-box {
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
   padding: var(--spacing-lg);
   border-radius: var(--radius-lg);

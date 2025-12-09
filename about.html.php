@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div class="cert-image">
-                    <img src="public/bhutan-guide-traditional-dress-mountains.jpg" alt="Certified Guide">
+                    <img src="public/HH_Profile_3.png" alt="Certified Guide">
                 </div>
             </div>
         </div>
