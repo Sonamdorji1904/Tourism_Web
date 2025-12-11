@@ -56,7 +56,7 @@ if ($travelers <= 0) {
       </script>";
 }
 
-$requiredFields = ["firstName", "email", "country", "travelDate"];
+$requiredFields = ["firstName", "email", "country", "travelDate",];
 
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
@@ -78,6 +78,7 @@ $data = [
     "phone"        => htmlspecialchars(trim($_POST["phone"] ?? "")),
     "country"      => htmlspecialchars(trim($_POST["country"] ?? "")),
     "tour"         => htmlspecialchars(trim($_POST["tour"] ?? "")),
+    "duration"     => intval($_POST["duration"] ?? 0),
     "travelers_male"    => intval($_POST["travelers_male"] ?? 0),
     "travelers_female"  => intval($_POST["travelers_female"] ?? 0),
     "travelers_minor"   => intval($_POST["travelers_minor"] ?? 0),
@@ -99,6 +100,7 @@ Email: {$data['email']}
 Phone: {$data['phone']}
 Country: {$data['country']}
 Tour Package: {$data['tour']}
+Duration: {$data['duration']} days
 Number of Male Travelers: {$data['travelers_male']}
 Number of Female: {$data['travelers_female']}
 Number of Minor Travelers: {$data['travelers_minor']}

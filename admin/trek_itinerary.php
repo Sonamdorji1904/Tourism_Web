@@ -35,7 +35,7 @@
                 <br>URL should include: <code>?trek_id=X</code>
             </div>
         <?php endif; ?>
-        <form method="POST" enctype="multipart/form-data" action="../controller/add_trek_itinerary.php">
+        <form method="POST" enctype="multipart/form-data" action="../controller/add_trek_itineraries.php">
             <input type="hidden" id="trek-id-reference" name="trek_id" value="<?php echo $trekId ? htmlspecialchars($trekId) : ''; ?>" />
 
             <div id="itinerary-sections-container">
@@ -47,12 +47,12 @@
             </div>
 
             <button type="button" id="add-itinerary-btn" class="btn">Add Itinerary Day</button>
-            <button type="submit" class="btn">Upload Trek Data</button>
+            <button type="submit" class="btn">Upload Itineraries</button>
         </form>
     </div>
 
     <script>
-        <?php include '../Js/add_Itinerary_form.js'; ?>
+        <?php include '../Js/add_trek_itinerary_form.js'; ?>
     </script>
 </body>
 

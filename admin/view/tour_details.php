@@ -10,75 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Accordion styles for itinerary -->
-    <style>
-        .accordion {
-            margin-top: 16px;
-        }
-
-        .accordion-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .accordion-button {
-            width: 100%;
-            background: transparent;
-            border: 0;
-            padding: 18px 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            text-align: left;
-            font-weight: 600;
-            font-size: 16px;
-            gap: 12px;
-        }
-
-        .accordion-button:focus {
-            outline: 2px solid #7fbf7a;
-            outline-offset: 2px;
-        }
-
-        .accordion-button .day-number {
-            background: #e9f4ea;
-            color: #1a4d2e;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-weight: 700;
-        }
-
-        .accordion-panel {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height .28s ease, padding .2s ease;
-            padding: 0 12px;
-        }
-
-        .accordion-button[aria-expanded="true"]+.accordion-panel {
-            max-height: 1200px;
-            padding: 12px;
-        }
-
-        .itinerary-day .day-header {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .itinerary-day .day-content p,
-        .itinerary-day .day-content ul {
-            margin: 8px 0;
-        }
-
-        .similar-tours .container>h2 {
-            margin-bottom: 20px;
-        }
-
-        .similar-tours .tours-grid {
-            margin-top: 12px;
-        }
-    </style>
+    <link rel="stylesheet" href="../../Css/tour.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -86,7 +19,7 @@
     <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
-    require_once __DIR__ . '/../get_tour_details.php';
+    require_once __DIR__ . '/get_tour_details.php';
     require_once __DIR__ . '/../../controller/connects/TourCard.php';
     ?>
 
@@ -142,7 +75,6 @@
                                 $tour_id = $tourItineraries[$i]['tour_id'] ?? '';
                                 $dayNumber = $tourItineraries[$i]['day_number'] ?? '';
                                 $accordionTitle = $tourItineraries[$i]['title'] ?? '';
-
                                 $description = $tourItineraries[$i]['description'] ?? '';
                                 $activities = $tourItineraries[$i]['activities'] ?? '';
                                 $meals = $tourItineraries[$i]['meals'] ?? '';
@@ -203,90 +135,8 @@
                 <!-- Sidebar -->
                 <div class="tour-sidebar">
                     <div class="booking-card">
-                        <h3>Book This Tour</h3>
-                        <div class="price-info">
-                            <p class="price-note">Price varies based on group size and accommodation choice</p>
-                        </div>
-                        <form class="quick-booking-form" action="./controller/submit_contact.php" method="post">
-                            <div class="form-group">
-                                <label>Full Name *</label>
-                                <input type="text" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="country">Country *</label>
-                                <input type="country" id="country" name="country" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Travel Date</label>
-                                <input type="date" name="travelDate" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Number of Travelers</label>
-                                <input type="number" min="1" value="2" name="travelers" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Accommodation</label>
-                                <select name="accomodation" required>
-                                    <option value="">Select</option>
-                                    <option value="3star">3-Star Hotel</option>
-                                    <option value="4star">4-Star Hotel</option>
-                                    <option value="5star">5-Star Hotel</option>
-                                    <option value="boutique">Boutique Property</option>
-                                    <option value="homestay">Homestay</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="meal">Meal Types</label>
-                                <select id="meal" name="meal">
-                                    <option value="">Select a meal type (optional)</option>
-                                    <option value="EP">European Plan (EP)</option>
-                                    <option value="CP">Continental Plan (CP)</option>
-                                    <option value="BP">Bermuda Plan (BP)</option>
-                                    <option value="MAP">Modified American Plan (MAP)</option>
-                                    <option value="AP">American Plan (AP)</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
-                        </form>
-                        <div class="contact-options">
-                            <p>Or contact us directly:</p>
-                            <a href="tel:+97516108570" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true">
-                                    <path d="M6.62 10.79a15.054 15.054 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1v3.5a1 1 0 01-1 1C10.29 21.5 2.5 13.71 2.5 3.5A1 1 0 013.5 2.5H7a1 1 0 011 1c0 1.24.2 2.45.57 3.57a1 1 0 01-.24 1.01l-2.2 2.2z" />
-                                </svg>+975 16108570</a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true">
-                                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z" />
-                                </svg>Email Us</a>
-                            <a href="#" class="contact-link"><svg class="icon-svg" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" style="vertical-align:middle;margin-right:8px;fill:currentColor" aria-hidden="true">
-                                    <path d="M20.5 3.5A11.94 11.94 0 0012 0C5.372 0 .001 5.373.001 12A11.94 11.94 0 004.5 20.5L3 24l3.6-1.3A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-1.86-.38-3.63-1.1-5.2zM16.2 14c-.3.8-1.7 1.5-2.4 1.6-.6.1-1.2.1-2.9-.9-2.5-1.5-4-4.2-4.4-4.7-.4-.5-.1-.8.3-1.1.2-.2.5-.3.8-.1.2.1.6.3.9.6.3.3.4.5.6.9.2.4.1.7-.1 1-.2.2-.4.5-.4.8 0 .3.8 1.6 1.9 2.6 1.3 1.2 2.6 1.7 3.1 1.8.5.1 1 .1 1.4-.1.5-.2 1.4-.8 1.7-1.5.3-.6.3-1.1.2-1.2-.1-.2-.7-.3-1.7-.8-.9-.4-1.6-.8-1.9-1.1-.3-.3-.2-.5.1-.8.3-.3.8-.8 1.1-1.1.3-.3.6-.4.8-.3.2.1.6.2 1.1.6.4.3 1 .9 1.2 1.1.2.3.2.8-.1 1.6z" />
-                                </svg>WhatsApp</a>
-                        </div>
-                    </div>
-
-                    <div class="tour-info-card">
-                        <h4>Tour Information</h4>
-                        <div class="info-item">
-                            <strong>Duration:</strong>
-                            <span>6 Days / 5 Nights</span>
-                        </div>
-
-                        <div class="info-item">
-                            <strong>Group Size:</strong>
-                            <span>2-15 people</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Best Season:</strong>
-                            <span>Mar-May, Sep-Nov</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Destinations:</strong>
-                            <span>Thimphu, Punakha, Paro and Gangtey & Phobjikha in Wangduephodrang</span>
-                        </div>
+                        <?php $duration = $duration ?? 0;
+                        include __DIR__ . '/../../includes/templates/form/tourDetailsRequestQuote.html.php'; ?>
                     </div>
 
                     <div class="share-card">
@@ -304,6 +154,7 @@
 
     <!-- Similar Tours -->
     <section class="similar-tours">
+
         <div class="container">
             <h2>You May Also Like</h2>
             <div class="tours-grid">
@@ -336,7 +187,8 @@
     <?php include __DIR__ . '/../../includes/templates/footer.html.php'; ?>
 
     <script>
-        <?php include __DIR__ . '/../../Js/javascript.js'; ?>
+        <?php include __DIR__ . '/../../Js/javascript.js';
+        include __DIR__ . '/../../Js/filter_country.js'; ?>
     </script>
 
     <!-- Accordion script -->

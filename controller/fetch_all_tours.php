@@ -8,7 +8,6 @@ try {
     $response = [
         'success' => true,
         'data' => $tours ?? [],
-        'total' => $totalCount
     ];
 } catch (Throwable $e) {
     error_log('Error fetching tours: ' . $e->getMessage());

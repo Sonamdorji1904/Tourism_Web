@@ -1,0 +1,76 @@
+.accordion {
+    margin-top: 16px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.accordion-button {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 18px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 600;
+    font-size: 16px;
+    gap: 12px;
+}
+
+.accordion-button:focus {
+    outline: 2px solid #7fbf7a;
+    outline-offset: 2px;
+}
+
+.accordion-button .day-number {
+    background: #e9f4ea;
+    color: #1a4d2e;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.accordion-panel {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .28s ease, padding .2s ease;
+    padding: 0 12px;
+}
+
+.accordion-button[aria-expanded="true"]+.accordion-panel {
+    max-height: 1200px;
+    padding: 12px;
+}
+
+.itinerary-day .day-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.itinerary-day .day-content p,
+.itinerary-day .day-content ul {
+    margin: 8px 0;
+}
+
+.similar-tours .container>h2 {
+    margin-bottom: 20px;
+}
+
+.similar-tours .tours-grid {
+    margin-top: 12px;
+}
+
+.accordion-button .accordion-title {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.accordion-button .chev {
+    margin-left: auto;
+    flex: 0 0 auto;
+}

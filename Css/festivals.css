@@ -6,9 +6,11 @@
   justify-content: center;
   text-align: center;
   color: #fff;
-  min-height: 60vh; /* large visible hero */
+  min-height: 60vh;
+  /* large visible hero */
   padding: 4rem 1rem;
-  margin-top: 70px; /* ensure hero sits below fixed navbar, matching index.html.php */
+  margin-top: 70px;
+  /* ensure hero sits below fixed navbar, matching index.html.php */
   /* background image + gentle gradient overlay for better contrast */
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
     url("public/bg.jpg");
@@ -16,6 +18,7 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
 /* 
 .page-hero .hero-overlay {
   position: absolute;
@@ -186,31 +189,38 @@
 /* Festival card: fixed-width left image with content on the right */
 .festivals-grid-detailed {
   display: grid;
-  gap: 32px; /* slightly larger gap between cards */
+  gap: 32px;
+  /* slightly larger gap between cards */
 }
 
 .festival-card-detailed {
   display: flex;
   gap: 24px;
-  align-items: stretch; /* ensure left image and content both stretch to card height */
+  align-items: stretch;
+  /* ensure left image and content both stretch to card height */
   background: var(--card-bg, #fff);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  height: 455px; /* fixed uniform height for all cards on desktop */
+  height: 455px;
+  /* fixed uniform height for all cards on desktop */
 }
 
 .festival-image {
-  flex: 0 0 300px; /* fixed left column width */
-  height: auto; /* allow flex stretch to control height */
-  align-self: stretch; /* stretch to match card height */
+  flex: 0 0 300px;
+  /* fixed left column width */
+  height: auto;
+  /* allow flex stretch to control height */
+  align-self: stretch;
+  /* stretch to match card height */
   position: relative;
   overflow: hidden;
 }
 
 .festival-image img {
   width: 100%;
-  min-height: 100%; /* ensure image always fills the container height */
+  min-height: 100%;
+  /* ensure image always fills the container height */
   object-fit: cover;
   object-position: center center;
   display: block;
@@ -220,7 +230,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background:  rgba(200, 90, 62, 0.95);
+  background: rgba(200, 90, 62, 0.95);
   color: #fff;
   padding: 6px 10px;
   border-radius: 6px;
@@ -229,18 +239,21 @@
 
 .festival-content {
   flex: 1 1 auto;
-  padding: 22px 24px; /* a bit more breathing room */
-  overflow: auto; /* allow scrolling when content exceeds fixed height */
+  padding: 22px 24px;
+  /* a bit more breathing room */
+  overflow: auto;
+  /* allow scrolling when content exceeds fixed height */
   max-height: 100%;
   box-sizing: border-box;
   ;
 }
 
 /* Consistent vertical rhythm inside content */
-.festival-content > * {
+.festival-content>* {
   margin-bottom: 12px;
 }
-.festival-content > *:last-child {
+
+.festival-content>*:last-child {
   margin-bottom: 0;
 }
 
@@ -258,7 +271,8 @@
 
 .festival-content p {
   margin-bottom: 12px;
-  line-height: 1.75; /* improve readability */
+  line-height: 1.75;
+  /* improve readability */
 }
 
 .festival-content ul,
@@ -284,10 +298,12 @@
     flex-direction: column;
     height: auto;
   }
+
   .festival-image {
     width: 100%;
     height: 250px;
   }
+
   .festival-content {
     max-height: none;
     overflow: visible;
@@ -310,7 +326,8 @@
 
 /* Expanded card state */
 .festival-card-detailed.expanded {
-  height: 640px; /* double the default height when expanded */
+  height: 640px;
+  /* double the default height when expanded */
 }
 
 .festival-card-detailed.expanded .festival-content {
@@ -320,7 +337,8 @@
 
 @media (max-width: 800px) {
   .festival-card-detailed.expanded {
-    height: auto; /* on mobile expanded just shows full content */
+    height: auto;
+    /* on mobile expanded just shows full content */
   }
 }
 
@@ -428,23 +446,24 @@
 
 /* admin festival */
 .festival-list-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
 .festival-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .festival-image img {
-    width: 100%;
-    height: 200px; /* Fixed height for consistency */
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  /* Fixed height for consistency */
+  object-fit: cover;
 }
 
 /* Responsive Design */

@@ -2,7 +2,7 @@
 require_once "./connects/TrekDetails.php";
 
 // === 1. Validate Required Fields ===
-$requiredFields = ["trek_id", "over_view", "best_time", "trek_highlights"];
+$requiredFields = ["trek_id", "over_view", "best_time"];
 
 foreach ($requiredFields as $field) {
     if (empty($_POST[$field])) {
@@ -19,7 +19,6 @@ $data = [
     "trek_id"      => htmlspecialchars(trim($_POST["trek_id"])),
     "best_time"  => htmlspecialchars(trim($_POST["best_time"])),
     "over_view"    => htmlspecialchars(trim($_POST["over_view"])),
-    "trek_highlights" => htmlspecialchars(trim($_POST["trek_highlights"])),
 ];
 
 $trekDetails = new TrekDetails();

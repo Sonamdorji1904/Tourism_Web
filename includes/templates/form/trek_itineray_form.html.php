@@ -9,9 +9,8 @@ error_log("Itinerary form template - Day: {$dayNumber}, TourId: {$trekId}");
         <h2>Day <?php echo $dayNumber; ?></h2>
     </div>
 
-    <!-- Hidden tour_id (only needed once in first day, but controller uses single value anyway) -->
     <?php if ($dayNumber === 1 && !empty($trekId)): ?>
-        <input type="hidden" name="tour_id" value="<?php echo htmlspecialchars($trekId); ?>" />
+        <input type="hidden" name="trek_id" value="<?php echo htmlspecialchars($trekId); ?>" />
     <?php endif; ?>
 
     <div class="form-group">
@@ -24,14 +23,6 @@ error_log("Itinerary form template - Day: {$dayNumber}, TourId: {$trekId}");
         <label for="day_<?php echo $dayNumber; ?>_description">Day Summary / Description:</label>
         <textarea id="day_<?php echo $dayNumber; ?>_description" name="day_descriptions[]" required
             placeholder="Add detailed description of the day's activities and experiences"><?php echo isset($day_description) ? htmlspecialchars($day_description) : ''; ?></textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="day_<?php echo $dayNumber; ?>_activities">Activities (Bullet Points):</label>
-        <textarea id="day_<?php echo $dayNumber; ?>_activities" name="day_activities[]" required
-            placeholder="Visit National Memorial Chorten.(/) 
-Explore Kaja Throm (Farmers' Market)"><?php echo isset($day_activities) ? htmlspecialchars($day_activities) : ''; ?></textarea>
-        <small class="form-text">Enter each activities in new line. They will be displayed as bullet points</small>
     </div>
 
     <div class="form-group">

@@ -8,9 +8,9 @@ $highlightPoints = [];
 $tourItineraries = [];
 $tourId = isset($_GET['id']) ? intval($_GET['id']) : null;
 if ($tourId) {
-    require_once __DIR__ . '/../controller/connects/TourCard.php';
-    require_once __DIR__ . '/../controller/connects/TourDetails.php';
-    require_once __DIR__ . '/../controller/connects/Itinerary.php';
+    require_once __DIR__ . '/../../controller/connects/TourCard.php';
+    require_once __DIR__ . '/../../controller/connects/TourDetails.php';
+    require_once __DIR__ . '/../../controller/connects/Itinerary.php';
 
     try {
         $tourCardModel = new TourCard();
@@ -34,4 +34,4 @@ if ($tourId) {
         error_log('Could not load tour title for id ' . $tourId . ': ' . $e->getMessage());
     }
 }
-include_once __DIR__ . '/view/tour_details.php';
+include_once __DIR__ . '/tour_details.php';

@@ -13,7 +13,7 @@ $stringHelper = new StringHelper();
                 $src = '../../' . ltrim($src, '/');
             }
             $srcEsc = htmlspecialchars($src);
-            $altText = htmlspecialchars($title ?? 'Tour Image');
+            $altText = htmlspecialchars($title ?? 'Trek Image');
             ?>
             <img src="<?php echo $srcEsc; ?>" alt="<?php echo $altText; ?>">
             <div class="tour-badge"><?php echo (int)$stringHelper->safeDisplay($day_number) ?> Days</div>
@@ -42,7 +42,7 @@ $stringHelper = new StringHelper();
             <div class="tour-actions">
                 <a href="../../admin/update_tour.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-primary">Update tour</a>
                 <a href="../../controller/delete_tour.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this tour?');">Delete tour</a>
-                <a href="../../admin/get_tour_details.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-outline">Read more</a>
+                <a href="get_tour_details.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-outline">Read more</a>
             </div>
         </div>
     </div>

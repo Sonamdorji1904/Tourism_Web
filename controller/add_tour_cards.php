@@ -109,7 +109,6 @@ try {
     error_log('DB save error: ' . $e->getMessage());
     $saveStatus = false;
 }
-
 if ($saveStatus) {
     $insertedId = method_exists($tourCard, 'getLastInsertId') ? $tourCard->getLastInsertId() : '';
     if ($insertedId) {

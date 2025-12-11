@@ -16,10 +16,11 @@
     <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
 
     <?php require '../../controller/fetch_all_tours.php'; ?>
-
     <!-- Tours Grid -->
     <section class="tours-listing">
-
+        <div class="container">
+            <a href="../add_tour.php" class="btn btn-outline ">Add Tour</a>
+        </div>
         <!-- Tours -->
         <?php
         foreach ($tours as $tour):
@@ -27,6 +28,7 @@
             $title = $tour['title'] ?? '';
             $sub_title = $tour['sub_title'] ?? '';
             $description = $tour['description'] ?? '';
+            $duration = $tour['duration'] ?? '';
             $imageFilePath = $tour['image_path'] ?? '';
             $day_number = $tour['duration'] ?? '';
             $destinations = $tour['key_destinations'] ?? '';

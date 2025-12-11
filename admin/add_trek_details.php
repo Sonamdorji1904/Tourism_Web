@@ -17,7 +17,7 @@
             $trekId = isset($_GET['trek_id']) ? intval($_GET['trek_id']) : null;
             $trekTitle = '';
             if ($trekId) {
-                require_once __DIR__ . '/../controller/connects/TrekCard.php';
+                require_once __DIR__ . '/../controller/connects/Treks.php';
                 try {
                     $trekCardModel = new Treks();
                     $row = $trekCardModel->findTrekById($trekId);
@@ -38,23 +38,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="best_time">Best Time to Visit.:</label>
+                    <label for="best_time">Best Time to Visit:</label>
                     <input type="text" id="best_time" name="best_time" required
                         placeholder="e.g., Aprial to June and September to November">
                 </div>
 
                 <div class="form-group">
-                    <label for="over_view">Trek Overview:</label>
+                    <label for="over_view">Trek summery:</label>
                     <textarea id="over_view" name="over_view" required
                         placeholder="Please enter trek overview"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="trek_highlights">Trek Highlights (Bullet Points):</label>
-                    <textarea id="trek_highlights" name="trek_highlights" required
-                        placeholder="Explore the scenic and culturally rich Paro Valley(/)
-Enjoy a guided tour of Punakha, the ancient capitals"></textarea>
-                    <small class="form-text">Enter each highlight point seprate by back slash (/). They will be displayed as bullet points</small>
                 </div>
                 <button type="submit" class="btn">Upload Section</button>
             </form>

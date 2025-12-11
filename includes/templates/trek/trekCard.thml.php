@@ -13,7 +13,7 @@ $stringHelper = new StringHelper();
                 $src = '../../' . ltrim($src, '/');
             }
             $srcEsc = htmlspecialchars($src);
-            $altText = htmlspecialchars($title ?? 'Tour Image');
+            $altText = htmlspecialchars($title ?? 'Trek Image');
             ?>
             <img src="<?php echo $srcEsc; ?>" alt="<?php echo $altText; ?>">
             <div class="tour-badge"><?php echo (int)$stringHelper->safeDisplay($day_number) ?> Days</div>
@@ -27,7 +27,7 @@ $stringHelper = new StringHelper();
             <p class="tour-description"><?php echo $stringHelper->safeDisplay($description) ?></p>
 
             <div class="tour-highlights-extended">
-                <h4>Tour Highlights</h4>
+                <h4>Trek Highlights</h4>
                 <ul>
                     <li>Altitude : <?php echo $stringHelper->safeDisplay($altitude) ?></li>
                     <li>Signature_experience : <?php echo $stringHelper->safeDisplay($experience) ?></li>

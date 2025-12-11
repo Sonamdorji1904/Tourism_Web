@@ -13,7 +13,7 @@
     <div class="upload-form">
         <h2>Upload New Trek Package</h2>
 
-        <form method="POST" enctype="multipart/form-data" action="../controller/add_trek_card.php">
+        <form method="POST" enctype="multipart/form-data" action="../controller/add_trek_cards.php">
             <div class="form-group">
                 <label for="title">Trek Title:</label>
                 <input type="text" id="title" name="title" required>
@@ -35,8 +35,8 @@
             </div>
 
             <div class="form-group">
-                <label for="tour_image">Trek Image:</label>
-                <input type="file" id="tour_image" name="tour_image" accept="image/*" required>
+                <label for="trek_image">Trek Image:</label>
+                <input type="file" id="trek_image" name="trek_image" required>
             </div>
 
             <div class="form-group">

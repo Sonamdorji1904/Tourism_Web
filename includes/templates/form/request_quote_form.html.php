@@ -34,6 +34,11 @@
         <input type="text" value="<?php echo $stringHelper->safeDisplay($tourTitle) ?>" id="tour" name="tour" readonly>
     </div>
 
+    <div class="form-group">
+        <label for="tour">Duration</label>
+        <input type="number" value="<?php echo $stringHelper->safeDisplay($duration) ?>" id="duration" name="duration" readonly>
+    </div>
+
     <div class="form-row">
         <div class="form-group">
             <label for="travelers_male">Number of Male Travelers</label>
@@ -85,7 +90,9 @@
         <label for="message">Your Message *</label>
         <textarea id="message" name="message" rows="6" required placeholder="Tell us about your travel plans, interests, and any special requirements..."></textarea>
     </div>
-    <div class="g-recaptcha mb-20" data-sitekey="6LdY3CQsAAAAAFX0mYQwdDiDAuOzA9w-g_x_E_CR"></div>
+    <div class="form-group">
+        <div class="g-recaptcha mb-20" data-sitekey="6LdY3CQsAAAAAFX0mYQwdDiDAuOzA9w-g_x_E_CR"></div>
+    </div>
 
     <button type="submit" class="btn btn-primary btn-full">Request quote</button>
 </form>

@@ -17,9 +17,11 @@
 
     <?php require '../../controller/fetch_treks.php'; ?>
 
-    <!-- Treks Grid -->
     <section class="tours-listing">
-
+        <div class="container">
+            <a href="../add_trek.php" class="btn btn-outline ">Add Trek</a>
+        </div>
+        <!-- Treks Grid -->
         <!-- Treks -->
         <?php
         foreach ($treks as $trek):
@@ -33,7 +35,7 @@
             $experience = $trek['experience'] ?? '';
             $theme = $trek['theme'] ?? '';
             $altitude = $trek['altitude'] ?? '';
-            include '../../includes/templates/trek/trekCard.html.php';
+            include __DIR__ . '/../../includes/templates/trek/trekCard.thml.php';
         endforeach;
         ?>
     </section>

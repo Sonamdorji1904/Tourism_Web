@@ -395,55 +395,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="people">Number of People</label>
-                            <input type="tel" id="people" name="people" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="days">Number of Days</label>
-                            <input type="tel" id="days" name="days" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="tour">Interested Tour</label>
-                            <select id="tour" name="tour">
-                                <option value="">Select a tour</option>
-                                <option value="5-day">Quick Bhutan Getaway (5 Days)</option>
-                                <option value="6-day">Taste of Happiness (6 Days)</option>
-                                <option value="7-day">The Living Heritage (7 Days)</option>
-                                <option value="8-day">Journey Through Culture (8 Days)</option>
-                                <option value="9-day">Best of Bhutan (9 Days)</option>
-                                <option value="honeymoon">Honeymoon Package</option>
-                                <option value="custom">Custom Tour</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="meal">Meal Types</label>
-                            <select id="meal" name="meal">
-                                <option value="">Select a meal type (optional)</option>
-                                <option value="EP">European Plan (EP)</option>
-                                <option value="CP">Continental Plan (CP)</option>
-                                <option value="BP">Bermuda Plan (BP)</option>
-                                <option value="MAP">Modified American Plan (MAP)</option>
-                                <option value="AP">American Plan (AP)</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" name="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
-                    </form>
+                    <?php include __DIR__ . '/includes/templates/form/option_request_quote_form.html.php'; ?>
                 </div>
             </div>
         </div>
