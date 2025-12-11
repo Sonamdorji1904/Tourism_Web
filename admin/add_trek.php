@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Tour Package</title>
+    <title>Upload Trek Package</title>
     <link rel="stylesheet" href="../Css/tourcard.css">
 </head>
 
 <body>
-    <div class="upload-form">
-        <h2>Upload New Tour Package</h2>
 
-        <form method="POST" enctype="multipart/form-data" action="../controller/add_tour_cards.php">
+    <div class="upload-form">
+        <h2>Upload New Trek Package</h2>
+
+        <form method="POST" enctype="multipart/form-data" action="../controller/add_trek_card.php">
             <div class="form-group">
-                <label for="title">Tour Title:</label>
+                <label for="title">Trek Title:</label>
                 <input type="text" id="title" name="title" required>
             </div>
 
             <div class="form-group">
-                <label for="subtitle">Tour Subtitle:</label>
+                <label for="subtitle">Trek Subtitle:</label>
                 <input type="text" id="subtitle" name="subtitle" required>
             </div>
 
@@ -34,13 +35,13 @@
             </div>
 
             <div class="form-group">
-                <label for="tour_image">Tour Image:</label>
+                <label for="tour_image">Trek Image:</label>
                 <input type="file" id="tour_image" name="tour_image" accept="image/*" required>
             </div>
 
             <div class="form-group">
-                <label>Key Destinations / Cities (add multiple separated by commas):</label>
-                <input type="text" id="destinations" name="destinations" placeholder="e.g., Thimphu, paro, punakha">
+                <label>Altitude (.ft above sea leavel):</label>
+                <input type="text" id="altitude" name="altitude" placeholder="e.g., 5000 ft">
             </div>
             <div class="form-group">
                 <label>Signature Activity / Experience </label>
@@ -61,7 +62,12 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn">Upload Tour Package</button>
+            <div class="form-group">
+                <label>Key Destination </label>
+                <input type="text" id="destinations" name="destinations" placeholder="e.g., Tiger's Nest hike, Phobjika valley trek">
+            </div>
+
+            <button type="submit" class="btn">Upload Trek Package</button>
         </form>
     </div>
 </body>

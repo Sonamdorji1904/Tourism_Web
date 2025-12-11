@@ -1,0 +1,120 @@
+<?php
+require "../vendor/autoload.php";
+require_once __DIR__ . "/connects/Message.php";
+require_once __DIR__ . "/../helper/MailService.php";
+$secretKey = '6LdY3CQsAAAAAK_NVXf-v9ZfxIn8wRAw6eGJ5U5d';
+
+$recaptchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+if (empty($recaptchaResponse)) {
+    die('reCAPTCHA verification failed. Please go back and confirm you are not a robot.');
+}
+
+$verifyUrl = 'https://www.google.com/recaptcha/api/siteverify';
+
+$data = [
+    'secret'   => $secretKey,
+    'response' => $recaptchaResponse,
+    'remoteip' => $_SERVER['REMOTE_ADDR'] ?? null
+];
+
+$options = [
+    'http' => [
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    ]
+];
+
+$context  = stream_context_create($options);
+$result   = file_get_contents($verifyUrl, false, $context);
+$resultObj = json_decode($result, true);
+
+if (empty($resultObj['success'])) {
+    die('reCAPTCHA verification failed. Please try again.');
+    echo "<script>
+            alert('reCAPTCHA verification failed. Please try again.');
+            window.history.back();
+          </script>";
+}
+
+$adminEmailsString = ConfigLoader::env('AdminMailAddress');
+$emailList = $adminEmailsString ? explode(',', $adminEmailsString) : ["fallback@example.com"];
+
+$adminEmails = [];
+foreach ($emailList as $email) {
+    $email = trim($email);
+    if ($email !== '') {
+        $adminEmails[$email] = 'Site Admin';
+    }
+}
+
+$requiredFields = ["firstName", "email", "country", "message", "phone"];
+
+foreach ($requiredFields as $field) {
+    if (empty($_POST[$field])) {
+        echo "<script>
+            alert('Please fill all required fields.');
+            window.history.back();
+          </script>";
+    }
+}
+
+
+$first = trim($_POST["firstName"]);
+$last  = trim($_POST["lastName"]);
+
+$fullName = $first . " " . $last;
+
+$data = [
+    "name"   => htmlspecialchars($fullName),
+    "email"        => filter_var($_POST["email"], FILTER_SANITIZE_EMAIL),
+    "phone"        => htmlspecialchars(trim($_POST["phone"] ?? "")),
+    "country"      => htmlspecialchars(trim($_POST["country"] ?? "")),
+    "message"      => htmlspecialchars(trim($_POST["message"])),
+];
+
+// === 3. Save to Database ===
+$message = new Message();
+$saveStatus = $message->saveMessage($data);
+
+$emailMessage = "
+A new message form has been submitted:
+
+Name: {$data['name']}
+Email: {$data['email']}
+Phone: {$data['phone']}
+Country: {$data['country']}
+Message:
+{$data['message']}
+";
+
+// === 4. Send Mail using MailService ===
+$mailStatus = MailService::sendToMultiple(
+    $adminEmails,
+    "New Contact Form Submission – Happiness Horizon Travel",
+    $emailMessage
+);
+
+// === 5. Final Response ===
+if ($saveStatus && $mailStatus) {
+    echo "<script>
+            alert('Thank you! Your message has been sent successfully.');
+            window.location.href = '../index.html.php';
+          </script>";
+    exit();
+} else {
+    $errorMessage = "Something went wrong. ";
+    if (!$saveStatus) {
+        $errorMessage .= "Database save failed. ";
+    }
+    if (!$mailStatus) {
+        $errorMessage .= "Email sending failed. Please check server error logs.";
+    }
+
+    echo "<script>
+            alert('$errorMessage');
+            window.history.back();
+          </script>";
+    exit();
+}

@@ -5,8 +5,6 @@ try {
     $tourCard = new TourCard();
     $tours = $tourCard->findAllTours();
 
-    $totalCount = $tourCard->getTourCount();
-
     $response = [
         'success' => true,
         'data' => $tours ?? [],

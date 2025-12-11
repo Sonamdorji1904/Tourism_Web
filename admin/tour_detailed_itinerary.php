@@ -27,7 +27,7 @@
     ?>
 
     <div class="upload-form">
-        <h2>Upload Tour Itinerary for "<?php echo htmlspecialchars($tourTitle); ?>"
+        <h2>Upload Tour Itinerary for <?php echo htmlspecialchars($tourTitle); ?>
         </h2>
         <?php if (!$tourId): ?>
             <div style="color: red; padding: 10px; background: #ffcccc; border-radius: 5px; margin-bottom: 20px;">

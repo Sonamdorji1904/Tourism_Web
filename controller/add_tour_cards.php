@@ -91,13 +91,14 @@ if (isset($_FILES['tour_image']) && $_FILES['tour_image']['error'] !== UPLOAD_ER
 
 $data = [
     'title' => htmlspecialchars(trim($_POST['title'])),
-    'subtitle' => htmlspecialchars(trim($_POST['subtitle'])),
+    'sub_title' => htmlspecialchars(trim($_POST['subtitle'])),
     'description' => htmlspecialchars(trim($_POST['description'])),
     'duration' => htmlspecialchars(trim($_POST['duration'])),
     'image_path' => $uploadedImagePath,
     'key_destinations' => htmlspecialchars(trim($_POST['destinations'])),
     'experience' => htmlspecialchars(trim($_POST['exprience'])),
     'theme' => htmlspecialchars(trim($_POST['theme'])),
+    'transportation' => htmlspecialchars(trim($_POST['transportation'] ?? '')),
 ];
 
 $tourCard = new TourCard();

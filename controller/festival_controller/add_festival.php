@@ -4,25 +4,21 @@
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 
-require_once __DIR__ . "/../../connects/Festival.php";
+require_once __DIR__ . "/../connects/Festival.php";
 
-// Required fields
-// $requiredFields = ["title", "description", "duration", "date", "venue", "status"];
-// foreach ($requiredFields as $field) {
-//     if (empty($_POST[$field])) {
-//         echo "<script>alert('Please fill all required fields. Missing: {$field}'); window.history.back();</script>";
-//         exit();
-//     }
-// }
+$requiredFields = ["title", "description", "category", "date", "venue", "status"];
+foreach ($requiredFields as $field) {
+    if (empty($_POST[$field])) {
+        echo "<script>alert('Please fill all required fields. Missing: {$field}'); window.history.back();</script>";
+        exit();
+    }
+}
 
-// Validate and handle uploaded image (optional)
 $uploadedImagePath = null;
 if (isset($_FILES['festival_image']) && $_FILES['festival_image']['error'] !== UPLOAD_ERR_NO_FILE) {
     $file = $_FILES['festival_image'];
 
-    // Check for upload errors
     if ($file['error'] !== UPLOAD_ERR_OK) {
-        // Detailed diagnostics for upload failure
         $diag = [
             'error_code' => $file['error'],
             'upload_max_filesize' => ini_get('upload_max_filesize'),
@@ -92,6 +88,7 @@ if (isset($_FILES['festival_image']) && $_FILES['festival_image']['error'] !== U
 $data = [
     'title' => htmlspecialchars(trim($_POST['title'])),
     'description' => htmlspecialchars(trim($_POST['description'])),
+    'category' => htmlspecialchars(trim($_POST['category'])),
     'venue' => htmlspecialchars(trim($_POST['venue'])),
     'image' => $uploadedImagePath,
     'date' => htmlspecialchars(trim($_POST['date'])),
@@ -117,7 +114,7 @@ try {
 if ($saveStatus) {
     echo "<script>
             alert('Thank you! Your message has been sent successfully.');
-            window.location.href = '/../../festival/add_festival.php';
+            window.location.href = '../../admin/view/festivals.php';
           </script>";
     exit();
 } else {

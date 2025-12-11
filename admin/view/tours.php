@@ -13,31 +13,29 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once '../../includes/templates/header.html.php'; ?>
-    <?php require_once '../../controller/fetch_all_tours.php'; ?>
+    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
+
+    <?php require '../../controller/fetch_all_tours.php'; ?>
 
     <!-- Tours Grid -->
     <section class="tours-listing">
-        <div class="container">
-            <div class="tours-grid-extended">
-                <!-- Tours -->
-                <?php
-                for ($i = 0; $i < $totalCount; $i++):
-                    $tour = $tours[$i];
-                    $title = $tour['title'] ?? '';
-                    $sub_title = $tour['sub_title'] ?? '';
-                    $description = $tour['description'] ?? '';
-                    $imageFilePath = $tour['image_path'] ?? '';
-                    $day_number = $tour['duration'] ?? '';
-                    $destinations = $tour['key_destinations'] ?? '';
-                    $experience = $tour['experience'] ?? '';
-                    $theme = $tour['theme'] ?? '';
-                    $transportation = $tour['transportation'] ?? '';
-                    include '../../includes/templates/tour/tourCard.html.php';
-                endfor;
-                ?>
-            </div>
-        </div>
+
+        <!-- Tours -->
+        <?php
+        foreach ($tours as $tour):
+            $id = $tour['id'] ?? '';
+            $title = $tour['title'] ?? '';
+            $sub_title = $tour['sub_title'] ?? '';
+            $description = $tour['description'] ?? '';
+            $imageFilePath = $tour['image_path'] ?? '';
+            $day_number = $tour['duration'] ?? '';
+            $destinations = $tour['key_destinations'] ?? '';
+            $experience = $tour['experience'] ?? '';
+            $theme = $tour['theme'] ?? '';
+            $transportation = $tour['transportation'] ?? '';
+            include '../../includes/templates/tour/tourCard.html.php';
+        endforeach;
+        ?>
     </section>
 
     <!-- Footer -->

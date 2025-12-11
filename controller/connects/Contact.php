@@ -7,7 +7,7 @@ class Contact extends BaseModel
     public function __construct()
     {
         parent::__construct();
-        $this->table = "contact_messages";
+        $this->table = "request_quotes";
     }
 
     public function saveMessage(array $data): bool

@@ -16,14 +16,14 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-
+/* 
 .page-hero .hero-overlay {
   position: absolute;
   inset: 0;
-  /* additional subtle overlay to ensure text readability */
+  additional subtle overlay to ensure text readability
   background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.25));
   pointer-events: none;
-}
+} */
 
 .page-hero .hero-content {
   position: relative;
@@ -183,117 +183,151 @@
   margin-bottom: var(--spacing-lg);
 }
 
+/* Festival card: fixed-width left image with content on the right */
 .festivals-grid-detailed {
   display: grid;
-  gap: var(--spacing-lg);
+  gap: 32px; /* slightly larger gap between cards */
 }
 
 .festival-card-detailed {
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  gap: var(--spacing-md);
-  background-color: var(--neutral-100);
-  border-radius: var(--radius-lg);
+  display: flex;
+  gap: 24px;
+  align-items: stretch; /* ensure left image and content both stretch to card height */
+  background: var(--card-bg, #fff);
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.festival-card-detailed:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  height: 455px; /* fixed uniform height for all cards on desktop */
 }
 
 .festival-image {
+  flex: 0 0 300px; /* fixed left column width */
+  height: auto; /* allow flex stretch to control height */
+  align-self: stretch; /* stretch to match card height */
   position: relative;
-  height: 100%;
-  min-height: 300px;
+  overflow: hidden;
 }
 
 .festival-image img {
   width: 100%;
-  height: 100%;
+  min-height: 100%; /* ensure image always fills the container height */
   object-fit: cover;
+  object-position: center center;
+  display: block;
 }
 
 .festival-badge {
   position: absolute;
-  top: var(--spacing-sm);
-  right: var(--spacing-sm);
-  background-color: var(--accent);
-  color: var(--neutral-100);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  font-weight: 600;
-  font-size: 0.9rem;
+  top: 12px;
+  left: 12px;
+  background:  rgba(200, 90, 62, 0.95);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
 }
 
 .festival-content {
-  padding: var(--spacing-md);
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 22px 24px; /* a bit more breathing room */
+  overflow: auto; /* allow scrolling when content exceeds fixed height */
+  max-height: 100%;
+  box-sizing: border-box;
+  ;
+}
+
+/* Consistent vertical rhythm inside content */
+.festival-content > * {
+  margin-bottom: 12px;
+}
+.festival-content > *:last-child {
+  margin-bottom: 0;
 }
 
 .festival-content h3 {
-  color: var(--primary);
-  font-size: 1.75rem;
-  margin-bottom: var(--spacing-sm);
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.15;
 }
 
 .festival-meta {
-  display: flex;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-sm);
-  flex-wrap: wrap;
-}
-
-.festival-time,
-.festival-location {
-  padding: 0.25rem 0.75rem;
-  background-color: var(--neutral-200);
-  border-radius: var(--radius);
-  font-size: 0.9rem;
-  color: var(--neutral-900);
-}
-
-.festival-content > p {
-  color: var(--neutral-700);
-  line-height: 1.6;
-  margin-bottom: var(--spacing-sm);
-}
-
-.festival-highlights {
-  margin-bottom: var(--spacing-sm);
-}
-
-.festival-highlights h4 {
-  color: var(--primary);
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.festival-highlights ul {
-  list-style: none;
-  padding: 0;
-}
-
-.festival-highlights li {
-  padding: 0.25rem 0;
+  margin-bottom: 10px;
   color: var(--neutral-700);
   font-size: 0.95rem;
 }
 
-.festival-highlights li:before {
-  content: "✓ ";
-  color: var(--accent);
-  font-weight: bold;
-  margin-right: 0.5rem;
+.festival-content p {
+  margin-bottom: 12px;
+  line-height: 1.75; /* improve readability */
+}
+
+.festival-content ul,
+.festival-highlights ul {
+  margin: 0 0 12px 1.25rem;
+  padding: 0;
+}
+
+.festival-highlights h4 {
+  margin: 0 0 8px 0;
+}
+
+/* Slightly smaller cards on medium screens */
+@media (max-width: 1100px) {
+  .festival-card-detailed {
+    height: 300px;
+  }
+}
+
+/* On small screens stack cards and let height be automatic */
+@media (max-width: 800px) {
+  .festival-card-detailed {
+    flex-direction: column;
+    height: auto;
+  }
+  .festival-image {
+    width: 100%;
+    height: 250px;
+  }
+  .festival-content {
+    max-height: none;
+    overflow: visible;
+    padding: 16px;
+  }
+}
+
+/* Read more toggle styling */
+.readmore-toggle {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.readmore-toggle:hover {
+  text-decoration: underline;
+}
+
+/* Expanded card state */
+.festival-card-detailed.expanded {
+  height: 640px; /* double the default height when expanded */
+}
+
+.festival-card-detailed.expanded .festival-content {
+  overflow: auto;
+  max-height: 100%;
+}
+
+@media (max-width: 800px) {
+  .festival-card-detailed.expanded {
+    height: auto; /* on mobile expanded just shows full content */
+  }
 }
 
 /* Festival Tours CTA */
 .festival-tours-cta {
   padding: var(--spacing-xl) 0;
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
   text-align: center;
 }
@@ -372,7 +406,7 @@
 }
 
 .cta-box {
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
   padding: var(--spacing-lg);
   border-radius: var(--radius-lg);

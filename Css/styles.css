@@ -24,6 +24,9 @@
   --spacing-xl: 6rem;
   --radius: 0.5rem;
   --radius-lg: 1rem;
+  --navbar-height: 70px;
+  /* height reserved for fixed navbar */
+  --hero-overlay-color: rgba(0, 0, 0, 0.2); /* change alpha to increase/decrease fade (0 = no overlay, 1 = opaque) */
 }
 
 body {
@@ -31,6 +34,8 @@ body {
   color: var(--neutral-900);
   line-height: 1.6;
   background-color: var(--neutral-100);
+  padding-top: var(--navbar-height);
+  /* ensure content starts below fixed navbar */
 }
 
 h1,
@@ -62,10 +67,12 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(26, 77, 46, 0.95);
+  background-color: #1a4d2e;
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.3s ease;
+  height: var(--navbar-height);
+  /* explicit navbar height to match body padding */
 }
 
 .navbar.scrolled {
@@ -124,11 +131,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
+  background-image: url("public/bg2.jpg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  margin-top: 70px;
+  margin-top: 0;
+  /* removed gap under navbar */
 }
 
 .page-hero {
@@ -138,10 +146,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("public/thimphu-buddha-dordenma-statue-bhutan.jpg");
+  background-image: url("public/bg2.jpg");
   background-size: cover;
   background-position: center;
-  margin-top: 70px;
+  /* pull the hero under the fixed navbar while keeping content visible */
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
 }
 
 .tours-hero {
@@ -152,13 +162,34 @@ img {
   background-image: url("public/punakha-dzong-bhutan-fortress-monastery.jpg");
 }
 
+.tour-detail-hero {
+  position: relative;
+  height: 60vh;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
+  background-size: cover;
+  background-position: center;
+  /* pull the hero under the fixed navbar while keeping content visible */
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
+}
+
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(26, 77, 46, 0.7), rgba(15, 41, 25, 0.8));
+  background: var(--hero-overlay-color); /* use variable to control overlay opacity */
+  pointer-events: none;
+  transition: background .2s ease;
+}
+
+.hero.light-overlay .hero-overlay {
+  background: rgba(0,0,0,0.15);
 }
 
 .hero-content {
@@ -381,12 +412,12 @@ img {
   padding: var(--spacing-md);
   border-radius: var(--radius-lg);
   position: relative;
-  padding-left: 4rem;
+  padding-left: 5rem;
 }
 
 .feature-number {
   position: absolute;
-  left: var(--spacing-md);
+  left: 1rem;
   top: var(--spacing-md);
   font-size: 2rem;
   font-weight: 700;
@@ -436,8 +467,8 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 
-    0 10px 40px rgba(26, 77, 46, 0.2), 
+  box-shadow:
+    0 10px 40px rgba(26, 77, 46, 0.2),
     0 5px 20px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -446,29 +477,10 @@ img {
   position: relative;
 }
 
-.tour-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(255, 255, 255, 0.1) 50%,
-    rgba(255, 255, 255, 0.2) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
 .tour-card:hover {
   transform: perspective(1000px) rotateX(2deg) rotateY(-3deg) translateZ(20px) translateY(-10px);
-  box-shadow: 
-    0 25px 60px rgba(26, 77, 46, 0.3), 
+  box-shadow:
+    0 25px 60px rgba(26, 77, 46, 0.3),
     0 15px 35px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     0 0 0 1px rgba(26, 77, 46, 0.1);
@@ -476,22 +488,18 @@ img {
   -webkit-backdrop-filter: blur(16px);
 }
 
-.tour-card:hover::before {
-  opacity: 1;
-}
-
 .tour-card.featured {
   border: 2px solid var(--accent);
-  box-shadow: 
-    0 10px 40px rgba(200, 90, 62, 0.3), 
+  box-shadow:
+    0 10px 40px rgba(200, 90, 62, 0.3),
     0 5px 20px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.5),
     0 0 0 1px rgba(200, 90, 62, 0.2);
 }
 
 .tour-card.featured:hover {
-  box-shadow: 
-    0 25px 60px rgba(200, 90, 62, 0.4), 
+  box-shadow:
+    0 25px 60px rgba(200, 90, 62, 0.4),
     0 15px 35px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
     0 0 0 2px rgba(200, 90, 62, 0.3);
@@ -792,16 +800,21 @@ img {
   background-image: url("public/tigers-nest-monastery-bhutan-mountains-dramatic-la.jpg");
   background-size: cover;
   background-position: center;
-  margin-top: 70px;
+  /* pull the hero under the fixed navbar while keeping content visible */
+  margin-top: calc(-1 * var(--navbar-height));
+  padding-top: var(--navbar-height);
 }
 
 .tour-detail-hero-content {
   position: relative;
   z-index: 1;
   color: var(--neutral-100);
-  text-align: center; /* Add this to center text */
-  max-width: 800px; /* Optional: limit width */
-  padding: 0 20px; /* Optional: add horizontal padding */
+  text-align: center;
+  /* Add this to center text */
+  max-width: 800px;
+  /* Optional: limit width */
+  padding: 0 20px;
+  /* Optional: add horizontal padding */
 }
 
 .breadcrumb {
@@ -1273,7 +1286,7 @@ img {
 /* Contact */
 .contact {
   padding: var(--spacing-xl) 0;
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
 }
 
@@ -1295,11 +1308,7 @@ img {
   line-height: 1.8;
 }
 
-.contact-details {
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-sm);
-}
+
 
 .contact-item strong {
   display: block;
@@ -1370,11 +1379,6 @@ img {
   margin-bottom: var(--spacing-sm);
 }
 
-.contact-details-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
 
 .contact-detail-item {
   display: flex;
@@ -1528,7 +1532,7 @@ img {
 /* CTA Section */
 .cta-section {
   padding: var(--spacing-xl) 0;
-  background-color: var(--primary);
+  background-color: #1f653b;
   color: var(--neutral-100);
   text-align: center;
 }
@@ -1586,7 +1590,7 @@ img {
 
 /* Footer */
 .footer {
-  background-color: var(--primary-dark);
+  background-color: #216e40;
   color: var(--neutral-100);
   padding: var(--spacing-lg) 0 var(--spacing-md);
 }
@@ -1677,28 +1681,90 @@ img {
   color: inherit;
 }
 
+/* Phone link: remove underline and tap highlight */
+.phone-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS/Android */
+    -webkit-touch-callout: none; /* disable callout on iOS */
+}
+/* Phone link: remove underline and tap highlight */
+.contact-link {
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS/Android */
+    -webkit-touch-callout: none; /* disable callout on iOS */
+}
+
+.phone-link:focus,
+.phone-link:active {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Mobile Menu Button - Always clickable */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--neutral-100);
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 1500; /* Very high to ensure it's always on top */
+  padding: 0.5rem;
+  margin-left: auto; /* Pushes button to the right */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: block;
   }
 
+  /* Hide desktop nav, show mobile menu when active */
   .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    position: fixed; /* Changed from absolute */
+    top: var(--navbar-height); /* Start below navbar */
+    right: 0; /* Align to right edge */
+    left: auto; /* Override any left positioning */
     background-color: var(--primary);
     flex-direction: column;
-    padding: var(--spacing-sm);
+    padding: 1rem;
     gap: var(--spacing-sm);
-    display: none;
+    display: none; /* Hidden by default */
+    min-width: 220px;
+    max-width: 280px;
+    border-radius: 8px 0 0 8px; /* Only round left corners */
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+    z-index: 1400; /* Below button but above content */
   }
 
+  /* Show menu when active */
   .nav-links.active {
     display: flex;
   }
 
+  /* Make sure links are clickable and styled nicely */
+  .nav-links li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-radius: var(--radius);
+    transition: background-color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Rest of your responsive styles */
   .hero-title {
     font-size: 2.5rem;
   }
@@ -1739,32 +1805,6 @@ img {
   }
 }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .about-features,
-  .tours-grid,
-  .destinations-grid,
-  .festivals-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Status Messages */
 .status-message {
   padding: 15px 0;
@@ -1788,4 +1828,3 @@ img {
   margin: 0;
   font-size: 16px;
 }
-

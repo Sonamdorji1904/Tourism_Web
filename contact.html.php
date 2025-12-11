@@ -16,7 +16,7 @@
     <?php require_once 'includes/templates/header.html.php'; ?>
 
     <!-- Page Hero -->
-    <section class="page-hero contact-hero">
+    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Get in Touch</h1>
@@ -33,86 +33,7 @@
                     <h2>Send Us a Message</h2>
                     <p>Fill out the form below and we'll get back to you within 24 hours</p>
 
-                    <form class="contact-form-detailed" action="./controller/submit_contact.php" method="post">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" name="country">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tour">Interested Tour Package</label>
-                            <select id="tour" name="tour">
-                                <option value="">Select a tour (optional)</option>
-                                <option value="5-day">Quick Bhutan Getaway (5 Days)</option>
-                                <option value="6-day">Taste of Happiness (6 Days)</option>
-                                <option value="7-day">The Living Heritage (7 Days)</option>
-                                <option value="8-day">Journey Through Culture (8 Days)</option>
-                                <option value="9-day">Best of Bhutan (9 Days)</option>
-                                <option value="honeymoon">Honeymoon Package</option>
-                                <option value="custom">Custom Tour</option>
-                            </select>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="travelers">Number of Travelers</label>
-                                <input type="number" id="travelers" name="travelers" min="1" value="1">
-                            </div>
-                            <div class="form-group">
-                                <label for="travelDate">Preferred Travel Date</label>
-                                <input type="date" id="travelDate" name="travelDate">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="meal">Meal Types</label>
-                            <select id="meal" name="meal">
-                                <option value="">Select a meal type (optional)</option>
-                                <option value="EP">European Plan (EP)</option>
-                                <option value="CP">Continental Plan (CP)</option>
-                                <option value="BP">Bermuda Plan (BP)</option>
-                                <option value="MAP">Modified American Plan (MAP)</option>
-                                <option value="AP">American Plan (AP)</option>
-                            </select>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" rows="6" required placeholder="Tell us about your travel plans, interests, and any special requirements..."></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" required>
-                                I agree to receive travel information and updates from Happiness Horizon Travel
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-                    </form>
+                    <?php include_once __DIR__ . '/includes/templates/form/contact_form.html.php'; ?>
                 </div>
 
                 <!-- Contact Information -->
@@ -130,7 +51,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <p>info@happinesshorizontravel.com</p>
+                                    <a href="mailto:info@happinesstravel.bt" class="contact-link">info@happinesstravel.bt</a>
                                 </div>
                             </div>
 
@@ -142,7 +63,7 @@
                                 </div>
                                 <div>
                                     <strong>Phone</strong>
-                                    <p>+975 16108570</p>
+                                    <a href="tel:+97516108570" class="contact-link">+975 16108570</a>
                                 </div>
                             </div>
 
@@ -154,7 +75,7 @@
                                 </div>
                                 <div>
                                     <strong>WhatsApp</strong>
-                                    <p>+975 16108570</p>
+                                    <a href="https://wa.me/+97516108570" class="contact-link">+975 16108570</a>
                                 </div>
                             </div>
 
@@ -186,13 +107,13 @@
                         <h4>Quick Response</h4>
                         <p>Need immediate assistance? Reach us through:</p>
                         <div class="quick-contact-buttons">
-                            <a href="#" class="quick-contact-btn whatsapp">
+                            <a href="https://wa.me/+97516108570" class="quick-contact-btn whatsapp">
                                 <span></span> WhatsApp
                             </a>
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
                                 <span></span> Call Now
                             </a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="quick-contact-btn email">
+                            <a href="mailto:info@happinesstravel.bt" class="quick-contact-btn email">
                                 <span></span> Email
                             </a>
                         </div>
