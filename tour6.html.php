@@ -62,9 +62,7 @@
                     <div class="quick-info-item">
                         <strong>Duration:</strong> -----
                     </div>
-                    <div class="quick-info-item">
-                        <strong>Best Time:</strong> March - May, Sept - Nov
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -176,7 +174,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <p>info@happinesshorizontravel.com</p>
+                                    <p>info@happinesstravel.bt</p>
                                 </div>
                             </div>
 
@@ -238,7 +236,7 @@
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
                                 <span></span> Call Now
                             </a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="quick-contact-btn email">
+                            <a href="mailto:info@happinesstravel.bt" class="quick-contact-btn email">
                                 <span></span> Email
                             </a>
                         </div>
@@ -292,10 +290,10 @@
                         <img src="public/image 7.png" alt="Honeymoon Package">
                         <div class="tour-duration">Customizable</div>
                     </div>
-                    <div class="tour-content">
+                   <div class="tour-content">
                         <h3>Honeymoon Package</h3>
                         <p>Celebrate your love in the mystical Kingdom of Bhutan.</p>
-                        <a href="tour-detail.html.php" class="btn btn-outline">View Details</a>
+                        <a href="tour6.html.php" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>

@@ -245,7 +245,7 @@
                             $tour = "Honeymoon: Two Hearts, One Kingdom";
                             $encoded_tour = urlencode($tour); // Encodes spaces and special characters
                             ?>
-                            <a href="tour5.html.php" class="btn btn-primary">View Details</a>
+                            <a href="tour6.html.php" class="btn btn-primary">View Details</a>
                             <a href="request_quote.html.php?tour=<?php echo $encoded_tour; ?>" class="btn btn-outline">Request Quote</a>
                         </div>
                     </div>
