@@ -61,7 +61,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <a href="mailto:info@happinesshorizontravel.com" class="contact-link">info@happinesshorizontravel.com</a>
+                                    <a href="mailto:info@happinesstravel.bt" class="contact-link">info@happinesstravel.bt</a>
                                 </div>
                             </div>
 
@@ -123,7 +123,7 @@
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
                                 <span></span> Call Now
                             </a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="quick-contact-btn email">
+                            <a href="mailto:info@happinesstravel.bt" class="quick-contact-btn email">
                                 <span></span> Email
                             </a>
                         </div>

@@ -375,7 +375,7 @@
                     <div class="tour-content">
                         <h3>Honeymoon Package</h3>
                         <p>Celebrate your love in the mystical Kingdom of Bhutan.</p>
-                        <a href="tour-detail.html.php" class="btn btn-outline">View Details</a>
+                        <a href="tour6.html.php" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>

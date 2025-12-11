@@ -74,7 +74,7 @@
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
                                 <span></span> Call Now
                             </a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="quick-contact-btn email">
+                            <a href="mailto:info@happinesstravel.bt" class="quick-contact-btn email">
                                 <span></span> Email
                             </a>
                         </div>
@@ -131,7 +131,7 @@
                     <div class="tour-content">
                         <h3>Honeymoon Package</h3>
                         <p>Celebrate your love in the mystical Kingdom of Bhutan.</p>
-                        <a href="tour-detail.html.php" class="btn btn-outline">View Details</a>
+                        <a href="tour6.html.php" class="btn btn-outline">View Details</a>
                     </div>
                 </div>
             </div>
