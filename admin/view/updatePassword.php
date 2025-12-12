@@ -1,6 +1,9 @@
 <?php
 require_once __DIR__ . '/../../helper/auth.php';
-requireAdmin();
+
+// Read messages from query params (controller should redirect back with these)
+$error = $_GET['error'] ?? null;
+$success = $_GET['success'] ?? null;
 
 ?>
 <!DOCTYPE html>
@@ -9,85 +12,94 @@ requireAdmin();
 <head>
     <meta charset="UTF-8">
     <title>Change Password - Admin</title>
+    <link rel="stylesheet" href="/Css/styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        /* small page-specific adjustments to match site theme */
+        .admin-panel {
+            padding: 2rem 0;
         }
 
-        a {
-            color: #007bff;
-            text-decoration: none;
+        .admin-card {
+            background: var(--neutral-100);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            max-width: 720px;
+            margin: 0 auto;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .admin-card h1 {
+            color: var(--primary);
+            margin-bottom: 0.25rem;
         }
 
-        form {
-            max-width: 400px;
-        }
-
-        label {
-            display: block;
-            margin-top: 10px;
-        }
-
-        input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-
-        button {
-            margin-top: 15px;
-            padding: 8px 16px;
+        .admin-card .muted {
+            color: var(--neutral-700);
+            margin-bottom: 1rem;
         }
 
         .msg-error {
-            color: red;
+            color: #b91c1c;
             margin-top: 10px;
         }
 
         .msg-success {
-            color: green;
+            color: #15803d;
             margin-top: 10px;
+        }
+
+        .form-actions {
+            margin-top: 1rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
         }
     </style>
 </head>
 
 <body>
 
-    <p><a href="">&larr; Back to Dashboard</a></p>
+<?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
 
-    <h1>Change Password</h1>
+<main class="admin-panel container">
+    <div class="admin-card">
 
-    <?php if ($error): ?>
-        <div class="msg-error"><?= htmlspecialchars($error) ?></div>
-    <?php endif; ?>
+        <h1>Change Password</h1>
+        <p class="muted">Update your administrator password. Choose a strong password and keep it confidential.</p>
 
-    <?php if ($success): ?>
-        <div class="msg-success"><?= htmlspecialchars($success) ?></div>
-    <?php endif; ?>
+        <?php if ($error): ?>
+            <div class="msg-error"><?= htmlspecialchars($error) ?></div>
+        <?php endif; ?>
 
-    <form method="post" action="../../controller/changePassword.php">
-        <label>
-            Current Password:
-            <input type="password" name="current_password" required>
-        </label>
+        <?php if ($success): ?>
+            <div class="msg-success"><?= htmlspecialchars($success) ?></div>
+        <?php endif; ?>
 
-        <label>
-            New Password:
-            <input type="password" name="new_password" required>
-        </label>
+        <form method="post" action="../../controller/changePassword.php">
+            <div class="form-group">
+                <label for="current_password">Current Password</label>
+                <input type="password" id="current_password" name="current_password" required>
+            </div>
 
-        <label>
-            Confirm New Password:
-            <input type="password" name="confirm_password" required>
-        </label>
+            <div class="form-group">
+                <label for="new_password">New Password</label>
+                <input type="password" id="new_password" name="new_password" required>
+            </div>
 
-        <button type="submit">Change Password</button>
-    </form>
+            <div class="form-group">
+                <label for="confirm_password">Confirm New Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Change Password</button>
+                <a href="/admin/index.php" class="btn btn-outline">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+<?php require_once __DIR__ . '/../../includes/templates/footer.html.php'; ?>
 
 </body>
 
