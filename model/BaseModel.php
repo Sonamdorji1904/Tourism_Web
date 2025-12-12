@@ -211,4 +211,14 @@
             $user = $stmt->fetch();
             return $user ?: null;
         }
+
+        public function updatePassword(int $id, string $passwordHash): bool
+        {
+            $sql = "UPDATE {$this->table} SET password_hash = :password_hash WHERE id = :id";
+            $stmt = $this->pdo->prepare($sql);
+            return $stmt->execute([
+                'password_hash' => $passwordHash,
+                'id'            => $id
+            ]);
+        }
     }
