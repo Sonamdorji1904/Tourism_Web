@@ -87,7 +87,7 @@ function isAdmin(): bool
 function requireLogin(): void
 {
     if (!isLoggedIn()) {
-        header('Location: /admin/login.php');
+        header('Location: ../admin/login.php');
         exit;
     }
 }
