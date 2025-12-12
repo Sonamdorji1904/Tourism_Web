@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Happiness Horizon Travel</title>
+    <title>Request Quote - Happiness Horizon Travel</title>
     <link rel="stylesheet" href="Css/styles.css">
     <link rel="stylesheet" href="Css/countryDropdown.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

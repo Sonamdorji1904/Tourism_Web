@@ -18,7 +18,7 @@
     <?php require_once 'includes/templates/header.html.php'; ?>
 
     <!-- Hero Section -->
-    <section id="home" class="hero" style="background-image: url('public/bg5.jpg');">
+    <section id="home" class="hero" style='background-image: url("public/bg5.jpg");'>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Where Every Journey Begins with Happiness</h1>
