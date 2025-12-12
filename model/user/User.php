@@ -12,6 +12,6 @@ class User extends BaseModel
 
     public function findByUsername(string $username): array
     {
-        return $this->findByUsername($username);
+        return $this->getByUsername($username);
     }
 }

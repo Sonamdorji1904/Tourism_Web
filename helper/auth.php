@@ -6,11 +6,8 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Optional: extra safety
-// ini_set('session.cookie_httponly', 1); // prevent JS from reading cookie
-// ini_set('session.use_only_cookies', 1);
 
-require_once __DIR__ . '/../model/User.php';
+require_once __DIR__ . '/../model/user/User.php';
 
 /**
  * Log the user in
@@ -35,7 +32,6 @@ function login(string $username, string $password): bool
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['role'] = $user['role'];
-
     return true;
 }
 
@@ -87,7 +83,7 @@ function isAdmin(): bool
 function requireLogin(): void
 {
     if (!isLoggedIn()) {
-        header('Location: ../admin/login.php');
+        header('Location: login.html.php');
         exit;
     }
 }
@@ -98,8 +94,7 @@ function requireLogin(): void
 function requireAdmin(): void
 {
     if (!isAdmin()) {
-        http_response_code(403);
-        echo "Access denied. Admins only.";
+        header('Location: ../../login.html.php');
         exit;
     }
 }

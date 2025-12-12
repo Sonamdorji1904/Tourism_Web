@@ -203,7 +203,7 @@
             }
         }
 
-        public function findByUsername(string $username): ?array
+        public function getByUsername(string $username): ?array
         {
             $sql = "SELECT * FROM {$this->table} WHERE username = :username LIMIT 1";
             $stmt = $this->pdo->prepare($sql);
