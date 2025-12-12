@@ -30,7 +30,7 @@ echo <<<HEADER_HTML
                                     <a href="updatePassword.php" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Change Password</a>
                                 </li>
                                 <li style="margin:0;">
-                                    <a href="../../controller/logout.php" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Logout</a>
+                                    <a href="../../controller/logout.php" onclick="return confirmLogout(event)" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Logout</a>
                                 </li>
                             </ul>
                         </details>

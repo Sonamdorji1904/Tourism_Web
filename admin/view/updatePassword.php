@@ -1,10 +1,6 @@
 <?php
 require_once __DIR__ . '/../../helper/auth.php';
 
-// Read messages from query params (controller should redirect back with these)
-$error = $_GET['error'] ?? null;
-$success = $_GET['success'] ?? null;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +8,7 @@ $success = $_GET['success'] ?? null;
 <head>
     <meta charset="UTF-8">
     <title>Change Password - Admin</title>
-    <link rel="stylesheet" href="/Css/styles.css">
+    <link rel="stylesheet" href="../../Css/styles.css">
     <style>
         /* small page-specific adjustments to match site theme */
         .admin-panel {
@@ -59,47 +55,39 @@ $success = $_GET['success'] ?? null;
 
 <body>
 
-<?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
+    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
 
-<main class="admin-panel container">
-    <div class="admin-card">
+    <main class="admin-panel container">
+        <div class="admin-card">
 
-        <h1>Change Password</h1>
-        <p class="muted">Update your administrator password. Choose a strong password and keep it confidential.</p>
+            <h1>Change Password</h1>
+            <p class="muted">Update your administrator password. Choose a strong password and keep it confidential.</p>
 
-        <?php if ($error): ?>
-            <div class="msg-error"><?= htmlspecialchars($error) ?></div>
-        <?php endif; ?>
+            <form method="post" action="../../controller/changePassword.php">
+                <div class="form-group">
+                    <label for="current_password">Current Password</label>
+                    <input type="password" id="current_password" name="current_password" required>
+                </div>
 
-        <?php if ($success): ?>
-            <div class="msg-success"><?= htmlspecialchars($success) ?></div>
-        <?php endif; ?>
+                <div class="form-group">
+                    <label for="new_password">New Password</label>
+                    <input type="password" id="new_password" name="new_password" required>
+                </div>
 
-        <form method="post" action="../../controller/changePassword.php">
-            <div class="form-group">
-                <label for="current_password">Current Password</label>
-                <input type="password" id="current_password" name="current_password" required>
-            </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirm New Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
 
-            <div class="form-group">
-                <label for="new_password">New Password</label>
-                <input type="password" id="new_password" name="new_password" required>
-            </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Change Password</button>
+                    <a href="index.html.php" class="btn btn-outline">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </main>
 
-            <div class="form-group">
-                <label for="confirm_password">Confirm New Password</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Change Password</button>
-                <a href="/admin/index.php" class="btn btn-outline">Cancel</a>
-            </div>
-        </form>
-    </div>
-</main>
-
-<?php require_once __DIR__ . '/../../includes/templates/footer.html.php'; ?>
+    <?php require_once __DIR__ . '/../../includes/templates/footer.html.php'; ?>
 
 </body>
 
