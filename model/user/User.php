@@ -14,4 +14,8 @@ class User extends BaseModel
     {
         return $this->getByUsername($username);
     }
+    public function updatePassword(int $id, string $passwordHash): bool
+    {
+        return parent::updatePassword($id, $passwordHash);
+    }
 }
