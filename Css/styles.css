@@ -1780,6 +1780,32 @@ img {
     background-color: rgba(255, 255, 255, 0.1);
   }
 
+  /* Ensure admin dropdown sits inside the mobile panel and displays full-width */
+  .user-dropdown .dropdown-menu {
+    position: static !important;
+    right: auto !important;
+    top: auto !important;
+    min-width: auto !important;
+    width: 100%;
+    border-radius: 0 !important;
+    background: transparent !important; /* inherit panel background */
+    padding: 0 !important;
+  }
+
+  .user-dropdown summary {
+    display: block !important;
+    width: 100%;
+    padding: 16px 18px !important;
+    color: var(--neutral-100) !important;
+    box-sizing: border-box;
+  }
+
+  .user-dropdown .dropdown-menu a {
+    padding: 14px 20px !important;
+    display: block !important;
+    color: var(--neutral-100) !important;
+  }
+
   /* Rest of your responsive styles */
   .hero-title {
     font-size: 2.5rem;
