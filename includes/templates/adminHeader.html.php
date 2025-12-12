@@ -27,10 +27,10 @@ echo <<<HEADER_HTML
                             <summary style="list-style:none; cursor:pointer; color:var(--neutral-100); font-weight:600; white-space:nowrap; display:inline-block; padding:-1px 8px;">Admin ▾</summary>
                             <ul class="dropdown-menu" style="position:absolute; right:0; top:calc(100% + 6px); background:var(--primary); border-radius:6px; padding:6px 0; margin:0; list-style:none; display:flex; flex-direction:column; gap:0; min-width:180px;">
                                 <li style="margin:0;">
-                                    <a href="change-password.php" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Change Password</a>
+                                    <a href="updatePassword.php" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Change Password</a>
                                 </li>
                                 <li style="margin:0;">
-                                    <a href="/logout.php" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Logout</a>
+                                    <a href="../../controller/logout.php" style="color:#fff; text-decoration:none; display:block; padding:10px 16px;">Logout</a>
                                 </li>
                             </ul>
                         </details>
