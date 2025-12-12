@@ -15,9 +15,13 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once '../../includes/templates/adminHeader.html.php';
+    <?php require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once '../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
+    require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
     ?>
 
 

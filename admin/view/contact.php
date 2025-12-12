@@ -14,7 +14,11 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once '../../includes/templates/adminHeader.html.php'; ?>
+    <?php
+    require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once '../../includes/templates/adminHeader.html.php';
+    ?>
 
     <!-- Page Hero -->
     <section class="tour-detail-hero" data-hero="../../public/bg2.jpg">
@@ -92,15 +96,6 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="contact-detail-item">
-                                <div class="contact-icon">🕐</div>
-                                <div>
-                                    <strong>Office Hours</strong>
-                                    <p>Monday - Friday: 9:00 AM - 6:00 PM (BTT)</p>
-                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
-                                    <p>Sunday: Closed</p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
 

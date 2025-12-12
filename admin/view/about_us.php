@@ -24,9 +24,11 @@
 </head>
 
 <body>
-    <!-- Navigation -->
 
-    <?php require_once '../../includes/templates/adminHeader.html.php'; ?>
+    <?php require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once '../../includes/templates/adminHeader.html.php';
+    ?>
 
     <!-- Page Hero -->
     <section class="tour-detail-hero" data-hero="../../public/bg2.jpg">

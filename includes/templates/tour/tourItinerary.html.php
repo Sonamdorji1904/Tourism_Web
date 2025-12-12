@@ -20,7 +20,7 @@
             </ul>
             <p><strong>Meals:</strong><?php echo $stringHelper->safeDisplay($meals) ?></p>
             <p><strong>Accommodation:</strong> <?php echo $stringHelper->safeDisplay($accommodation_options) ?></p>
-            <a href="/Happiness%20horizone/admin/view/update_tour_itinerary.html.php?id=<?php echo urlencode($id ?? ''); ?>" class="btn btn-primary">Update tour</a>
+            <a href="/Happiness%20horizone/admin/view/update_tour_itinerary.html.php?id=<?php echo urlencode($itineraryId ?? ''); ?>" class="btn btn-primary">Update tour</a>
             <a href="/Happiness%20horizone/controller/deleteTourItinerary.php?itinerary_id=<?= $itineraryId ?>&tour_id=<?= $tourId ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this Itinerary?');">Delete tour</a>
         </div>
     </div>

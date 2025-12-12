@@ -1,15 +1,16 @@
 <?php
 require_once __DIR__ . '/../../helper/auth.php';
 requireAdmin();
-require_once __DIR__ . '/../../controller/connects/Itinerary.php';
+require_once __DIR__ . '/../../controller/connects/TrekItineraries.php';
+
 // Get itinerary ID from query
 $itineraryId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 if ($itineraryId <= 0) {
     die('Invalid itinerary ID');
 }
 
-$Itinerary = new Itinerary();
-$itinerary = $Itinerary->findTourItineraryById($itineraryId);
+$Itinerary = new TrekItineraries();
+$itinerary = $Itinerary->findTrekItineraryById($itineraryId);
 if (!$itinerary) {
     die('itinerary not Itinerary found');
 }
@@ -29,7 +30,7 @@ $stringHelper = new StringHelper();
 <body>
     <div class="upload-form">
         <h2>Update Itinerary</h2>
-        <form action="../../controller/updateTourItinerary.php" method="post" enctype="multipart/form-data">
+        <form action="../../controller/updateTrekItinerary.php" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $itinerary['id']; ?>">
             <div class="form-group">
                 <label for="title">Title:</label>
@@ -45,10 +46,6 @@ $stringHelper = new StringHelper();
             </div>
             <div class="form-group">
                 <label>Description:<br><textarea name="description" required><?php echo $stringHelper->safeDIsplay($itinerary['description']); ?></textarea></label>
-            </div>
-
-            <div class="form-group">
-                <label>Activities: <textarea name="activities" required><?php echo $stringHelper->safeDIsplay($itinerary['activities']); ?></textarea></label>
             </div>
 
             <div class="form-group">

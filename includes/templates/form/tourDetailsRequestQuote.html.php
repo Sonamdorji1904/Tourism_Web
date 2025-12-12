@@ -1,3 +1,11 @@
+<?php
+$heading = "Interested Tour Package";
+$tourTitle = $tourTitle ?? '';
+if ($trekTitle) {
+    $tourTitle = $trekTitle;
+    $heading = "Interested Trek Package";
+}
+?>
 <h3>Plan Your Dream Trip - Get a Quote</h3>
 <div class="price-info">
     <p class="price-note">Price varies based on group size and accommodation choice</p>
@@ -18,7 +26,7 @@
     </div>
 
     <div class="form-group">
-        <label for="tour">Interested Tour Package</label>
+        <label for="tour"><?php echo $heading ?></label>
         <input type="text" value="<?php echo $stringHelper->safeDisplay($tourTitle) ?>" id="tour" name="tour" readonly>
     </div>
     <?php

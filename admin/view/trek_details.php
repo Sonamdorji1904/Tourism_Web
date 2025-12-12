@@ -10,17 +10,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../Css/trek.css">
+    <link rel="stylesheet" href="../../Css/tour.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
     <!-- Navigation -->
-    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
+    <?php require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
     require_once __DIR__ . '/get_trek_details.php';
-    require_once __DIR__ . '/../../controller/connects/TourCard.php';
+    require_once __DIR__ . '/../../controller/connects/Treks.php';
+
     ?>
 
     <!-- Tour Detail Hero -->
@@ -31,7 +34,7 @@
                 <div class="breadcrumb">
                     <a href="index.html.php">Home</a> / <a href="treks.html.php">Tours</a> / <?php echo $stringHelper->safeDisplay($trekTitle) ?>
                 </div>
-                <h1><?php echo $stringHelper->safeDisplay($tourTitle) ?></h1>
+                <h1><?php echo $stringHelper->safeDisplay($trekTitle) ?></h1>
                 <p class="tour-subtitle"><?php echo $stringHelper->safeDisplay($sub_title) ?></p>
                 <div class="tour-quick-info">
                     <div class="quick-info-item">
@@ -65,16 +68,15 @@
                                 $dayNumber = $trekItineraries[$i]['day_number'] ?? '';
                                 $accordionTitle = $trekItineraries[$i]['title'] ?? '';
                                 $description = $trekItineraries[$i]['description'] ?? '';
-                                $activities = $trekItineraries[$i]['activities'] ?? '';
                                 $meals = $trekItineraries[$i]['meals'] ?? '';
-                                $accommodation_options = $trekItineraries[$i]['accommodation'] ?? '';
+                                $accommodation_options = $trekItineraries[$i]['accomodation'] ?? '';
                                 $buttonId = 'day' . ($i + 1) . '-btn';
                                 $panelId = 'day' . ($i + 1) . '-panel';
                                 include __DIR__ . '/../../includes/templates/trek/trekItinerary.html.php';
                             }
                             ?>
                             <div class="tour-actions">
-                                <a href="../admin/trek_detailed_itinerary.php?trek_id=<?= $trekId ?>" class="btn btn-primary">Add trek Itinerary</a>
+                                <a href="../trek_itinerary.php?trek_id=<?= $trekId ?>" class="btn btn-primary">Add trek Itinerary</a>
                             </div>
                         </div>
                     </div>
@@ -125,7 +127,7 @@
                 <div class="tour-sidebar">
                     <div class="booking-card">
                         <?php $duration = $duration ?? 0;
-                        include __DIR__ . '/../../includes/templates/form/trekDetailsRequestQuote.html.php'; ?>
+                        include __DIR__ . '/../../includes/templates/form/tourDetailsRequestQuote.html.php'; ?>
                     </div>
 
                     <div class="share-card">
@@ -161,7 +163,7 @@
                         $baseUrl = '/Happiness horizone';
                         $imageFilePath = $baseUrl . '/' . ltrim($trek['image_path'], '/');
 
-                        include __DIR__ . '/../../includes/templates/trek/simpleTrekCard.php';
+                        include __DIR__ . '/../../includes/templates/trek/simpleTrekCard.html.php';
                     }
                 } else {
                     echo "<p>No similar treks available at the moment.</p>";

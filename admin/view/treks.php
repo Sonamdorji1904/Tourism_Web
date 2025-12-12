@@ -13,31 +13,41 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
+    <?php require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
+    require '../../controller/fetch_treks.php'; ?>
 
-    <?php require '../../controller/fetch_treks.php'; ?>
+    <section class="tour-detail-hero" data-hero="../../public/bg2.jpg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Tours for Every Dream</h1>
+            <p>Choose from our carefully curated trek packages...offer a unique perspective of Bhutan's beauty and culture</p>
+        </div>
+    </section>
 
     <section class="tours-listing">
         <div class="container">
-            <a href="../add_trek.php" class="btn btn-outline ">Add Trek</a>
+            <div class="tours-listing-top">
+                <a href="../add_tour.php" class="btn btn-outline">Add Trek</a>
+            </div>
+
+            <?php
+            foreach ($treks as $trek):
+                $id = $trek['id'] ?? '';
+                $title = $trek['title'] ?? '';
+                $sub_title = $trek['sub_title'] ?? '';
+                $description = $trek['description'] ?? '';
+                $imageFilePath = $trek['image_path'] ?? '';
+                $day_number = $trek['duration'] ?? '';
+                $destinations = $trek['key_destinations'] ?? '';
+                $experience = $trek['experience'] ?? '';
+                $theme = $trek['theme'] ?? '';
+                $altitude = $trek['altitude'] ?? '';
+                include __DIR__ . '/../../includes/templates/trek/trekCard.thml.php';
+            endforeach;
+            ?>
         </div>
-        <!-- Treks Grid -->
-        <!-- Treks -->
-        <?php
-        foreach ($treks as $trek):
-            $id = $trek['id'] ?? '';
-            $title = $trek['title'] ?? '';
-            $sub_title = $trek['sub_title'] ?? '';
-            $description = $trek['description'] ?? '';
-            $imageFilePath = $trek['image_path'] ?? '';
-            $day_number = $trek['duration'] ?? '';
-            $destinations = $trek['key_destinations'] ?? '';
-            $experience = $trek['experience'] ?? '';
-            $theme = $trek['theme'] ?? '';
-            $altitude = $trek['altitude'] ?? '';
-            include __DIR__ . '/../../includes/templates/trek/trekCard.thml.php';
-        endforeach;
-        ?>
     </section>
 
     <!-- Footer -->

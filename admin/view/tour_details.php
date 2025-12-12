@@ -16,11 +16,14 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
+    <?php require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
     require_once __DIR__ . '/get_tour_details.php';
     require_once __DIR__ . '/../../controller/connects/TourCard.php';
+
     ?>
 
     <!-- Tour Detail Hero -->
@@ -78,7 +81,7 @@
                                 $description = $tourItineraries[$i]['description'] ?? '';
                                 $activities = $tourItineraries[$i]['activities'] ?? '';
                                 $meals = $tourItineraries[$i]['meals'] ?? '';
-                                $accommodation_options = $tourItineraries[$i]['accommodation'] ?? '';
+                                $accommodation_options = $tourItineraries[$i]['accomodation'] ?? '';
                                 $buttonId = 'day' . ($i + 1) . '-btn';
                                 $panelId = 'day' . ($i + 1) . '-panel';
                                 include __DIR__ . '/../../includes/templates/tour/tourItinerary.html.php';

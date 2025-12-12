@@ -26,7 +26,8 @@
   --radius-lg: 1rem;
   --navbar-height: 70px;
   /* height reserved for fixed navbar */
-  --hero-overlay-color: rgba(0, 0, 0, 0.2); /* change alpha to increase/decrease fade (0 = no overlay, 1 = opaque) */
+  --hero-overlay-color: rgba(0, 0, 0, 0.2);
+  /* change alpha to increase/decrease fade (0 = no overlay, 1 = opaque) */
 }
 
 body {
@@ -183,13 +184,14 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--hero-overlay-color); /* use variable to control overlay opacity */
+  background: var(--hero-overlay-color);
+  /* use variable to control overlay opacity */
   pointer-events: none;
   transition: background .2s ease;
 }
 
 .hero.light-overlay .hero-overlay {
-  background: rgba(0,0,0,0.15);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .hero-content {
@@ -1683,24 +1685,29 @@ img {
 
 /* Phone link: remove underline and tap highlight */
 .phone-link {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS/Android */
-    -webkit-touch-callout: none; /* disable callout on iOS */
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* remove tap highlight on iOS/Android */
+  -webkit-touch-callout: none;
+  /* disable callout on iOS */
 }
+
 /* Phone link: remove underline and tap highlight */
 .contact-link {
-    text-decoration: none;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* remove tap highlight on iOS/Android */
-    -webkit-touch-callout: none; /* disable callout on iOS */
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  /* remove tap highlight on iOS/Android */
+  -webkit-touch-callout: none;
+  /* disable callout on iOS */
 }
 
 .phone-link:focus,
 .phone-link:active {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 /* Mobile Menu Button - Always clickable */
@@ -1712,9 +1719,11 @@ img {
   font-size: 1.5rem;
   cursor: pointer;
   position: relative;
-  z-index: 1500; /* Very high to ensure it's always on top */
+  z-index: 1500;
+  /* Very high to ensure it's always on top */
   padding: 0.5rem;
-  margin-left: auto; /* Pushes button to the right */
+  margin-left: auto;
+  /* Pushes button to the right */
 }
 
 /* Responsive Design */
@@ -1725,20 +1734,27 @@ img {
 
   /* Hide desktop nav, show mobile menu when active */
   .nav-links {
-    position: fixed; /* Changed from absolute */
-    top: var(--navbar-height); /* Start below navbar */
-    right: 0; /* Align to right edge */
-    left: auto; /* Override any left positioning */
+    position: fixed;
+    /* Changed from absolute */
+    top: var(--navbar-height);
+    /* Start below navbar */
+    right: 0;
+    /* Align to right edge */
+    left: auto;
+    /* Override any left positioning */
     background-color: var(--primary);
     flex-direction: column;
     padding: 1rem;
     gap: var(--spacing-sm);
-    display: none; /* Hidden by default */
+    display: none;
+    /* Hidden by default */
     min-width: 220px;
     max-width: 280px;
-    border-radius: 8px 0 0 8px; /* Only round left corners */
+    border-radius: 8px 0 0 8px;
+    /* Only round left corners */
     box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
-    z-index: 1400; /* Below button but above content */
+    z-index: 1400;
+    /* Below button but above content */
   }
 
   /* Show menu when active */
@@ -1827,4 +1843,20 @@ img {
 .status-message p {
   margin: 0;
   font-size: 16px;
+}
+
+.tours-listing {
+  background-color: var(--neutral-200);
+}
+
+.tours-listing .container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.tours-listing-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-sm);
 }

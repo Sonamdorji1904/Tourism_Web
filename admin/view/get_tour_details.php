@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../../helper/auth.php';
+requireAdmin();
 $tourTitle = '';
 $sub_title = '';
 $duration = '';

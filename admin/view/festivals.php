@@ -73,14 +73,14 @@
 </head>
 
 <body>
-    <?php require_once '../../includes/templates/adminHeader.html.php';
+    <?php require_once __DIR__ . '/../../helper/auth.php';
+    requireAdmin();
+    require_once '../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . "/../../controller/festival_controller/get_festival.php";
     require_once __DIR__ . "/../../helper/StringHelper.php";
     $stringHelper = new StringHelper();
     ?>
 
-    <!-- Page Hero -->
-    <!-- Replace the hero image: edit the data-hero attribute on the section below (e.g. data-hero="public/your-image.jpg") -->
     <section class="page-hero festivals-hero" data-hero="../../public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -94,7 +94,6 @@
         </div>
     </section>
 
-    <!-- small helper script: apply hero image from data-hero attribute so you can change it directly in HTML -->
     <script>
         (function() {
             try {
@@ -105,13 +104,11 @@
                     hero.style.backgroundPosition = 'center';
                 }
             } catch (e) {
-                // fail silently
                 console.error(e);
             }
         })();
     </script>
 
-    <!-- Festivals Introduction -->
     <section class="festivals-intro">
         <div class="container">
             <div class="intro-content">
@@ -153,7 +150,6 @@
                 <a href="../../admin/festival/add_festival.php" class="btn btn-primary">Add festival</a>
             </div>
 
-            <!-- Floating upcoming festivals anchor (bottom-right) -->
             <a href="#upcoming-festivals" class="upcoming-floating" aria-label="Jump to Upcoming Festivals">
                 <span class="uf-dot" aria-hidden="true"></span>
                 <span class="uf-label">Upcoming Festivals</span>
@@ -162,7 +158,6 @@
         </div>
     </section>
 
-    <!-- Featured Festivals -->
     <section class="featured-festivals">
         <div class="container">
             <h2>Featured Festivals</h2>
@@ -181,7 +176,6 @@
         </div>
     </section>
 
-    <!-- Upcoming Festivals -->
     <section class="upcoming-festivals" id="upcoming-festivals">
         <div class="container">
             <h2>Upcoming Festivals</h2>
@@ -206,7 +200,6 @@
         </div>
     </section>
 
-    <!-- Festival Tours CTA -->
     <section class="festival-tours-cta">
         <div class="container">
             <div class="cta-content">
@@ -220,7 +213,6 @@
         </div>
     </section>
 
-    <!-- Festival Tips -->
     <section class="festival-tips">
         <div class="container">
             <h2>Festival Travel Tips</h2>
@@ -259,7 +251,6 @@
         </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="contact-cta">
         <div class="container">
             <div class="cta-box">
@@ -270,7 +261,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <?php require_once 'includes/templates/footer.html.php'; ?>
 
 
