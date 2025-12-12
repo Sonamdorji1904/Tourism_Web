@@ -12,7 +12,7 @@ $success = $_GET['success'] ?? null;
 <head>
     <meta charset="UTF-8">
     <title>Change Password - Admin</title>
-    <link rel="stylesheet" href="/Css/styles.css">
+    <link rel="stylesheet" href="../../Css/styles.css">
     <style>
         /* small page-specific adjustments to match site theme */
         .admin-panel {

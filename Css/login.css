@@ -5,7 +5,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('public/bg5.jpg');
+    background-image: url('../public/bg5.jpg');
     background-size: cover;
     background-position: center;
     margin-top: calc(-1 * var(--navbar-height));

@@ -20,7 +20,8 @@
     $tourTitle = "Quick Bhutan Getaway";
     $duration = 5;
     require_once __DIR__ . '/helper/StringHelper.php';
-    $stringHelper = new StringHelper(); ?>
+    $stringHelper = new StringHelper();
+    ?>
 
 
     <!-- Tour Detail Hero -->
@@ -53,7 +54,6 @@
                         <p class="lead">The Quick Bhutan Getaway is the perfect package for travelers who wish to experience the essence of Bhutan in a short time. Designed for those who want to check the iconic Tiger's Nest Monastery off their travel list while gaining a brief yet enriching glimpse into the country's natural beauty, unique culture, and way of life.</p>
                         <p>Your journey begins in Thimphu, Bhutan's charming capital city, where you will visit some of the most significant historical, cultural, and spiritual landmarks. The highlight of the getaway is a scenic hike to the Tiger's Nest (Paro Taktsang), Bhutan's most famous and awe-inspiring attraction, dramatically perched on a cliffside.</p>
                     </div>
-
                     <div class="tour-section">
                         <h2>Tour Highlights</h2>
                         <ul class="highlights-list">
