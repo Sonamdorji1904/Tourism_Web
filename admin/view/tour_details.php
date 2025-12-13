@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="../../Css/styles.css">
+    <link rel="stylesheet" href="../../Css/itinerary.css">
     <link rel="stylesheet" href="../../Css/tour.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
@@ -27,7 +29,7 @@
     ?>
 
     <!-- Tour Detail Hero -->
-    <section class="tour-detail-hero" data-hero="/Happiness%20horizone/public/bg2.jpg">
+    <section class="tour-detail-hero" data-hero="../../public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="tour-detail-hero-content">
             <div class="container">

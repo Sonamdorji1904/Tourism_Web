@@ -55,13 +55,30 @@ if (isset($_FILES['trek_image']) && $_FILES['trek_image']['error'] !== UPLOAD_ER
         exit();
     }
 
-    // Prepare uploads directory
+    // Ensure uploads directory exists and is writable (best-effort)
     $uploadsDir = __DIR__ . '/../uploads/trek_images';
     if (!is_dir($uploadsDir)) {
-        if (!mkdir($uploadsDir, 0777, true) && !is_dir($uploadsDir)) {
-            error_log('Failed to create uploads directory: ' . $uploadsDir);
-            echo "<script>alert('Server error creating upload directory.'); window.history.back();</script>";
-            exit();
+        if (!mkdir($uploadsDir, 0755, true)) {
+            error_log("Failed to create uploads directory: {$uploadsDir}");
+            echo "<script>alert('Server error: cannot create uploads directory. Please check folder permissions.'); window.history.back();</script>";
+            exit;
+        }
+    }
+
+    if (!is_writable($uploadsDir)) {
+        // try to set permissive permissions (best-effort, may fail depending on ownership)
+        @chmod($uploadsDir, 0775);
+        if (!is_writable($uploadsDir)) {
+            $ownerInfo = null;
+            if (function_exists('posix_getpwuid')) {
+                $ownerInfo = @posix_getpwuid(@fileowner($uploadsDir));
+                $owner = $ownerInfo ? ($ownerInfo['name'] ?? '') : '';
+            } else {
+                $owner = '';
+            }
+            error_log("Uploads directory not writable: {$uploadsDir}; owner={$owner}");
+            echo "<script>alert('Server error: uploads directory is not writable. Please update folder permissions (e.g. chown/apache user or chmod).'); window.history.back();</script>";
+            exit;
         }
     }
 

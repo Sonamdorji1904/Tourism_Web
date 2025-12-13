@@ -29,7 +29,7 @@
     <section class="tours-listing">
         <div class="container">
             <div class="tours-listing-top">
-                <a href="../add_tour.php" class="btn btn-outline">Add Trek</a>
+                <a href="../add_trek.php" class="btn btn-outline">Add Trek</a>
             </div>
 
             <?php

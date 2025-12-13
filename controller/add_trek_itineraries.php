@@ -74,7 +74,7 @@ for ($i = 0; $i < $numDays; $i++) {
 if ($failedCount === 0 && $insertedCount > 0 && $validate) {
     echo "<script>
         alert('Success! {$insertedCount} days of itinerary have been saved.');
-        window.location.href = '../index.html.php';
+        window.location.href = '../admin/view/treks.php';
       </script>";
     exit();
 } else {

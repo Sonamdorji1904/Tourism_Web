@@ -58,7 +58,7 @@
                         country's timeless wisdom and genuine hospitality.</p>
                 </div>
                 <div class="story-image">
-                    <img src="public/jomolhari.jpg" alt="Bhutan Landscape">
+                    <img src="../../public/jomolhari.jpg" alt="Bhutan Landscape">
                 </div>
             </div>
         </div>
@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="cert-image">
-                    <img src="public/HH_Profile_3.png" alt="Certified Guide">
+                    <img src="../../public/HH_Profile_3.png" alt="Certified Guide">
                 </div>
             </div>
         </div>
