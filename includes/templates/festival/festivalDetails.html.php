@@ -1,4 +1,10 @@
-<div class="festival-card-detailed" id="<?php echo $stringHelper->safeDisplay($title); ?>">
+<?php
+$rawTitle = $title ?? '';
+$safeTitle = $stringHelper->safeDisplay($rawTitle);
+$slug = preg_replace('/[^a-z0-9]+/i', '-', strtolower($safeTitle));
+$slug = trim($slug, '-');
+?>
+<div class="festival-card-detailed" id="<?php echo $slug; ?>">
     <div class="festival-image">
         <?php
         $src = $imageFilePath ?? '';
@@ -12,7 +18,7 @@
         <div class="festival-badge"><?php echo $stringHelper->safeDisplay($category); ?></div>
     </div>
     <div class="festival-content">
-        <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-3"><?php echo $stringHelper->safeDisplay($title); ?></h3>
+        <h3 class="text-xl md:text-2xl lg:text-3xl font-semibold mb-3"><?php echo $safeTitle; ?></h3>
         <div class="festival-meta mb-3">
             <span class="festival-location text-xs md:text-sm text-gray-700">📍 <?php echo $stringHelper->safeDisplay($venue); ?></span>
         </div>

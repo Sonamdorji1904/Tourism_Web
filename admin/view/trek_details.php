@@ -32,7 +32,7 @@
         <div class="tour-detail-hero-content">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="index.html.php">Home</a> / <a href="treks.html.php">Tours</a> / <?php echo $stringHelper->safeDisplay($trekTitle) ?>
+                    <a href="index.html.php">Home</a> / <a href="treks.html.php">Treks</a> / <?php echo $stringHelper->safeDisplay($trekTitle) ?>
                 </div>
                 <h1><?php echo $stringHelper->safeDisplay($trekTitle) ?></h1>
                 <p class="tour-subtitle"><?php echo $stringHelper->safeDisplay($sub_title) ?></p>

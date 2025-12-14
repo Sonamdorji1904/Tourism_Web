@@ -8,7 +8,10 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
 require_once __DIR__ . '/../model/user/User.php';
+require_once __DIR__ . '../helper/jwt.php';
 
+const JWT_SECRET = 'CHANGE_THIS_TO_A_LONG_RANDOM_SECRET'; // move to env/config in real app
+const JWT_TTL_SECONDS = 1800; // 30 minutes
 /**
  * Log the user in
  */

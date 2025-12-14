@@ -32,4 +32,9 @@ class Festival extends BaseModel
     {
         return parent::findById($id);
     }
+
+    public function getAllFestivalsLimit(int $limit = 6): ?array
+    {
+        return parent::findAllWithLimit($limit);
+    }
 }
