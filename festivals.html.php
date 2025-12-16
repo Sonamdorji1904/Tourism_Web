@@ -206,7 +206,7 @@
                 <!-- Paro Tshechu -->
                 <div class="festival-card-detailed">
                     <div class="festival-image">
-                        <img src="public/paro-tshechu-mask-dance-festival.jpg" alt="Paro Tshechu">
+                        <img src="public/tshechu.png" alt="Paro Tshechu">
                         <div class="festival-badge">Most Popular</div>
                     </div>
                     <div class="festival-content">
