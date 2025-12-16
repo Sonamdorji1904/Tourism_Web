@@ -18,6 +18,7 @@
     require_once __DIR__ . "/../../controller/festival_controller/get_festival.php";
     require_once __DIR__ . "/../../helper/StringHelper.php";
     $stringHelper = new StringHelper();
+    $_SESSION['username'] = $_SESSION['username'] ?? 'guest';
     ?>
 
     <section class="page-hero festivals-hero" data-hero="../bg2.jpg">
