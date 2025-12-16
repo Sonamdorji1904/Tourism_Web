@@ -111,6 +111,24 @@
                 return null;
             }
         }
+        public function findAllWithLimit(int $limit, int $offset = 0): ?array
+        {
+            try {
+                $query = "SELECT * FROM `{$this->table}` LIMIT :limit OFFSET :offset";
+
+                $stmt = $this->pdo->prepare($query);
+                $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+                $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                return $rows ?: null;
+            } catch (PDOException $e) {
+                error_log('BaseModel::findAllWithLimit error: ' . $e->getMessage());
+                return null;
+            }
+        }
+
 
 
         public function count(): int

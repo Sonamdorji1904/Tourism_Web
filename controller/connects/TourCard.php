@@ -56,4 +56,9 @@ class TourCard extends BaseModel
     {
         return parent::getRandomExcluding($excludeTourId, $limit);
     }
+
+    public function getAllToursLimit(int $limit = 6): ?array
+    {
+        return parent::findAllWithLimit($limit);
+    }
 }
