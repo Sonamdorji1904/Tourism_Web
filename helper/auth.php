@@ -206,7 +206,7 @@ function requireLogin(): void
 function requireAdmin(): void
 {
     if (!isAdmin()) {
-        header('Location: ../../login.html.php');
+        header('Location: login.html.php');
         exit;
     }
 
@@ -214,7 +214,7 @@ function requireAdmin(): void
     $last = $_SESSION['last_activity'] ?? null;
     if ($last !== null && (time() - (int)$last) > JWT_TTL_SECONDS) {
         logout();
-        header('Location: ../../login.html.php');
+        header('Location: login.html.php');
         exit;
     }
 
