@@ -3,5 +3,5 @@ require_once __DIR__ . '/../helper/auth.php';
 
 logout();
 
-header('Location: ../index.html.php');
+header('Location: ../public/view/index.html.php');
 exit;

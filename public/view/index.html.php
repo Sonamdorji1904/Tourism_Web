@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="Css/styles.css">
+    <link rel="stylesheet" href="../../Css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,10 +15,15 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once 'includes/templates/header.html.php'; ?>
+    <?php
+    require_once '../../includes/templates/header.html.php';
+    require_once __DIR__ . '/../../helper/StringHelper.php';
+    $stringHelper = new StringHelper();
+    require_once __DIR__ . '/../../controller/fetchToursAndFestivals.php';
+    ?>
 
     <!-- Hero Section -->
-    <section id="home" class="hero" style='background-image: url("public/bg5.jpg");'>
+    <section id="home" class="hero" style="background-image: url('../../public/bg5.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Where Every Journey Begins with Happiness</h1>
@@ -99,112 +104,20 @@
                     Bhutan's beauty and culture</p>
             </div>
             <div class="tours-grid">
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/paro.jpeg" alt="Quick Bhutan Getaway">
-                        <div class="tour-duration">5 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Quick Bhutan Getaway</h3>
-                        <p>Perfect for travelers who want to experience the essence of Bhutan in a short time, including
-                            the iconic Tiger's Nest Monastery.</p>
-                        <ul class="tour-highlights">
-                            <li>Thimphu, Punakha, Paro</li>
-                            <li>Tiger's Nest hike</li>
-                            <li>Cultural landmarks</li>
-                        </ul>
-                        <a href="tour-detail.html.php" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
+                <?php
+                foreach ($tours as $tour) {
+                    $imageFilePath = $tour['image_path'] ?? '';
+                    $title = $tour['title'] ?? '';
+                    $description = $tour['description'] ?? '';
+                    $day_number = $tour['duration'] ?? '';
+                    $experience = $tour['experience'] ?? '';
+                    $theme = $tour['theme'] ?? '';
+                    $key_destinations = $tour['key_destinations'] ?? '';
+                    $tour_id = $tour['id'] ?? '';
+                    include __DIR__ . '/../../includes/templates/tour/homeTourCard.php';
+                }
+                ?>
 
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/black-necked-crane.jpg" alt="Taste of Happiness">
-                        <div class="tour-duration">6 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Taste of Happiness</h3>
-                        <p>Immerse yourself in Bhutan's rich culture and breathtaking landscapes, including the serene
-                            Phobjikha Valley.</p>
-                        <ul class="tour-highlights">
-                            <li>Gangtey & Phobjikha Valley</li>
-                            <li>Black-necked cranes</li>
-                            <li>Cultural immersion</li>
-                        </ul>
-                        <a href="tour2.html.php" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/image 4.jpg" alt="The Living Heritage">
-                        <div class="tour-duration">7 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>The Living Heritage</h3>
-                        <p>Discover Bhutan's living heritage where ancient traditions blend seamlessly with natural
-                            beauty.</p>
-                        <ul class="tour-highlights">
-                            <li>Complete cultural journey</li>
-                            <li>Multiple valleys</li>
-                            <li>Spiritual experiences</li>
-                        </ul>
-                        <a href="tour3.html.php" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/image 5.png" alt="Journey Through Culture">
-                        <div class="tour-duration">8 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Journey Through Culture</h3>
-                        <p>Experience Bhutan's rich heritage, spirituality, and natural beauty through an immersive
-                            cultural journey.</p>
-                        <ul class="tour-highlights">
-                            <li>Extended exploration</li>
-                            <li>Cultural landmarks</li>
-                            <li>Traditional experiences</li>
-                        </ul>
-                        <a href="tour4.html.php" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="tour-card">
-                    <div class="tour-image">
-                        <img src="public/image 6.png" alt="Best of Bhutan">
-                        <div class="tour-duration">9 Days</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Best of Bhutan Tours</h3>
-                        <p>The ultimate Bhutan experience including Bumthang, the spiritual heart of Bhutan with ancient
-                            monasteries.</p>
-                        <ul class="tour-highlights">
-                            <li>Complete Bhutan tour</li>
-                            <li>Bumthang Valley</li>
-                            <li>All major destinations</li>
-                        </ul>
-                        <a href="tour5.html.php" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
-
-                <div class="tour-card featured">
-                    <div class="tour-image">
-                        <img src="public/image 7.png" alt="Honeymoon Package">
-                        <div class="tour-duration">Customizable</div>
-                    </div>
-                    <div class="tour-content">
-                        <h3>Honeymoon: Two Hearts, One Kingdom</h3>
-                        <p>Celebrate your love in the most romantic setting—the mystical Kingdom of Bhutan.</p>
-                        <ul class="tour-highlights">
-                            <li>Romantic experiences</li>
-                            <li>Private moments</li>
-                            <li>Luxury accommodations</li>
-                        </ul>
-                        <a href="tour6.html.php" class="btn btn-outline">Learn More</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -218,42 +131,42 @@
             </div>
             <div class="destinations-grid">
                 <div class="destination-card">
-                    <img src="public/paro.jpeg" alt="Paro">
+                    <img src="../../public/paro.jpeg" alt="Paro">
                     <div class="destination-overlay">
                         <h3>Paro</h3>
                         <p>Home to the iconic Tiger's Nest Monastery and Bhutan's only international airport</p>
                     </div>
                 </div>
                 <div class="destination-card">
-                    <img src="public/image 8.png" alt="Thimphu">
+                    <img src="../../public/image 8.png" alt="Thimphu">
                     <div class="destination-overlay">
                         <h3>Thimphu</h3>
                         <p>The vibrant capital blending modern life with deep-rooted traditions and a rich cultural heritage</p>
                     </div>
                 </div>
                 <div class="destination-card">
-                    <img src="public/image 10.png" alt="Punakha">
+                    <img src="../../public/image 10.png" alt="Punakha">
                     <div class="destination-overlay">
                         <h3>Punakha</h3>
                         <p>Ancient capital featuring the magnificent Punakha Dzong and stunning valley views</p>
                     </div>
                 </div>
                 <div class="destination-card">
-                    <img src="public/black-necked-crane.jpg" alt="Phobjikha Valley">
+                    <img src="../../public/black-necked-crane.jpg" alt="Phobjikha Valley">
                     <div class="destination-overlay">
                         <h3>Phobjikha Valley</h3>
                         <p>Pristine glacial valley, winter home of black-necked cranes and breathtaking landscapes</p>
                     </div>
                 </div>
                 <div class="destination-card">
-                    <img src="public/image 11.png" alt="Bumthang">
+                    <img src="../../public/image 11.png" alt="Bumthang">
                     <div class="destination-overlay">
                         <h3>Bumthang</h3>
                         <p>The spiritual heart of Bhutan with ancient monasteries <br> and sacred sites</p>
                     </div>
                 </div>
                 <div class="destination-card">
-                    <img src="public/wangdue.jpg" alt="Wangduephodrang">
+                    <img src="../../public/wangdue.jpg" alt="Wangduephodrang">
                     <div class="destination-overlay">
                         <h3>Wangduephodrang</h3>
                         <p>Historic fortress town <br>with stunning valley <br>views</p>
@@ -271,43 +184,17 @@
                 <p>Witness colorful celebrations that bring Bhutan's culture and spirituality to life</p>
             </div>
             <div class="festivals-grid">
-                <a href="festivals.html.php" class="festival-card festival-link" role="link"
-                    aria-label="Paro Tshechu - Festivals" title="Paro Tshechu">
-                    <h3>Paro Tshechu</h3>
-                    <p class="festival-time">Spring</p>
-                    <p>Bhutan's most iconic religious festival featuring sacred mask dances and the unfurling of the
-                        giant Thongdrel.</p>
-                </a>
-                <a href="festivals.html.php" class="festival-card festival-link" role="link"
-                    aria-label="Thimphu Tshechu - Festivals" title="Thimphu Tshechu">
-                    <h3>Thimphu Tshechu</h3>
-                    <p class="festival-time">September/October</p>
-                    <p>One of Bhutan's largest festivals held at the magnificent Tashichho Dzong in the capital.</p>
-                </a>
-                <a href="festivals.html.php" class="festival-card festival-link" role="link"
-                    aria-label="Black-Necked Crane Festival - Festivals" title="Black-Necked Crane Festival">
-                    <h3>Black-Necked Crane Festival</h3>
-                    <p class="festival-time">November</p>
-                    <p>Celebrate the arrival of endangered cranes in the beautiful Phobjikha Valley.</p>
-                </a>
-                <a href="festivals.html.php" class="festival-card festival-link" role="link"
-                    aria-label="Punakha Domchoe - Festivals" title="Punakha Domchoe">
-                    <h3>Punakha Domchoe</h3>
-                    <p class="festival-time">February/March</p>
-                    <p>Spectacular martial performances and sacred rituals at Punakha Dzong.</p>
-                </a>
-                <a href="festivals.html.php" class="festival-card festival-link" role="link"
-                    aria-label="Jomolhari Mountain Festival - Festivals" title="Jomolhari Mountain Festival">
-                    <h3>Jomolhari Mountain Festival</h3>
-                    <p class="festival-time">October</p>
-                    <p>Highland celebration honoring the coexistence of people and snow leopards.</p>
-                </a>
-                <a href="festivals.html.php" class="festival-card festival-link" role="link"
-                    aria-label="Royal Highland Festival - Festivals" title="Royal Highland Festival">
-                    <h3>Royal Highland Festival</h3>
-                    <p class="festival-time">Seasonal</p>
-                    <p>Experience the unique culture of Bhutan's highland communities in remote Laya.</p>
-                </a>
+                <?php
+                foreach ($festivals as $festival) {
+                    $title = $festival['title'] ?? '';
+                    $category = $festival['category'] ?? '';
+                    $description = $festival['description'] ?? '';
+                    if ($description) {
+                        $description = strlen($description) > 100 ? substr($description, 0, 100) . '...' : $description;
+                    }
+                    include __DIR__ . '/../../includes/templates/festival/festivals.html.php';
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -353,7 +240,7 @@
                     </div>
                 </div>
                 <div class="why-choose-image">
-                    <img src="public/HH_Profile_3.png" alt="Bhutanese Guide">
+                    <img src="../../public/HH_Profile_3.png" alt="Bhutanese Guide">
                 </div>
             </div>
         </div>
@@ -395,6 +282,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
+<<<<<<< HEAD:index.html.php
                     <form>
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -444,17 +332,20 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">Send Inquiry</button>
                     </form>
+=======
+                    <?php include __DIR__ . '/../../includes/templates/form/option_request_quote_form.html.php'; ?>
+>>>>>>> f287f594363f802a12bbf269200f5cbe00185519:public/view/index.html.php
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <?php require_once 'includes/templates/footer.html.php'; ?>
+    <?php require_once '../../includes/templates/footer.html.php'; ?>
 
 
     <script>
-        <?php include 'Js/javascript.js'; ?>
+        <?php include '../../Js/javascript.js'; ?>
     </script>
 </body>
 

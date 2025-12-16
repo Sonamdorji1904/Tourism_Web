@@ -40,8 +40,12 @@ $stringHelper = new StringHelper();
             </div>
 
             <div class="tour-actions">
-                <a href="../../admin/update_tour.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-primary">Update tour</a>
-                <a href="../../controller/delete_tour.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this tour?');">Delete tour</a>
+                <?php $user = $_SESSION['username'];
+                if ($user === 'admin') :
+                ?>
+                    <a href="../../admin/update_tour.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-primary">Update tour</a>
+                    <a href="../../controller/delete_tour.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this tour?');">Delete tour</a>
+                <?php endif; ?>
                 <a href="get_tour_details.php?id=<?php echo urlencode($tour['id'] ?? ''); ?>" class="btn btn-outline">Read more</a>
             </div>
         </div>
