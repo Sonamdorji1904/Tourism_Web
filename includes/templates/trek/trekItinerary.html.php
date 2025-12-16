@@ -12,8 +12,8 @@
                 <?php $user = $_SESSION['username'];
                 if ($user === 'admin') :
                 ?>
-                    <a href="/Happiness%20horizone/admin/view/update_trek_itinerary.html.php?id=<?php echo urlencode($itineraryId ?? ''); ?>" class="btn btn-primary">Update trek</a>
-                    <a href="/Happiness%20horizone/controller/deleteTrekItinerary.php?itinerary_id=<?= $itineraryId ?>&trek_id=<?= $trekId ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this Itinerary?');">Delete trek</a>
+                    <a href="update_trek_itinerary.html.php?id=<?php echo urlencode($itineraryId ?? ''); ?>" class="btn btn-primary">Update trek</a>
+                    <a href="../../deleteTrekItinerary.php?itinerary_id=<?= $itineraryId ?>&trek_id=<?= $trekId ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this Itinerary?');">Delete trek</a>
                 <?php endif; ?>
             </div>
         </div>
