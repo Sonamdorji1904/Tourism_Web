@@ -1,5 +1,4 @@
 <?php
-// helper/jwt.php
 
 function base64url_encode(string $data): string
 {

@@ -3,6 +3,9 @@ $rawTitle = $title ?? '';
 $safeTitle = $stringHelper->safeDisplay($rawTitle);
 $slug = preg_replace('/[^a-z0-9]+/i', '-', strtolower($safeTitle));
 $slug = trim($slug, '-');
+$rawTitle = $title ?? '';
+$safeTitle = $stringHelper->safeDisplay($rawTitle);
+$slug = $stringHelper->slugify($safeTitle);
 ?>
 <a href="festivals.php#<?php echo $slug; ?>" class="festival-card festival-link" role="link"
     aria-label="<?php echo htmlspecialchars($safeTitle); ?> - Festivals" title="<?php echo htmlspecialchars($safeTitle); ?>">

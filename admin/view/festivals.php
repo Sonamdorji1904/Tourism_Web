@@ -170,7 +170,7 @@
                     $description = $festival['description'] ?? '';
                     $imageFilePath = $festival['image'] ?? '';
                     $festivalId = $festival['id'] ?? '';
-                    include '../../includes/templates/festival/festivalDetails.html.php';
+                    include '../../includes/templates/festival/festivalDetails_fixed.html.php';
                 endforeach; ?>
             </div>
         </div>

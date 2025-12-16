@@ -1,8 +1,7 @@
 <?php
 $rawTitle = $title ?? '';
 $safeTitle = $stringHelper->safeDisplay($rawTitle);
-$slug = preg_replace('/[^a-z0-9]+/i', '-', strtolower($safeTitle));
-$slug = trim($slug, '-');
+$slug = $stringHelper->slugify($safeTitle);
 ?>
 <div class="festival-card-detailed" id="<?php echo $slug; ?>">
     <div class="festival-image">
@@ -14,7 +13,7 @@ $slug = trim($slug, '-');
         $srcEsc = htmlspecialchars($src);
         $altText = htmlspecialchars($title ?? 'Tour Image');
         ?>
-        <img src="<?php echo $srcEsc; ?>" alt="Paro Tshechu">
+        <img src="<?php echo $srcEsc; ?>" alt="<?php echo $altText; ?>">
         <div class="festival-badge"><?php echo $stringHelper->safeDisplay($category); ?></div>
     </div>
     <div class="festival-content">
@@ -28,5 +27,4 @@ $slug = trim($slug, '-');
             <a href="../../controller/delete_festival.php?id=<?php echo $festivalId ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this festival?');">Delete festival</a>
         </div>
     </div>
-
 </div>
