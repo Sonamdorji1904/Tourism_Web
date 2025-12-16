@@ -72,10 +72,14 @@ class ConfigLoader
         // Remove surrounding quotes if present (Dotenv may include them)
         if (is_string($value)) {
             $value = trim($value);
-            if (($value[0] === '"' && $value[-1] === '"') ||
-                ($value[0] === "'" && $value[-1] === "'")
-            ) {
-                $value = substr($value, 1, -1);
+            $len = strlen($value);
+            // Only attempt to inspect character offsets when the string has at least two characters
+            if ($len >= 2) {
+                $first = $value[0];
+                $last = $value[$len - 1];
+                if (($first === '"' && $last === '"') || ($first === "'" && $last === "'")) {
+                    $value = substr($value, 1, -1);
+                }
             }
         }
 

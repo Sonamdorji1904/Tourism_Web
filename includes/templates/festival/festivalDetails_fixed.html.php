@@ -23,8 +23,12 @@ $slug = $stringHelper->slugify($safeTitle);
         </div>
         <p class="text-sm md:text-base lg:text-lg leading-normal mb-3"><?php echo $stringHelper->safeDisplay($description); ?></p>
         <div class="tour-actions">
-            <a href="../../admin/update_festival.php?id=<?php echo urlencode($festival['id'] ?? ''); ?>" class="btn btn-primary">Update festival</a>
-            <a href="../../controller/delete_festival.php?id=<?php echo $festivalId ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this festival?');">Delete festival</a>
+            <?php $user = $_SESSION['username'];
+            if ($user === 'admin') :
+            ?>
+                <a href="../../admin/update_festival.php?id=<?php echo urlencode($festival['id'] ?? ''); ?>" class="btn btn-primary">Update festival</a>
+                <a href="../../controller/delete_festival.php?id=<?php echo $festivalId ?>" class="btn btn-outline" onclick="return confirm('Are you sure you want to delete this festival?');">Delete festival</a>
+            <?php endif; ?>
         </div>
     </div>
 </div>
