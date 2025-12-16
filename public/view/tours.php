@@ -22,7 +22,7 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Tours for Every Dream</h1>
-            <p>Choose from our carefully curated tour packages...offer a unique perspective of Bhutan's beauty and culture</p>
+            <p>Choose from our carefully curated tour packages to offer a unique perspective of Bhutan's beauty and culture</p>
         </div>
     </section>
 
