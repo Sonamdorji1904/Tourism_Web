@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Quote - Happiness Horizon Travel</title>
-    <link rel="stylesheet" href="Css/styles.css">
-    <link rel="stylesheet" href="Css/countryDropdown.css">
+    <title>Contact Us - Happiness Horizon Travel</title>
+    <link rel="stylesheet" href="../../Css/styles.css">
+    <link rel="stylesheet" href="../../Css/countryDropdown.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,14 +15,15 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once 'includes/templates/header.html.php';
-    require_once __DIR__ . '/helper/StringHelper.php';
+    <?php
+    require_once '../../includes/templates/header.html.php';
+    require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
     ?>
 
 
     <!-- Page Hero -->
-    <section class="tour-detail-hero" data-hero="public/bg2.jpg">
+    <section class="tour-detail-hero" data-hero="../../public/bg2.jpg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Get in Touch</h1>
@@ -41,8 +42,8 @@
                     <?php
                     $tourTitle = isset($_GET['tour']) ? urldecode($_GET['tour']) : '';
 
-                    if ($tourTitle) include __DIR__ . '/includes/templates/form/request_quote_form.html.php';
-                    else include __DIR__ . '/includes/templates/form/option_request_quote_form.html.php';
+                    if ($tourTitle) include __DIR__ . '/../../includes/templates/form/request_quote_form.html.php';
+                    else include __DIR__ . '/../../includes/templates/form/option_request_quote_form.html.php';
                     ?>
                 </div>
 
@@ -61,7 +62,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <a href="mailto:info@happinesstravel.bt" class="contact-link">info@happinesstravel.bt</a>
+                                    <a href="mailto:info@happinesshorizontravel.com" class="contact-link">info@happinesshorizontravel.com</a>
                                 </div>
                             </div>
 
@@ -101,15 +102,6 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="contact-detail-item">
-                                <div class="contact-icon">🕐</div>
-                                <div>
-                                    <strong>Office Hours</strong>
-                                    <p>Monday - Friday: 9:00 AM - 6:00 PM (BTT)</p>
-                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
-                                    <p>Sunday: Closed</p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
 
@@ -123,7 +115,7 @@
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
                                 <span></span> Call Now
                             </a>
-                            <a href="mailto:info@happinesstravel.bt" class="quick-contact-btn email">
+                            <a href="mailto:info@happinesshorizontravel.com" class="quick-contact-btn email">
                                 <span></span> Email
                             </a>
                         </div>
@@ -173,11 +165,11 @@
     </section>
 
     <!-- Footer -->
-    <?php require_once 'includes/templates/footer.html.php'; ?>
+    <?php require_once '../../includes/templates/footer.html.php'; ?>
 
     <script>
-        <?php include 'Js/javascript.js';
-        include 'Js/filter_country.js';
+        <?php include '../../Js/javascript.js';
+        include '../../Js/filter_country.js';
         ?>
     </script>
 </body>

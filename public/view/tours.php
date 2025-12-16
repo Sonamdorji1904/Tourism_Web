@@ -13,9 +13,8 @@
 </head>
 
 <body>
-    <?php require_once __DIR__ . '/../../helper/auth.php';
-    requireAdmin();
-    require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
+    <?php
+    require_once __DIR__ . '/../../includes/templates/header.html.php';
     require '../../controller/fetch_all_tours.php';
     ?>
 
@@ -23,17 +22,12 @@
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Tours for Every Dream</h1>
-            <p>
-
-                Choose from our carefully curated tour packages...offer a unique perspective of Bhutan's beauty and culture</p>
+            <p>Choose from our carefully curated tour packages...offer a unique perspective of Bhutan's beauty and culture</p>
         </div>
     </section>
 
     <section class="tours-listing">
         <div class="container">
-            <div class="tours-listing-top">
-                <a href="../add_tour.php" class="btn btn-outline">Add Tour</a>
-            </div>
 
             <div class="tours-grid-extended">
                 <?php

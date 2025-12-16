@@ -1,5 +1,4 @@
 <?php
-// Load Composer autoload and dotenv if available
 if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
     require_once __DIR__ . '/../vendor/autoload.php';
     if (class_exists('\Dotenv\Dotenv')) {
@@ -7,7 +6,7 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
             $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
             $dotenv->safeLoad();
         } catch (Throwable $e) {
-            // ignore dotenv errors; fall back to environment
+            // ignore dotenv errors; fall back to environment` --- IGNORE ---
         }
     }
 }
@@ -24,9 +23,9 @@ class Database
 
     public function __construct()
     {
-        $this->host = getenv('DB_HOST') ?: 'localhost';
-        $this->db = getenv('DB_NAME') ?: 'happiness_horizon';
-        $this->user = getenv('DB_USER') ?: 'root';
+        $this->host = getenv('DB_HOST') ?: '';
+        $this->db = getenv('DB_NAME') ?: '';
+        $this->user = getenv('DB_USER') ?: '';
         $this->pass = getenv('DB_PASS') ?: '';
         $this->charset = getenv('DB_CHARSET') ?: 'utf8mb4';
 
@@ -40,7 +39,6 @@ class Database
         try {
             $this->pdo = new PDO($dsn, $this->user, $this->pass, $options);
         } catch (PDOException $e) {
-            // for local dev keep the original behaviour but show more context
             die("DB Connection Failed: " . $e->getMessage());
         }
     }

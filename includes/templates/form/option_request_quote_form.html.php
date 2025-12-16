@@ -42,10 +42,10 @@
         </select>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="tour">Duration</label>
         <input type="number" value="<?php echo $stringHelper->safeDisplay($duration) ?>" id="duration" name="duration" readonly>
-    </div>
+    </div> -->
 
     <div class="form-row">
         <div class="form-group">
