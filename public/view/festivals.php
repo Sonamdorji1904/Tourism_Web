@@ -84,7 +84,6 @@
                         </div>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
-
             </div>
 
             <a href="#upcoming-festivals" class="upcoming-floating" aria-label="Jump to Upcoming Festivals">

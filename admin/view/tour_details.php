@@ -42,9 +42,7 @@
                     <div class="quick-info-item">
                         <strong>Duration:</strong> <?php echo $stringHelper->safeDisplay($duration) ?>
                     </div>
-                    <div class="quick-info-item">
-                        <strong>Best Time:</strong> <?php echo $stringHelper->safeDisplay($bestTime) ?>
-                    </div>
+
                 </div>
             </div>
         </div>

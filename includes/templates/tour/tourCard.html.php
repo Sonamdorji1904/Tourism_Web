@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../../helper/StringHelper.php';
 $stringHelper = new StringHelper();
 ?>
-<div class="container" style="margin-top: 30px;">
+<div class="card-container" style="margin-top: 30px;">
     <div class="tour-card-extended">
         <div class="tour-image-extended">
             <?php

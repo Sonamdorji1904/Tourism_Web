@@ -3,7 +3,6 @@ $tourTitle = '';
 $sub_title = '';
 $duration = '';
 $overview = '';
-$bestTime = '';
 $highlightPoints = [];
 $tourItineraries = [];
 $tourId = isset($_GET['id']) ? intval($_GET['id']) : null;

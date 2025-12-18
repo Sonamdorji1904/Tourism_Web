@@ -3,7 +3,6 @@ $trekTitle = '';
 $sub_title = '';
 $duration = '';
 $overview = '';
-$bestTime = '';
 $trekItineraries = [];
 $trekId = isset($_GET['id']) ? intval($_GET['id']) : null;
 if ($trekId) {

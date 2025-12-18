@@ -8,7 +8,7 @@
             <div class="day-content">
                 <p><?php echo $stringHelper->safeDisplay($description) ?></p>
                 <p><strong>Meals:</strong><?php echo $stringHelper->safeDisplay($meals) ?></p>
-                <p><strong>Accommodation:</strong> <?php echo $stringHelper->safeDisplay($accommodation_options) ?></p>
+                <p><strong>Camp Site:</strong> <?php echo $stringHelper->safeDisplay($accommodation_options) ?></p>
                 <?php $user = $_SESSION['username'];
                 if ($user === 'admin') :
                 ?>

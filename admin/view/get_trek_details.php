@@ -5,7 +5,6 @@ $trekTitle = '';
 $sub_title = '';
 $duration = '';
 $overview = '';
-$bestTime = '';
 $trekItineraries = [];
 $trekId = isset($_GET['id']) ? intval($_GET['id']) : null;
 if ($trekId) {
@@ -29,7 +28,6 @@ if ($trekId) {
         if (!empty($trekDetailRows)) {
             $firstRow = $trekDetailRows[0];
             $overview = $firstRow['over_view'] ?? '';
-            $bestTime = $firstRow['best_time'] ?? '';
         }
     } catch (Throwable $e) {
         error_log('Could not load trek title for id ' . $trekId . ': ' . $e->getMessage());
