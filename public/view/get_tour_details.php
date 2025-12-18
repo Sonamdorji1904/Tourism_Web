@@ -27,7 +27,6 @@ if ($tourId) {
         if ($tourDetail) {
             $overview = $tourDetail['over_view'];
             $highlights = $tourDetail['tour_highlights'];
-            $bestTime = $tourDetail['best_time'];
             $highlightPoints = explode("\n", trim($highlights));
         }
     } catch (Throwable $e) {

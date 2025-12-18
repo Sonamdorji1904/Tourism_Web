@@ -198,7 +198,7 @@
         </div>
     </section>
 
-    <?php require_once 'includes/templates/footer.html.php'; ?>
+    <?php require_once '../../includes/templates/footer.html.php'; ?>
 
 
     <script>

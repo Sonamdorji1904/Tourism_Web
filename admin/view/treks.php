@@ -50,7 +50,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer --> 
     <?php require_once '../../includes/templates/footer.html.php'; ?>
 
     <script>
