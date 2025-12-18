@@ -1,3 +1,17 @@
+<?php
+
+if (!isset($tours)) {
+    $tours = [];
+    $fetchPath = __DIR__ . '/../../../controller/fetch_all_tours.php';
+    if (file_exists($fetchPath)) {
+        include $fetchPath;
+        $tours = $tours ?? [];
+    }
+}
+
+$duration = $duration ?? '';
+?>
+
 <form class="contact-form-detailed" action="./controller/submit_request_quote.php" method="post">
     <div class="form-row">
         <div class="form-group">
@@ -30,21 +44,30 @@
 
     <div class="form-group">
         <label for="tour">Interested Tour Package</label>
-        <select id="tour" name="tour">
-            <option value="">Select a tour (optional)</option>
-            <option value="5-day">Quick Bhutan Getaway (5 Days)</option>
-            <option value="6-day">Taste of Happiness (6 Days)</option>
-            <option value="7-day">The Living Heritage (7 Days)</option>
-            <option value="8-day">Journey Through Culture (8 Days)</option>
-            <option value="9-day">Best of Bhutan (9 Days)</option>
-            <option value="honeymoon">Honeymoon Package</option>
-            <option value="custom">Custom Tour</option>
+        <select name="tour" id="tour" required>
+            <option value="">Select Tour</option>
+            <?php foreach ($tours as $tour): ?>
+                <?php $tourTitle = $tour['title'] ?? '';
+                $tourDuration = $tour['duration'] ?? '';
+                $isCustomFlag = !empty($tour['is_custom']) && $tour['is_custom'] ? 'true' : 'false'; ?>
+                <option
+                    value="<?= htmlspecialchars($tour['id']); ?>"
+                    data-duration="<?= htmlspecialchars($tourDuration); ?>"
+                    data-custom="<?= $isCustomFlag; ?>"
+                    data-title="<?= htmlspecialchars($tourTitle); ?>">
+                    <?= htmlspecialchars($tourTitle) . ' (' . htmlspecialchars($tourDuration) . ')' ?>
+                </option>
+            <?php endforeach; ?>
+            <option value="custom" data-duration="" data-custom="true" data-title="Custom Tour">Customise Tour</option>
         </select>
+
     </div>
 
     <div class="form-group">
-        <label for="tour">Duration</label>
-        <input type="number" value="<?php echo $stringHelper->safeDisplay($duration) ?>" id="duration" name="duration" readonly>
+        <label for="duration">Duration (Days)</label>
+        <div style="display:flex;gap:12px;align-items:center;">
+            <input type="text" value="<?= $stringHelper->safeDisplay($duration) ?>" id="duration" name="duration" readonly placeholder="0" />
+        </div>
     </div>
 
     <div class="form-row">

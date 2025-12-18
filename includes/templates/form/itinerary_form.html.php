@@ -31,7 +31,7 @@ error_log("Itinerary form template - Day: {$dayNumber}, TourId: {$tourId}");
         <textarea id="day_<?php echo $dayNumber; ?>_activities" name="day_activities[]" required
             placeholder="Visit National Memorial Chorten.(/) 
 Explore Kaja Throm (Farmers' Market)"><?php echo isset($day_activities) ? htmlspecialchars($day_activities) : ''; ?></textarea>
-        <small class="form-text">Enter each activities seprate by back slash (/). They will be displayed as bullet points</small>
+        <small class="form-text">Enter each activity in an individual line. They will be displayed as bullet points</small>
     </div>
 
     <div class="form-group">

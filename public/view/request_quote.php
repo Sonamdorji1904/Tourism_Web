@@ -19,6 +19,25 @@
     require_once '../../includes/templates/header.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
+    // If a tour is pre-selected via ?tour= we want to look up its duration
+    // so the duration input can show the correct value on the form.
+    $tourTitle = isset($_GET['tour']) ? urldecode($_GET['tour']) : '';
+    $duration = '';
+    if ($tourTitle) {
+        $fetchPath = __DIR__ . '/../../controller/fetch_all_tours.php';
+        if (file_exists($fetchPath)) {
+            include $fetchPath; // sets $tours
+            if (!empty($tours) && is_array($tours)) {
+                foreach ($tours as $t) {
+                    $dbTitle = $stringHelper->safeDisplay($t['title'] ?? '');
+                    if (strcasecmp(trim($dbTitle), trim($tourTitle)) === 0) {
+                        $duration = $t['duration'] ?? '';
+                        break;
+                    }
+                }
+            }
+        }
+    }
     ?>
 
 
@@ -40,8 +59,9 @@
                     <h2>Send Us a Message</h2>
                     <p>Fill out the form below and we'll get back to you within 24 hours</p>
                     <?php
-                    $tourTitle = isset($_GET['tour']) ? urldecode($_GET['tour']) : '';
-
+                    // Pass $tourTitle and $duration into the included template
+                    if (!isset($tourTitle)) $tourTitle = '';
+                    if (!isset($duration)) $duration = '';
                     if ($tourTitle) include __DIR__ . '/../../includes/templates/form/request_quote_form.html.php';
                     else include __DIR__ . '/../../includes/templates/form/option_request_quote_form.html.php';
                     ?>
@@ -170,6 +190,7 @@
     <script>
         <?php include '../../Js/javascript.js';
         include '../../Js/filter_country.js';
+        include '../../Js/autofill_duration.js';
         ?>
     </script>
 </body>

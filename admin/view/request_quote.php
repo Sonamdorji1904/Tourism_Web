@@ -20,8 +20,6 @@
     require_once '../../includes/templates/adminHeader.html.php';
     require_once __DIR__ . '/../../helper/StringHelper.php';
     $stringHelper = new StringHelper();
-    require_once __DIR__ . '/../../helper/auth.php';
-    requireAdmin();
     ?>
 
 
@@ -173,6 +171,7 @@
     <script>
         <?php include '../../Js/javascript.js';
         include '../../Js/filter_country.js';
+        include '../../Js/autofill_duration.js';
         ?>
     </script>
 </body>

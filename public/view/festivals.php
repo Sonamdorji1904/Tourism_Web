@@ -149,37 +149,73 @@
         </div>
     </section>
 
+    <!-- Festival Tips -->
     <section class="festival-tips">
         <div class="container">
             <h2>Festival Travel Tips</h2>
             <div class="tips-grid">
                 <div class="tip-card">
-                    <div class="tip-icon">📅</div>
+                    <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1a4d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar1-icon lucide-calendar-1">
+                            <path d="M11 14h1v4" />
+                            <path d="M16 2v4" />
+                            <path d="M3 10h18" />
+                            <path d="M8 2v4" />
+                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                        </svg></div>
                     <h3>Book Early</h3>
                     <p>Festival dates are popular travel times. Book your tour 3-6 months in advance to secure accommodations and the best viewing spots.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">👔</div>
+                    <div class="tip-icon"><svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="50"
+                            height="50"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#1a4d2e"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M6 2h12M6 2v4a2 2 0 0 1-2 2H3a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-1a2 2 0 0 1-2-2V2M9 11h6v3a3 3 0 0 1-3 3 3 3 0 0 1-3-3v-3zM12 17v2M3 19h18" />
+                        </svg></div>
                     <h3>Dress Respectfully</h3>
                     <p>Festivals are sacred events. Dress modestly and consider wearing traditional Bhutanese attire (available for rent) to show respect.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">📸</div>
+                    <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1a4d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera-icon lucide-camera">
+                            <path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z" />
+                            <circle cx="12" cy="13" r="3" />
+                        </svg></div>
                     <h3>Photography Etiquette</h3>
                     <p>Ask permission before photographing people. Some sacred dances and areas may have photography restrictions.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">⏰</div>
+                    <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1a4d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-alarm-clock-icon lucide-alarm-clock">
+                            <circle cx="12" cy="13" r="8" />
+                            <path d="M12 9v4l2 2" />
+                            <path d="M5 3 2 6" />
+                            <path d="m22 6-3-3" />
+                            <path d="M6.38 18.7 4 21" />
+                            <path d="M17.64 18.67 20 21" />
+                        </svg></div>
                     <h3>Arrive Early</h3>
                     <p>Get to the festival grounds early for the best viewing positions. Performances often start in the morning and continue throughout the day.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">🎒</div>
+                    <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1a4d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-backpack-icon lucide-backpack">
+                            <path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+                            <path d="M8 10h8" />
+                            <path d="M8 18h8" />
+                            <path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6" />
+                            <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+                        </svg></div>
                     <h3>What to Bring</h3>
                     <p>Bring sunscreen, a hat, water, snacks, and comfortable shoes. Festivals are outdoor events that can last several hours.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">🙏</div>
+                    <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#1a4d2e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-handshake-icon lucide-heart-handshake">
+                            <path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762" />
+                        </svg></div>
                     <h3>Respect Traditions</h3>
                     <p>Observe quietly during sacred moments, don't walk in front of dancers, and follow your guide's instructions for proper etiquette.</p>
                 </div>
