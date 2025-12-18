@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../Css/styles.css">
+    <link rel="stylesheet" href="../../Css/countryDropdown.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -249,7 +250,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
+        <div class="contact-container">
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>Start Your Journey to Happiness</h2>
@@ -294,7 +295,8 @@
 
 
     <script>
-        <?php include '../../Js/javascript.js'; ?>
+        <?php include '../../Js/javascript.js';
+        include '../../Js/filter_country.js'; ?>
     </script>
 </body>
 

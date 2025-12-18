@@ -1,12 +1,12 @@
 .dropdown-list {
     position: absolute;
     background: #fff;
-    border: 1px solid #ddd;
     max-height: 180px;
     overflow-y: auto;
-    width: 100%;
+    width: 50%;
     z-index: 999;
     display: none;
+    color: black;
 }
 
 .dropdown-item {

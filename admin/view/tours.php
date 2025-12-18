@@ -30,7 +30,7 @@
     </section>
 
     <section class="tours-listing">
-        <div class="container">
+        <div class="tour-card-container">
             <div class="tours-listing-top">
                 <a href="../add_tour.php" class="btn btn-outline">Add Tour</a>
             </div>

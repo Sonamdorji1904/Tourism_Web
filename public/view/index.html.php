@@ -248,7 +248,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
+        <div class="contact-container">
             <div class="contact-content">
                 <div class="contact-info">
                     <h2>Start Your Journey to Happiness</h2>

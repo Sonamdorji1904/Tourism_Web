@@ -38,12 +38,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="best_time">Best Time to Visit.:</label>
-                    <input type="text" id="best_time" name="best_time" required
-                        placeholder="e.g., Aprial to June and September to November">
-                </div>
-
-                <div class="form-group">
                     <label for="over_view">Tour Overview:</label>
                     <textarea id="over_view" name="over_view" required
                         placeholder="Please enter tour overview"></textarea>

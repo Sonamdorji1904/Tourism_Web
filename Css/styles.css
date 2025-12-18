@@ -1296,6 +1296,7 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
+  padding: 32px;
 }
 
 .contact-info h2 {
@@ -1552,7 +1553,6 @@ img {
 /* Forms */
 .contact-form {
   background-color: var(--neutral-100);
-  padding: var(--spacing-md);
   border-radius: var(--radius-lg);
 }
 
@@ -1726,10 +1726,23 @@ img {
   /* Pushes button to the right */
 }
 
+.tour-card-container {
+  /* Avoid using large percentage margins which can cause horizontal overflow on small screens.
+     Use padding inside the container instead so children can size reliably. */
+  margin: 0;
+  padding: 0 var(--spacing-sm);
+  box-sizing: border-box;
+  width: 100%;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: block;
+  }
+
+  .container {
+    padding: 2%;
   }
 
   /* Hide desktop nav, show mobile menu when active */
@@ -1762,7 +1775,6 @@ img {
     display: flex;
   }
 
-  /* Make sure links are clickable and styled nicely */
   .nav-links li {
     width: 100%;
     margin: 0;
@@ -1778,32 +1790,6 @@ img {
 
   .nav-links a:hover {
     background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  /* Ensure admin dropdown sits inside the mobile panel and displays full-width */
-  .user-dropdown .dropdown-menu {
-    position: static !important;
-    right: auto !important;
-    top: auto !important;
-    min-width: auto !important;
-    width: 100%;
-    border-radius: 0 !important;
-    background: transparent !important; /* inherit panel background */
-    padding: 0 !important;
-  }
-
-  .user-dropdown summary {
-    display: block !important;
-    width: 100%;
-    padding: 16px 18px !important;
-    color: var(--neutral-100) !important;
-    box-sizing: border-box;
-  }
-
-  .user-dropdown .dropdown-menu a {
-    padding: 14px 20px !important;
-    display: block !important;
-    color: var(--neutral-100) !important;
   }
 
   /* Rest of your responsive styles */
@@ -1824,10 +1810,6 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .tour-card-extended {
-    grid-template-columns: 1fr;
-  }
-
   .tour-image-extended {
     min-height: 250px;
   }
@@ -1844,6 +1826,134 @@ img {
   .why-choose-text h2,
   .contact-info h2 {
     font-size: 2rem;
+  }
+
+  /* Make tour cards fit on small screens */
+  .tours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    transform: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+    /* ensure padding/border don't increase width */
+  }
+
+  /* Prevent hover transforms from expanding layout on touch devices */
+  .tour-card:hover {
+    transform: none;
+  }
+
+  .tour-image {
+    height: 200px;
+    /* slightly smaller image height on mobile */
+  }
+
+  .tour-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: none;
+    /* avoid scaling that could cause overflow */
+  }
+
+  /* Ensure extended card stacks nicely */
+  .tour-card-extended {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Force tours-grid to single column on small screens to avoid min-width overflow */
+  .tours-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-content {
+    padding: 10px;
+  }
+
+  /* Additional safeguards for extended tour grids to prevent overflow */
+  .tours-grid-extended {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tour-card-extended {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .tour-image-extended,
+  .tour-image {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .tour-image-extended img,
+  .tour-image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+  }
+
+  /* Flex-based responsive fallback for tour grids to avoid horizontal overflow
+     and make cards wrap naturally. This gives each card a flexible basis and
+     allows them to wrap rather than forcing a min-width grid column. */
+  .tours-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: var(--spacing-md) !important;
+    align-items: stretch !important;
+  }
+
+  /* Each card can grow and shrink; on narrow screens the flex-basis will
+     allow cards to become full-width without causing horizontal scroll. */
+  .tours-grid .tour-card {
+    flex: 1 1 320px !important;
+    /* prefer ~320px but allow shrink */
+    min-width: 0 !important;
+    /* prevents intrinsic min-width from overflowing */
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+  }
+
+  /* Ensure tour images remain contained and don't force width beyond parent */
+  .tours-grid .tour-card .tour-image,
+  .tours-grid .tour-card .tour-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  /* For extended listings: stack content vertically using flex so the
+     image and content don't produce a fixed 400px column that overflows. */
+  .tours-grid-extended {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-lg) !important;
+  }
+
+  .tour-card-extended {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-md) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .tour-card-extended .tour-image-extended,
+  .tour-card-extended .tour-image {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
   }
 }
 
@@ -1869,20 +1979,4 @@ img {
 .status-message p {
   margin: 0;
   font-size: 16px;
-}
-
-.tours-listing {
-  background-color: var(--neutral-200);
-}
-
-.tours-listing .container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.tours-listing-top {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--spacing-sm);
 }

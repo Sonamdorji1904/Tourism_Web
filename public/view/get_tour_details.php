@@ -3,7 +3,6 @@ $tourTitle = '';
 $sub_title = '';
 $duration = '';
 $overview = '';
-$bestTime = '';
 $highlightPoints = [];
 $tourItineraries = [];
 $tourId = isset($_GET['id']) ? intval($_GET['id']) : null;
@@ -27,7 +26,6 @@ if ($tourId) {
         if ($tourDetail) {
             $overview = $tourDetail['over_view'];
             $highlights = $tourDetail['tour_highlights'];
-            $bestTime = $tourDetail['best_time'];
             $highlightPoints = explode("\n", trim($highlights));
         }
     } catch (Throwable $e) {

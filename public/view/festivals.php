@@ -84,7 +84,6 @@
                         </div>
                     <?php endforeach; ?>
                 <?php endforeach; ?>
-
             </div>
 
             <a href="#upcoming-festivals" class="upcoming-floating" aria-label="Jump to Upcoming Festivals">
@@ -198,7 +197,7 @@
         </div>
     </section>
 
-    <?php require_once 'includes/templates/footer.html.php'; ?>
+    <?php require_once '../../includes/templates/footer.html.php'; ?>
 
 
     <script>
