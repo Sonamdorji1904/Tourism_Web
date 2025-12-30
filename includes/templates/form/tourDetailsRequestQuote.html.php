@@ -38,7 +38,7 @@ if ($trekTitle) {
         }
     }
     ?>
-    <?php if ($tourTitle == "customise tour"): ?>
+    <?php if ($tourTitle == "customise tour" || $tourTitle == "Honeymoon: Two Hearts, One Kingdom"): ?>
         <div class="form-group">
             <label for="duration">Custom Duration (Days)</label>
             <input type="number"

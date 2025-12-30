@@ -46,9 +46,9 @@
                 <div class="form-group">
                     <label for="tour_highlights">Tour Highlights (Bullet Points):</label>
                     <textarea id="tour_highlights" name="tour_highlights" required
-                        placeholder="Explore the scenic and culturally rich Paro Valley(/)
+                        placeholder="Explore the scenic and culturally rich Paro Valley.
 Enjoy a guided tour of Punakha, the ancient capitals"></textarea>
-                    <small class="form-text">Enter each highlight point seprate by back slash (/). They will be displayed as bullet points</small>
+                    <small class="form-text">Enter each highlight point in individual lines. They will be displayed as bullet points</small>
                 </div>
                 <button type="submit" class="btn">Upload Section</button>
             </form>

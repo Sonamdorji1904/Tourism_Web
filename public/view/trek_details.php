@@ -69,10 +69,14 @@
                                 $panelId = 'day' . ($i + 1) . '-panel';
                                 include __DIR__ . '/../../includes/templates/trek/trekItinerary.html.php';
                             }
+
+                            $user = $_SESSION['username'];
+                            if ($user === 'admin') :
                             ?>
-                            <div class="tour-actions">
-                                <a href="../trek_itinerary.php?trek_id=<?= $trekId ?>" class="btn btn-primary">Add trek Itinerary</a>
-                            </div>
+                                <div class="tour-actions">
+                                    <a href="../trek_itinerary.php?trek_id=<?= $trekId ?>" class="btn btn-primary">Add trek Itinerary</a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <p><strong>Note:</strong>This itinerary is provided as a general guide to give you an overview of the trek. The final itinerary can be customized to suit the season, your interests and preferred duration.</p>
