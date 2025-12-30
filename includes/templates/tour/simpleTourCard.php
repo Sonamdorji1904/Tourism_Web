@@ -1,7 +1,11 @@
 <div class="tour-card">
     <div class="tour-image">
         <img src="<?php echo $imageFilePath; ?>" alt="Taste of Happiness">
-        <div class="tour-duration"><?php echo $stringHelper->safeDisplay((int)$duration); ?> Days</div>
+        <?php if ($status === 'Customizable') : ?>
+            <div class="tour-duration">Custom</div>
+        <?php else : ?>
+            <div class="tour-duration"><?php echo $stringHelper->safeDisplay((int)$duration); ?> Days</div>
+        <?php endif; ?>
     </div>
     <div class="tour-content">
         <h3><?php echo $stringHelper->safeDisplay($title); ?></h3>

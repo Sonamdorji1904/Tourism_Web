@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require_once __DIR__ . '/../../helper/auth.php';
+requireAdmin();
+require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
+require_once __DIR__ . '/../../helper/StringHelper.php';
+$stringHelper = new StringHelper();
+require_once __DIR__ . '/get_trek_details.php';
+require_once __DIR__ . '/../../controller/connects/Treks.php';
+
+?>
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Bhutan Getaway - Happiness Horizon Travel</title>
+    <title>Happiness Horizon Treks - <?php echo $stringHelper->safeDisplay($trekTitle) ?></title>
     <link rel="stylesheet" href="/Happiness%20horizone/Css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,15 +24,7 @@
 
 <body>
     <!-- Navigation -->
-    <?php require_once __DIR__ . '/../../helper/auth.php';
-    requireAdmin();
-    require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
-    require_once __DIR__ . '/../../helper/StringHelper.php';
-    $stringHelper = new StringHelper();
-    require_once __DIR__ . '/get_trek_details.php';
-    require_once __DIR__ . '/../../controller/connects/Treks.php';
 
-    ?>
 
     <!-- Tour Detail Hero -->
     <section class="tour-detail-hero" data-hero="/Happiness%20horizone/public/bg2.jpg">

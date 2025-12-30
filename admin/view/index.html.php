@@ -111,11 +111,20 @@
                     $imageFilePath = $tour['image_path'] ?? '';
                     $title = $tour['title'] ?? '';
                     $description = $tour['description'] ?? '';
+                    $words = explode(' ', $description);
+                    if (count($words) > 10) {
+                        $description = implode(' ', array_slice($words, 0, 10)) . '...';
+                    }
                     $day_number = $tour['duration'] ?? '';
                     $experience = $tour['experience'] ?? '';
                     $theme = $tour['theme'] ?? '';
+                    $words = explode(' ', $theme);
+                    if (count($words) > 6) {
+                        $theme = implode(' ', array_slice($words, 0, 6)) . '...';
+                    }
                     $key_destinations = $tour['key_destinations'] ?? '';
                     $tour_id = $tour['id'] ?? '';
+                    $status = $tour['status'] ?? '';
                     include __DIR__ . '/../../includes/templates/tour/homeTourCard.php';
                 }
                 ?>

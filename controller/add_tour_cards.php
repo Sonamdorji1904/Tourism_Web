@@ -99,6 +99,7 @@ $data = [
     'experience' => htmlspecialchars(trim($_POST['exprience'])),
     'theme' => htmlspecialchars(trim($_POST['theme'])),
     'transportation' => htmlspecialchars(trim($_POST['transportation'] ?? '')),
+    'status' => htmlspecialchars(trim($_POST['status'] ?? '')),
 ];
 
 $tourCard = new TourCard();
@@ -111,12 +112,17 @@ try {
 }
 if ($saveStatus) {
     $insertedId = method_exists($tourCard, 'getLastInsertId') ? $tourCard->getLastInsertId() : '';
-    if ($insertedId) {
-        header('Location: ../admin/tour_details.php?tour_id=' . urlencode($insertedId));
+    $status = $data['status'] ?? '';
+    if ($status === 'Customizable') {
+        header('Location: ../admin/view/tours.php');
     } else {
-        header('Location: ../admin/tour_details.php?success=1');
+        if ($insertedId) {
+            header('Location: ../admin/tour_details.php?tour_id=' . urlencode($insertedId));
+        } else {
+            header('Location: ../admin/tour_details.php?success=1');
+        }
+        exit();
     }
-    exit();
 } else {
     echo "<script>alert('There was an error saving your tour package. Please check server logs.'); window.history.back();</script>";
     exit();

@@ -66,6 +66,14 @@
                 <label>Key Destination </label>
                 <input type="text" id="destinations" name="destinations" placeholder="e.g., Tiger's Nest hike, Phobjika valley trek">
             </div>
+            <div class="form-group">
+                <label>Tour Type</label>
+                <select id="status" name="status" class="form-control">
+                    <option value="" disabled selected>Select tour type</option>
+                    <option value="Customizable">Customizable</option>
+                    <option value="Non-Customizable">Non-Customizable</option>
+                </select>
+            </div>
 
             <button type="submit" class="btn">Upload Tour Package</button>
         </form>

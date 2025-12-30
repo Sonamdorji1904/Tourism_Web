@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php require_once __DIR__ . '/../../helper/auth.php';
+requireAdmin();
+require_once __DIR__ . '/../../includes/templates/adminHeader.html.php';
+require_once __DIR__ . '/../../helper/StringHelper.php';
+$stringHelper = new StringHelper();
+require_once __DIR__ . '/../../controller/connects/TourCard.php';
+$tourTitle = '';
+$sub_title = '';
+$tourId = isset($_GET['id']) ? intval($_GET['id']) : null;
+if ($tourId) {
+    try {
+        $tourCardModel = new TourCard();
+        $row = $tourCardModel->findTourById($tourId);
+        if ($row) {
+            $tourTitle = $row['title'];
+            $sub_title = $row['sub_title'];
+        }
+    } catch (Throwable $e) {
+        error_log('Could not load tour title for id ' . $tourId . ': ' . $e->getMessage());
+    }
+}
+?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Happiness Horizon Travel</title>
+    <title><?php echo $stringHelper->safeDisplay($tourTitle) ?> - Happiness Horizon Travel</title>
     <link rel="stylesheet" href="../../Css/styles.css">
-    <link rel="stylesheet" href="../../Css/countryDropdown.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../Css/countryDropdown.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
     <!-- Navigation -->
-    <?php
-    require_once '../../includes/templates/header.html.php';
-    require_once __DIR__ . '/../../helper/StringHelper.php';
-    $stringHelper = new StringHelper();
-    // If a tour is pre-selected via ?tour= we want to look up its duration
-    // so the duration input can show the correct value on the form.
-    $tourTitle = isset($_GET['tour']) ? urldecode($_GET['tour']) : '';
-    $duration = '';
-    if ($tourTitle) {
-        $fetchPath = __DIR__ . '/../../controller/fetch_all_tours.php';
-        if (file_exists($fetchPath)) {
-            include $fetchPath; // sets $tours
-            if (!empty($tours) && is_array($tours)) {
-                foreach ($tours as $t) {
-                    $dbTitle = $stringHelper->safeDisplay($t['title'] ?? '');
-                    if (strcasecmp(trim($dbTitle), trim($tourTitle)) === 0) {
-                        $duration = $t['duration'] ?? '';
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    ?>
+    <?php require_once __DIR__ . '/../../includes/templates/adminHeader.html.php'; ?>
 
-
-    <!-- Page Hero -->
+    <!-- Tour Detail Hero -->
     <section class="tour-detail-hero" data-hero="../../public/bg2.jpg">
         <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Get in Touch</h1>
-            <p>Start your journey to happiness with us</p>
+        <div class="tour-detail-hero-content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="index.html.php">Home</a> / <a href="tours.html.php">Tours</a> <?php echo $stringHelper->safeDisplay($tourTitle) ?>
+                </div>
+                <h1><?php echo $stringHelper->safeDisplay($tourTitle) ?></h1>
+                <p class="tour-subtitle"><?php echo $stringHelper->safeDisplay($sub_title) ?></p>
+                <div class="tour-quick-info">
+                    <div class="quick-info-item">
+                        <strong>Duration:</strong> custom
+                    </div>
+
+                </div>
+            </div>
         </div>
     </section>
 
@@ -56,15 +66,10 @@
             <div class="contact-page-layout">
                 <!-- Contact Form -->
                 <div class="contact-form-section">
-                    <h2>Send Us a Message</h2>
+                    <h2>Customise Your Tour</h2>
                     <p>Fill out the form below and we'll get back to you within 24 hours</p>
-                    <?php
-                    // Pass $tourTitle and $duration into the included template
-                    if (!isset($tourTitle)) $tourTitle = '';
-                    if (!isset($duration)) $duration = '';
-                    if ($tourTitle) include __DIR__ . '/../../includes/templates/form/request_quote_form.html.php';
-                    else include __DIR__ . '/../../includes/templates/form/option_request_quote_form.html.php';
-                    ?>
+
+                    <?php include __DIR__ . '/../../includes/templates/form/request_quote_form.html.php'; ?>
                 </div>
 
                 <!-- Contact Information -->
@@ -82,7 +87,7 @@
                                 </div>
                                 <div>
                                     <strong>Email</strong>
-                                    <a href="mailto:info@happinesshorizontravel.com" class="contact-link">info@happinesshorizontravel.com</a>
+                                    <p>info@happinesstravel.bt</p>
                                 </div>
                             </div>
 
@@ -94,7 +99,7 @@
                                 </div>
                                 <div>
                                     <strong>Phone</strong>
-                                    <a href="tel:+97516108570" class="contact-link">+975 16108570</a>
+                                    <p>+975 16108570</p>
                                 </div>
                             </div>
 
@@ -106,7 +111,7 @@
                                 </div>
                                 <div>
                                     <strong>WhatsApp</strong>
-                                    <a href="https://wa.me/97516108570" class="contact-link">+975 16108570</a>
+                                    <p>+975 16108570</p>
                                 </div>
                             </div>
 
@@ -122,6 +127,15 @@
                                 </div>
                             </div>
 
+                            <!-- <div class="contact-detail-item">
+                                <div class="contact-icon">🕐</div>
+                                <div>
+                                    <strong>Office Hours</strong>
+                                    <p>Monday - Friday: 9:00 AM - 6:00 PM (BTT)</p>
+                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                                    <p>Sunday: Closed</p>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
 
@@ -129,13 +143,13 @@
                         <h4>Quick Response</h4>
                         <p>Need immediate assistance? Reach us through:</p>
                         <div class="quick-contact-buttons">
-                            <a href="https://wa.me/+97516108570" class="quick-contact-btn whatsapp">
+                            <a href="#" class="quick-contact-btn whatsapp">
                                 <span></span> WhatsApp
                             </a>
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
                                 <span></span> Call Now
                             </a>
-                            <a href="mailto:info@happinesshorizontravel.com" class="quick-contact-btn email">
+                            <a href="mailto:info@happinesstravel.bt" class="quick-contact-btn email">
                                 <span></span> Email
                             </a>
                         </div>
@@ -154,44 +168,91 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>How do I book a tour?</h3>
-                    <p>You can book by filling out the contact form above, emailing us directly, or calling/WhatsApp us. We'll respond within 24 hours with a detailed quote.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What is the Sustainable Development Fee (SDF)?</h3>
-                    <p>The SDF is a daily fee required by the Bhutanese government for all tourists. It supports sustainable tourism and community development in Bhutan.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Can you customize tour itineraries?</h3>
-                    <p>We specialize in creating personalized itineraries based on your interests, budget, and travel duration.</p>
-                </div>
 
-                <div class="faq-item">
-                    <h3>Do I need a visa to visit Bhutan?</h3>
-                    <p>Yes, all tourists (except Indian, Bangladeshi, and Maldivian nationals) need a visa. We handle the visa process for you as part of our service.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>What is the best time to visit Bhutan?</h3>
-                    <p>The best times are spring (March-May) and autumn (September-November) for clear skies and pleasant weather. However, each season offers unique experiences.</p>
-                </div>
+    <!-- Similar Tours -->
+    <section class="similar-tours">
+        <div class="container">
+            <h2>You May Also Like</h2>
+            <div class="tours-grid">
+                <?php
+                $tourCardModel = new TourCard();
+
+                $getRandomTours = $tourCardModel->getRandomToursExcluding($tourId, 3);
+
+                if ($getRandomTours) {
+                    foreach ($getRandomTours as $tour) {
+                        $itinerayId = $tour['id'] ?? '';
+                        $title = $tour['title'] ?? '';
+                        $sub_title = $tour['sub_title'] ?? '';
+                        $duration = $tour['duration'] ?? '';
+                        $baseUrl = '/Happiness horizone';
+                        $imageFilePath = $baseUrl . '/' . ltrim($tour['image_path'], '/');
+
+                        include __DIR__ . '/../../includes/templates/tour/simpleTourCard.php';
+                    }
+                } else {
+                    echo "<p>No similar tours available at the moment.</p>";
+                }
+                ?>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <?php require_once '../../includes/templates/footer.html.php'; ?>
+    <?php require_once 'includes/templates/footer.html.php'; ?>
+
 
     <script>
-        <?php include '../../Js/javascript.js';
-        include '../../Js/filter_country.js';
-        include '../../Js/autofill_duration.js';
-        ?>
+        <?php include 'Js/javascript.js'; ?>
+    </script>
+
+    <!-- Accordion script -->
+    <script>
+        (function() {
+            const accordion = document.getElementById('itinerary-accordion');
+            if (!accordion) return;
+            const buttons = accordion.querySelectorAll('.accordion-button');
+
+            function closeAll(except) {
+                buttons.forEach(btn => {
+                    if (btn !== except) {
+                        btn.setAttribute('aria-expanded', 'false');
+                        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+                        if (panel) {
+                            panel.hidden = true;
+                        }
+                    }
+                });
+            }
+
+            buttons.forEach(btn => {
+                const panel = document.getElementById(btn.getAttribute('aria-controls'));
+                if (panel) {
+                    panel.hidden = true;
+                }
+
+                btn.addEventListener('click', function() {
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    if (expanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        if (panel) panel.hidden = true;
+                    } else {
+                        closeAll(this);
+                        this.setAttribute('aria-expanded', 'true');
+                        if (panel) panel.hidden = false;
+                        if (panel) panel.focus();
+                    }
+                });
+
+                btn.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 

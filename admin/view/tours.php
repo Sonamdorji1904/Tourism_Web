@@ -49,6 +49,7 @@
                     $experience = $tour['experience'] ?? '';
                     $theme = $tour['theme'] ?? '';
                     $transportation = $tour['transportation'] ?? '';
+                    $status = $tour['status'] ?? '';
                     include '../../includes/templates/tour/tourCard.html.php';
                 endforeach;
                 ?>

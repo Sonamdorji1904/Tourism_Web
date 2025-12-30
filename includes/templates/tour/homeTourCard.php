@@ -20,6 +20,6 @@
              <li><?php echo $stringHelper->safeDisplay($experience) ?></li>
              <li><?php echo $stringHelper->safeDisplay($theme) ?></li>
          </ul>
-         <a href="get_tour_details.php?id=<?php echo $tour_id ?>" class="btn btn-outline">Learn More</a>
+         <a href="<?php echo ($tour['status'] === 'Customizable') ? 'customizable_tour_details.php' : 'get_tour_details.php'; ?>?id=<?php echo $tour_id ?>" class="btn btn-outline">Learn More</a>
      </div>
  </div>
