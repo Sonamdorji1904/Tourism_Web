@@ -73,7 +73,6 @@ class ConfigLoader
         if (is_string($value)) {
             $value = trim($value);
             $len = strlen($value);
-            // Only attempt to inspect character offsets when the string has at least two characters
             if ($len >= 2) {
                 $first = $value[0];
                 $last = $value[$len - 1];

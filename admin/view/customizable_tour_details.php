@@ -127,15 +127,6 @@ if ($tourId) {
                                 </div>
                             </div>
 
-                            <!-- <div class="contact-detail-item">
-                                <div class="contact-icon">🕐</div>
-                                <div>
-                                    <strong>Office Hours</strong>
-                                    <p>Monday - Friday: 9:00 AM - 6:00 PM (BTT)</p>
-                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
-                                    <p>Sunday: Closed</p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
 
@@ -143,7 +134,7 @@ if ($tourId) {
                         <h4>Quick Response</h4>
                         <p>Need immediate assistance? Reach us through:</p>
                         <div class="quick-contact-buttons">
-                            <a href="#" class="quick-contact-btn whatsapp">
+                            <a href="https://wa.me/+97516108570" class="quick-contact-btn whatsapp">
                                 <span></span> WhatsApp
                             </a>
                             <a href="tel:+97516108570" class="quick-contact-btn phone">

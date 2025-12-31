@@ -133,9 +133,9 @@
                     <div class="share-card">
                         <h4>Share This Trek</h4>
                         <div class="share-buttons">
-                            <a href="#" class="share-btn">Facebook</a>
+                            <a href="https://www.facebook.com/share/1Cf6CmHeWk/?mibextid=wwXIfr" class="share-btn">Facebook</a>
                             <a href="#" class="share-btn">Twitter</a>
-                            <a href="#" class="share-btn">Email</a>
+                            <a href="mailto:info@happinesshorizontravel.com" class="share-btn">Email</a>
                         </div>
                     </div>
                 </div>

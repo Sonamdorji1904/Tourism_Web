@@ -143,7 +143,7 @@ if ($tourId) {
                         <h4>Quick Response</h4>
                         <p>Need immediate assistance? Reach us through:</p>
                         <div class="quick-contact-buttons">
-                            <a href="#" class="quick-contact-btn whatsapp">
+                            <a href="https://wa.me/+97516108570" class="quick-contact-btn whatsapp">
                                 <span></span> WhatsApp
                             </a>
                             <a href="tel:+97516108570" class="quick-contact-btn phone">
